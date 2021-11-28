@@ -1,4 +1,4 @@
-package Impl.DmytroHursrkyi;
+package kata.DmytroHursrkyi;
 
 public class KeepHydrated  {
 
