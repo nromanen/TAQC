@@ -1,21 +1,71 @@
 package kata;
+
 public interface EightKata {
-    double getVolumeOfCuboid(final double length, final double width, final double height); // for Volume of a Cuboid task
+	
+	/**
+	 * for Volume of a Cuboid task
+	 * @param length of cuboid
+	 * @param width of cuboid
+	 * @param height of cuboid
+	 * @return volume of cuboid
+	 */
+    double getVolumeOfCuboid(final double length, final double width, final double height); 
 
-    int Liters(double time); // for Keep Hydrated! task
+    /**
+     * for Keep Hydrated! task
+     * @param time
+     * @return
+     */
+    int Liters(double time); 
 
-    float mpgToKPM(final float mpg); // for Miles per gallon to kilometers per liter task
+    /**
+     * for Miles per gallon to kilometers per liter task
+     * @param mpg
+     * @return
+     */
+    float mpgToKPM(final float mpg); 
 
-    int[] squareOrSquareRoot(int[] array); // for To square(root) or not to square(root) task
+    /**
+     * for To square(root) or not to square(root) task
+     * @param array
+     * @return
+     */
+    int[] squareOrSquareRoot(int[] array); 
 
-    int[] countPositivesSumNegatives(int[] input); // for Count of positives / sum of negatives task
+    /**
+     * for Count of positives / sum of negatives task
+     * @param input
+     * @return
+     */
+    int[] countPositivesSumNegatives(int[] input); 
 
-    int stringToNumber(String str); // for Convert a String to a Number! task
+    /**
+     * for Convert a String to a Number! task
+     * @param str
+     * @return
+     */
+    int stringToNumber(String str); 
 
-    boolean am_i_wilson(double n); // for Wilson primes task
+    /**
+     * for Wilson primes task
+     * @param n
+     * @return
+     */
+    boolean am_i_wilson(double n);  
 
-    double TwoDecimalPlaces(double number); // for Formatting decimal places task
+    /**
+     * for Formatting decimal places task
+     * @param number
+     * @return
+     */
+    double TwoDecimalPlaces(double number);  
 
-    int[] divisibleBy(int[] numbers, int divider); // for Find numbers which are divisible by given number task
+    /**
+     * for Find numbers which are divisible by given number task
+     * @param numbers
+     * @param divider
+     * @return
+     */
+    int[] divisibleBy(int[] numbers, int divider); 
 
 }
