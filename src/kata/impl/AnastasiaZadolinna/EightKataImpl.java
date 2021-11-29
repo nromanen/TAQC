@@ -85,7 +85,7 @@ public class EightKataImpl implements EightKata {
     }
 
     @Override
-    public int stringToNumber(String str) {
+    public double stringToNumber(String str) {
 
         int numberFromString = Integer.parseInt(str);
 
