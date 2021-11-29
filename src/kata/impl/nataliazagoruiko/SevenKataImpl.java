@@ -7,6 +7,9 @@ public class SevenKataImpl implements SevenKata {
     /**
      * The function returns the expected donation (rounded up to the next integer)
      * that will permit to reach the average navg.
+     *
+     * @param arr  first donations
+     * @param navg average value
      */
     @Override
     public long newAvg(double[] arr, double navg) {
