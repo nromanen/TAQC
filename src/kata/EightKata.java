@@ -4,10 +4,10 @@ public interface EightKata {
 	
 	/**
 	 * for Volume of a Cuboid task
-	 * @param length
-	 * @param width
-	 * @param height
-	 * @return
+	 * @param length of cuboid
+	 * @param width of cuboid
+	 * @param height of cuboid
+	 * @return volume of cuboid
 	 */
     double getVolumeOfCuboid(final double length, final double width, final double height); 
 
