@@ -2,7 +2,7 @@ package kata.impl.SerhiiZdoima;
 
 import kata.EightKata;
 
-public class EightKatampls implements EightKata {
+public class EightKata implements kata.EightKata {
 
     @Override
     public double getVolumeOfCuboid(final double length, final double width, final double height) {
