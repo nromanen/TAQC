@@ -4,7 +4,6 @@ public interface SevenKata {
 
     /**
      * Convert a Number to a String!
-     *
      * @param p
      * @param bef
      * @param aft
