@@ -2,11 +2,15 @@ package kata.impl.DmytroHursrkyi;
 
 import kata.SevenKata;
 
-public class SevenKataImpl implements SevenKata
+public class SevenKataImpl implements SevenKata{
 
-{
     @Override
-    public int whereIsHe(int p, int bef, int aft) {
+    public long newAvg(double[] arr, double navg) {
         return 0;
+    }
+
+    @Override
+    public String seriesSum(int n) {
+        return null;
     }
 }
