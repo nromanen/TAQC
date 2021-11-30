@@ -44,7 +44,7 @@ public interface EightKata {
      * @param str
      * @return
      */
-    int stringToNumber(String str); 
+    double stringToNumber(String str);
 
     /**
      * for Wilson primes task

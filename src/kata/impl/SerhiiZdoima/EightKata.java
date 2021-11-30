@@ -2,7 +2,7 @@ package kata.impl.SerhiiZdoima;
 
 import kata.EightKata;
 
-public class EightKatampls implements EightKata {
+public class EightKata implements kata.EightKata {
 
     @Override
     public double getVolumeOfCuboid(final double length, final double width, final double height) {
@@ -66,7 +66,7 @@ public class EightKatampls implements EightKata {
     }
 
     @Override
-    public int stringToNumber(String str) {
+    public double stringToNumber(String str) {
         int i = Integer.parseInt(str);
         return i;
     }
