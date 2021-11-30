@@ -3,13 +3,19 @@ package kata;
 public interface SevenKata {
 
     /**
-     * Convert a Number to a String!
-     * @param p
-     * @param bef
-     * @param aft
+     * Looking for a benefactor
+     *
+     * @param arr
+     * @param navg
      * @return
      */
+    public long newAvg(double[] arr, double navg);
 
-    int whereIsHe(int p, int bef, int aft);
-
+    /**
+     * Sum of the first nth term of Series
+     *
+     * @param n
+     * @return
+     */
+    public String seriesSum(int n);
 }
