@@ -41,9 +41,9 @@ public interface EightKata {
     int stringToNumber(String str);
 
     /** for Wilson primes task
-     * @param n
-     * @return
-             */
+     * @param n given number
+     * @return true if the given number is Wilson prime
+     */
     boolean amIWilson(double n);
 
     /** for Formatting decimal places task
