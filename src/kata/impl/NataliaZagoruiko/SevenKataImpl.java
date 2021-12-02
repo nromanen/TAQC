@@ -1,4 +1,4 @@
-package kata.impl.nataliazagoruiko;
+package kata.impl.NataliaZagoruiko;
 
 import kata.SevenKata;
 
