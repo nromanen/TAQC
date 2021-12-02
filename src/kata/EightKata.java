@@ -50,7 +50,7 @@ public interface EightKata {
      * @param number given double numbers
      * @return formated numbers that are rounded to to decimal places
      */
-    double TwoDecimalPlaces(double number);
+    double twoDecimalPlaces(double number);
 
     /**
      * for Find numbers which are divisible by given number task
