@@ -10,7 +10,7 @@ public class EightKata implements kata.EightKata {
     }
 
     @Override
-    public int Liters(double time) {
+    public int liters(double time) {
 
         double result = time / 2;
         int convertedtoint = (int) Math.floor(result);
@@ -66,7 +66,7 @@ public class EightKata implements kata.EightKata {
     }
 
     @Override
-    public double stringToNumber(String str) {
+    int stringToNumber(String str) {
         int i = Integer.parseInt(str);
         return i;
     }
@@ -99,7 +99,5 @@ public class EightKata implements kata.EightKata {
     }
 
     @Override
-    public boolean am_i_wilson(double n) {
-        return false;
-    }
+    boolean amIWilson(double n);
 }
