@@ -34,7 +34,7 @@ public class SevenKataImpl implements SevenKata {
         return null;
     }
 
-    @Override
+
     public int whereIsHe(int p, int bef, int aft) {
         return 0;
     }
