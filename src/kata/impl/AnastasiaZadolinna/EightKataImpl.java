@@ -4,18 +4,20 @@ import kata.EightKata;
 
 public class EightKataImpl implements EightKata {
 
+
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
 
         double volumeOfCuboid = length * width * height;
 
         return volumeOfCuboid;
+
     }
 
     @Override
-    public int Liters(double time) {
+    public int liters(double time) {
 
-        int result = (int) Math.floor(time * 0.5);
+        int result = (int) Math.floor(time*0.5);
 
         return result;
 
@@ -24,10 +26,10 @@ public class EightKataImpl implements EightKata {
     @Override
     public float mpgToKPM(float mpg) {
 
-        float oneImperialGallonInLitres = 4.54609188f; // litres
-        float oneMileInKilometres = 1.609344f; // kilometers
+        float oneImperialGallonInLitres = 4.54609188f;
+        float oneMileInKilometers = 1.609344f;
 
-        float result = (mpg * oneMileInKilometres) / oneImperialGallonInLitres;
+        float result = (mpg * oneMileInKilometers) / oneImperialGallonInLitres;
 
         return (float) Math.round(result * 100) / 100;
 
@@ -85,7 +87,7 @@ public class EightKataImpl implements EightKata {
     }
 
     @Override
-    public double stringToNumber(String str) {
+    public int stringToNumber(String str) {
 
         int numberFromString = Integer.parseInt(str);
 
@@ -94,8 +96,10 @@ public class EightKataImpl implements EightKata {
     }
 
     @Override
-    public boolean am_i_wilson(double n) {
+    public boolean amIWilson(double n) {
+
         return false;
+
     }
 
     @Override
