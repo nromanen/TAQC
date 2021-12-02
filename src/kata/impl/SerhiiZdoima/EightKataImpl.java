@@ -2,7 +2,7 @@ package kata.impl.SerhiiZdoima;
 
 import kata.EightKata;
 
-public class EightKata implements kata.EightKata {
+public class EightKataImpl implements EightKata {
 
     @Override
     public double getVolumeOfCuboid(final double length, final double width, final double height) {
@@ -10,7 +10,7 @@ public class EightKata implements kata.EightKata {
     }
 
     @Override
-    public int Liters(double time) {
+    public int liters(double time) {
 
         double result = time / 2;
         int convertedtoint = (int) Math.floor(result);
@@ -66,13 +66,15 @@ public class EightKata implements kata.EightKata {
     }
 
     @Override
-    public double stringToNumber(String str) {
+    public int stringToNumber(String str) {
         int i = Integer.parseInt(str);
         return i;
     }
 
+
+
     @Override
-    public double TwoDecimalPlaces(double number) {
+    public double twoDecimalPlaces(double number) {
         number = Math.round(number * 100);
         number = number / 100;
         return number;
@@ -99,7 +101,8 @@ public class EightKata implements kata.EightKata {
     }
 
     @Override
-    public boolean am_i_wilson(double n) {
+    public boolean amIWilson(double n) {
         return false;
     }
+
 }
