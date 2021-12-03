@@ -1,4 +1,4 @@
-package kata.impl.nataliazagoruiko;
+package kata.impl.NataliaZagoruiko;
 
 import kata.SevenKata;
 
@@ -34,8 +34,4 @@ public class SevenKataImpl implements SevenKata {
         return null;
     }
 
-
-    public int whereIsHe(int p, int bef, int aft) {
-        return 0;
-    }
 }
