@@ -1,8 +1,8 @@
-package kata.impl.SerhiiZdoima;
+package kata.impl.NataliiaRomanenko;
 
 import kata.EightKata;
 
-public class EightKata implements kata.EightKata {
+public class EightKataImpl implements EightKata {
 
     @Override
     public double getVolumeOfCuboid(final double length, final double width, final double height) {
@@ -11,21 +11,16 @@ public class EightKata implements kata.EightKata {
 
     @Override
     public int liters(double time) {
-
         double result = time / 2;
-        int convertedtoint = (int) Math.floor(result);
-        return convertedtoint;
+        return (int) Math.floor(result);
     }
 
     @Override
     public float mpgToKPM(final float mpg) {
-
-        final float l = 4.54609188f;
-        final float k = 1.609344f;
-        float rez = mpg * k / l;
-        String rezult = String.format("%.2f", rez);
-        rezult = rezult.replace(',', '.');
-        return Float.parseFloat(rezult);
+        final float KM_TO_MILE = 1.609344F;
+        final float LITER_TO_GALON = 4.54609188F;
+        float rez = mpg * KM_TO_MILE / LITER_TO_GALON;
+        return Float.parseFloat(String.format("%.2f", rez).replace(',', '.'));
     }
 
     @Override
@@ -49,33 +44,27 @@ public class EightKata implements kata.EightKata {
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
-        int possitivecount = 0;
-        int negativesum = 0;
-        for (int a : input) {
-            if (a < 0) {
-                negativesum += a;
+        int possitiveCount = 0;
+        int negativeSum = 0;
+        for (int element : input) {
+            if (element < 0) {
+                negativeSum += element;
 
-            } else if (a > 0) {
-                possitivecount++;
+            } else if (element > 0) {
+                possitiveCount++;
             }
         }
-        int nums[] = new int[2];
-        nums[0] = possitivecount;
-        nums[1] = negativesum;
-        return nums;
+        return new int[]{possitiveCount, negativeSum};
     }
 
     @Override
-    int stringToNumber(String str) {
-        int i = Integer.parseInt(str);
-        return i;
+    public int stringToNumber(String str) {
+        return Integer.parseInt(str);
     }
 
     @Override
-    public double TwoDecimalPlaces(double number) {
-        number = Math.round(number * 100);
-        number = number / 100;
-        return number;
+    public double twoDecimalPlaces(double number) {;
+        return  Math.round(number * 100)/100;
     }
 
     @Override
@@ -99,5 +88,9 @@ public class EightKata implements kata.EightKata {
     }
 
     @Override
-    boolean amIWilson(double n);
+    //TODO implement this method
+    public boolean amIWilson(double n) {
+        return false;
+    }
+
 }

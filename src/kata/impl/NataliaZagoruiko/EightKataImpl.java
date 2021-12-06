@@ -1,4 +1,4 @@
-package kata.impl.nataliazagoruiko;
+package kata.impl.NataliaZagoruiko;
 
 import kata.EightKata;
 
@@ -14,7 +14,7 @@ public class EightKataImpl implements EightKata {
     }
 
     @Override
-    public int Liters(double time) {
+    public int liters(double time) {
         final double litersPerHour = 0.5;
         double result = time * litersPerHour;
         return (int) Math.floor(result);
@@ -73,12 +73,12 @@ public class EightKataImpl implements EightKata {
     }
 
     @Override
-    public double stringToNumber(String str) {
+    public int stringToNumber(String str) {
         return Integer.parseInt(str);
     }
 
     @Override
-    public boolean am_i_wilson(double n) {
+    public boolean amIWilson(double n) {
         int[] primaries = {5, 13, 563};
 
         boolean result = false;
@@ -95,7 +95,7 @@ public class EightKataImpl implements EightKata {
     }
 
     @Override
-    public double TwoDecimalPlaces(double number) {
+    public double twoDecimalPlaces(double number) {
         BigDecimal a = new BigDecimal(number);
         BigDecimal roundOff = a.setScale(2, RoundingMode.HALF_EVEN);
         return roundOff.doubleValue();

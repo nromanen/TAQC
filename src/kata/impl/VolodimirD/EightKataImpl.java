@@ -20,7 +20,7 @@ public class EightKataImpl implements EightKata {
 	}
 
 	@Override
-	public int Liters(double time) {
+	public int liters(double time) {
 		return (int) (time * LPH);
 
 	}
@@ -73,17 +73,17 @@ public class EightKataImpl implements EightKata {
 	}
 
 	@Override
-	public double stringToNumber(String str) {
+	public int stringToNumber(String str) {
 		return Integer.parseInt(str);
 	}
 
 	@Override
-	public boolean am_i_wilson(double n) {
+	public boolean amIWilson(double n) {
 		return WilsonNumbers.contains(n);
 	}
 
 	@Override
-	public double TwoDecimalPlaces(double number) {
+	public double twoDecimalPlaces(double number) {
 		String TempVal = String.format("%.2f", number);
 
 		double result = Double.parseDouble(TempVal);

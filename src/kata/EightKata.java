@@ -41,16 +41,16 @@ public interface EightKata {
     int stringToNumber(String str);
 
     /** for Wilson primes task
-     * @param n
-     * @return
-             */
+     * @param n given number
+     * @return true if the given number is Wilson prime
+     */
     boolean amIWilson(double n);
 
     /** for Formatting decimal places task
      * @param number given double numbers
      * @return formated numbers that are rounded to to decimal places
      */
-    double TwoDecimalPlaces(double number);
+    double twoDecimalPlaces(double number);
 
     /**
      * for Find numbers which are divisible by given number task
