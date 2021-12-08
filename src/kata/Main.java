@@ -25,7 +25,7 @@ public class Main {
 
             case "2":
 
-                sevenKataHandle(scanner);
+                sevenKataHandler(scanner);
 
                 break;
 
@@ -33,11 +33,11 @@ public class Main {
 
     }
 
-    private static void sevenKataHandle(Scanner scanner) {
+    private static void sevenKataHandler(Scanner scanner) {
 
         String choice;
 
-        System.out.println("Choice your method: \n 1 - to run newAvg(double[], double)\n 2 -seriesSum(long)");
+        System.out.println("Choice your method:\n 1 - to run newAvg(double[], double)\n 2 -seriesSum(long)");
 
         choice = scanner.nextLine();
 
@@ -69,8 +69,9 @@ public class Main {
 
     private static void eightKataHandler(Scanner scanner) {
 
-        System.out.println("Enter your choice : \n 1 - to run getVolumeOfCuboid(double,double,double) method \n " +
-                "2 - to run liters (double)\n 3 - to run mpgToKPM( float ) or other symbol to exit");
+        System.out.println("Enter your choice:\n 1 - to run getVolumeOfCuboid(double,double,double) method \n " +
+                "2 - to run liters (double)\n 3 - to run mpgToKPM(float)\n 6 - to run stringToNumber(String)" +
+                "or other symbol to exit");
 
         String choice = scanner.nextLine();
 
@@ -92,13 +93,19 @@ public class Main {
 
         } else if ("2".equals(choice)) {
 
-            System.out.println("Enter double number");
+            System.out.println("Input double number:");
 
             double value = scanner.nextDouble();
 
-            System.out.println("The result of execute of Liters method is" + new EightKataImpl().liters(value));
+            System.out.println("The result of execute of Liters method is: " + new EightKataImpl().liters(value));
 
-            new EightKataImpl().liters(value);
+        } else if ("6".equals(choice)) {
+
+            System.out.println("Input number:");
+
+            String number = scanner.nextLine();
+
+            System.out.println("The result of execute of stringToNumber method is: " + new EightKataImpl().stringToNumber(number));
 
         }
 
