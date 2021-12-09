@@ -2,7 +2,7 @@ package kata.impl.SerhiiZdoima;
 
 import java.math.BigInteger;
 
-public class FiveKataimpl {
+public class FiveKataImpl {
     int artificialRain(final int[] v){return 0;}
 
     long[] gap(int g, long m, long n){return null;}
