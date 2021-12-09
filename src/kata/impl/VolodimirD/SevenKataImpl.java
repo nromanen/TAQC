@@ -35,7 +35,6 @@ public class SevenKataImpl implements SevenKata {
 		return result;
 	}
 
-	@Override
 	public int whereIsHe(int p, int bef, int aft) {
 		// TODO Auto-generated method stub
 		return 0;

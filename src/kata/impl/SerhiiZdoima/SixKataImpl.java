@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
- class Sixkataimpl implements SixthKata {
+  public class SixKataImpl implements SixthKata {
     @Override
     public long findNb(long m) {
         long result = 0;
