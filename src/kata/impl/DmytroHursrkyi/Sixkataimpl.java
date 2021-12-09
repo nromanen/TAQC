@@ -2,7 +2,7 @@ package kata.impl.DmytroHursrkyi;
 
 import kata.SixthKata;
 
-public class SixkataImpl implements SixthKata {
+public class Sixkataimpl implements SixthKata {
     @Override
     public long findNb(long m) {
         long result = 0;
@@ -15,9 +15,8 @@ public class SixkataImpl implements SixthKata {
     }
 
     @Override
-    public String balance(String book) {
-        return null;
-    }
+    public String balance(String book) {return "0";}
+
 
     @Override
     public double f(double x) {

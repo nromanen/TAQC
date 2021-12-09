@@ -1,8 +1,6 @@
 package kata.impl.SerhiiZdoima;
 
-import kata.EightKata;
-
-public class EightKataImpl implements EightKata {
+public class EightKataImpl implements kata.EightKata {
 
     @Override
     public double getVolumeOfCuboid(final double length, final double width, final double height) {
@@ -66,12 +64,10 @@ public class EightKataImpl implements EightKata {
     }
 
     @Override
-    public int stringToNumber(String str) {
+    public int  stringToNumber(String str) {
         int i = Integer.parseInt(str);
         return i;
     }
-
-
 
     @Override
     public double twoDecimalPlaces(double number) {
@@ -101,8 +97,7 @@ public class EightKataImpl implements EightKata {
     }
 
     @Override
-    public boolean amIWilson(double n) {
+     public boolean amIWilson(double n) {
         return false;
     }
-
 }
