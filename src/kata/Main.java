@@ -1,6 +1,7 @@
 package kata;
 
 import kata.impl.AnastasiaZadolinna.EightKataImpl;
+import kata.impl.AnastasiaZadolinna.SixthKataImpl;
 import kata.impl.DmytroHursrkyi.SevenKataImpl;
 
 import java.util.Scanner;
@@ -9,7 +10,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Choice kata:\n 1 - EightKata\n 2  - SevenKata\n  q - Exit");
+        System.out.println("Choice kata:\n 1 - EightKata\n 2  - SevenKata\n 3 - SixthKata\n " +
+                        " 4 - FiveKata\n q - Exit");
 
         Scanner scanner = new Scanner(System.in);
 
@@ -29,21 +31,70 @@ public class Main {
 
                 break;
 
+            case "3":
+
+                sixthKataHandler(scanner);
+
+                break;
+
+            case "4":
+
+                fiveKataHandler(scanner);
+
+                break;
+
+        }
+
+    }
+
+    private static void fiveKataHandler(Scanner scanner) {
+
+        System.out.println("Choice your method:\n 1 - to run artificialRain(int[]) method\n " +
+                "2 - to run gap(int, long, long) method\n 3 - to run zeros(int) method\n " +
+                "4 - to run perimeter(BigInteger) method\n 5 - to run solve(double) method\n " +
+                "6 - to run smallest(long) method\n or other symbol to exit");
+
+    }
+
+    private static void sixthKataHandler(Scanner scanner) {
+
+        System.out.println("Choice your method:\n 1 - to run findNb(long) method\n 2 - to run balance(String) method\n" +
+                "3 - to run f(double) method\n 4 - to run mean(String, String) method\n 5 - to run variance(String, String) method\n " +
+                "6 - to run nbaCup(String, String) method\n 7 - to run stockSummary(String[], String[]) method\n " +
+                "or other symbol to exit");
+
+        String choice = scanner.nextLine();
+
+        if("1".equals(choice)) {
+
+
+
+        }else if("2".equals(choice)) {
+
+
+
+        }else if ("3".equals(choice)) {
+
+            System.out.println("Input double number:");
+
+            Double value = Double.parseDouble(scanner.nextLine());
+
+            System.out.println("The result of execute of f method is: " + new SixthKataImpl().f(value));
+
         }
 
     }
 
     private static void sevenKataHandler(Scanner scanner) {
 
-        String choice;
+        System.out.println("Choice your method:\n 1 - to run newAvg(double[], double) method\n 2 - to run seriesSum(long) method\n " +
+                "or other symbol to exit");
 
-        System.out.println("Choice your method:\n 1 - to run newAvg(double[], double)\n 2 -seriesSum(long)");
-
-        choice = scanner.nextLine();
+        String choice = scanner.nextLine();
 
         if ("1".equals(choice)) {
 
-            System.out.println("Input double values separated by commas");
+            System.out.println("Input double values separated by commas:");
 
             String arr = scanner.nextLine();
 
@@ -57,7 +108,7 @@ public class Main {
 
             }
 
-            System.out.println("Input double value");
+            System.out.println("Input double value:");
 
             double value = scanner.nextDouble();
 
@@ -69,9 +120,11 @@ public class Main {
 
     private static void eightKataHandler(Scanner scanner) {
 
-        System.out.println("Enter your choice:\n 1 - to run getVolumeOfCuboid(double,double,double) method \n " +
-                "2 - to run liters (double)\n 3 - to run mpgToKPM(float)\n 6 - to run stringToNumber(String)" +
-                "or other symbol to exit");
+        System.out.println("Enter your choice:\n 1 - to run getVolumeOfCuboid(double,double,double) method\n " +
+                "2 - to run liters (double) method\n 3 - to run mpgToKPM(float) method\n 4 - to run squareOrSquareRoot(int[]) method\n " +
+                "5 - to run countPositivesSumNegatives(int) method\n 6 - to run stringToNumber(String) method\n " +
+                "7 - to run amIWilson(double) method\n 8 - to run twoDecimalPlaces(double) method\n " +
+                "9 - to run divisibleBy(int[], int) method\n or other symbol to exit");
 
         String choice = scanner.nextLine();
 
