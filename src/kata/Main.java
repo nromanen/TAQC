@@ -4,6 +4,7 @@ import kata.impl.AnastasiaZadolinna.EightKataImpl;
 import kata.impl.AnastasiaZadolinna.SixthKataImpl;
 import kata.impl.DmytroHursrkyi.SevenKataImpl;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -167,6 +168,16 @@ public class Main {
                 array[i] = input.nextInt();
             }
             System.out.println("These are the numbers you have entered." + new EightKataImpl().squareOrSquareRoot(array));
+        } else if ("4".equals(choice)) {
+            Scanner input = new Scanner(System.in);
+            System.out.println("Enter count of elements");
+            int arrayLenght = input.nextInt();
+            int array[]=new int[arrayLenght];
+            System.out.println("Enter the " + arrayLenght + "s numbers now splitted by new line ");
+            for (int i = 0; i < arrayLenght; i++) {
+                array[i] = input.nextInt();
+            }
+            System.out.println("The result of method execution is " + Arrays.toString( new EightKataImpl().squareOrSquareRoot(array)));
         }
     }
 }
