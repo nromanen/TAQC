@@ -15,16 +15,11 @@ public class Main {
                 " 4 - FiveKata\n q - Exit");
 
         Scanner scanner = new Scanner(System.in);
-
         String choice = scanner.nextLine();
 
         switch (choice) {
 
-            case "1":
-
-                eightKataHandler(scanner);
-
-                break;
+            case "1": eightKataHandler(scanner); break;
 
             case "2":
 
@@ -119,10 +114,15 @@ public class Main {
 
     private static void eightKataHandler(Scanner scanner) {
 
-        System.out.println("Enter your choice:\n 1 - to run getVolumeOfCuboid(double,double,double) method\n " +
-                "2 - to run liters (double) method\n 3 - to run mpgToKPM(float) method\n 4 - to run squareOrSquareRoot(int[]) method\n " +
-                "5 - to run countPositivesSumNegatives(int) method\n 6 - to run stringToNumber(String) method\n " +
-                "7 - to run amIWilson(double) method\n 8 - to run twoDecimalPlaces(double) method\n " +
+        System.out.println("Enter your choice:\n " +
+                "1 - to run getVolumeOfCuboid(double,double,double) method\n " +
+                "2 - to run liters (double) method\n " +
+                "3 - to run mpgToKPM(float) method\n " +
+                "4 - to run squareOrSquareRoot(int[]) method\n " +
+                "5 - to run countPositivesSumNegatives(int) method\n " +
+                "6 - to run stringToNumber(String) method\n " +
+                "7 - to run amIWilson(double) method\n " +
+                "8 - to run twoDecimalPlaces(double) method\n " +
                 "9 - to run divisibleBy(int[], int) method\n or other symbol to exit");
 
         String choice = scanner.nextLine();
@@ -157,17 +157,6 @@ public class Main {
 
             String number = scanner.nextLine();
 
-            System.out.println("The result of execute of stringToNumber method is: " + new EightKataImpl().stringToNumber(number));
-        } else if ("4".equals(choice)) {
-            Scanner input = new Scanner(System.in);
-            System.out.println("Enter your number");
-            int Arraylenght = input.nextInt();
-            int array[]=new int[Arraylenght];
-            System.out.println("Enter the " + Arraylenght + " numbers now.");
-            for (int i = 0; i < Arraylenght; i++) {
-                array[i] = input.nextInt();
-            }
-            System.out.println("These are the numbers you have entered." + new EightKataImpl().squareOrSquareRoot(array));
         } else if ("4".equals(choice)) {
             Scanner input = new Scanner(System.in);
             System.out.println("Enter count of elements");
@@ -179,5 +168,17 @@ public class Main {
             }
             System.out.println("The result of method execution is " + Arrays.toString( new EightKataImpl().squareOrSquareRoot(array)));
         }
+        else if ("5".equals(choice)){
+            Scanner input = new Scanner(System.in);
+            System.out.println("Enter count of elements");
+            int arrayLenght = input.nextInt();
+            int array[]=new int[arrayLenght];
+            System.out.println("Enter the " + arrayLenght + "s numbers now splitted by new line ");
+            for (int i = 0; i < arrayLenght; i++) {
+                array[i] = input.nextInt();
+            }
+            System.out.println("The result of method execution is " + Arrays.toString( new EightKataImpl().countPositivesSumNegatives(array)));
+        }
+
     }
 }
