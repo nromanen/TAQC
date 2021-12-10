@@ -4,6 +4,7 @@ import kata.impl.AnastasiaZadolinna.EightKataImpl;
 import kata.impl.AnastasiaZadolinna.SixthKataImpl;
 import kata.impl.DmytroHursrkyi.SevenKataImpl;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -11,7 +12,7 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Choice kata:\n 1 - EightKata\n 2  - SevenKata\n 3 - SixthKata\n " +
-                        " 4 - FiveKata\n q - Exit");
+                " 4 - FiveKata\n q - Exit");
 
         Scanner scanner = new Scanner(System.in);
 
@@ -65,15 +66,13 @@ public class Main {
 
         String choice = scanner.nextLine();
 
-        if("1".equals(choice)) {
+        if ("1".equals(choice)) {
 
 
-
-        }else if("2".equals(choice)) {
-
+        } else if ("2".equals(choice)) {
 
 
-        }else if ("3".equals(choice)) {
+        } else if ("3".equals(choice)) {
 
             System.out.println("Input double number:");
 
@@ -159,9 +158,26 @@ public class Main {
             String number = scanner.nextLine();
 
             System.out.println("The result of execute of stringToNumber method is: " + new EightKataImpl().stringToNumber(number));
-
+        } else if ("4".equals(choice)) {
+            Scanner input = new Scanner(System.in);
+            System.out.println("Enter your number");
+            int Arraylenght = input.nextInt();
+            int array[]=new int[Arraylenght];
+            System.out.println("Enter the " + Arraylenght + " numbers now.");
+            for (int i = 0; i < Arraylenght; i++) {
+                array[i] = input.nextInt();
+            }
+            System.out.println("These are the numbers you have entered." + new EightKataImpl().squareOrSquareRoot(array));
+        } else if ("4".equals(choice)) {
+            Scanner input = new Scanner(System.in);
+            System.out.println("Enter count of elements");
+            int arrayLenght = input.nextInt();
+            int array[]=new int[arrayLenght];
+            System.out.println("Enter the " + arrayLenght + "s numbers now splitted by new line ");
+            for (int i = 0; i < arrayLenght; i++) {
+                array[i] = input.nextInt();
+            }
+            System.out.println("The result of method execution is " + Arrays.toString( new EightKataImpl().squareOrSquareRoot(array)));
         }
-
     }
-
 }
