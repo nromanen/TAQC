@@ -16,7 +16,7 @@ public class FiveKataImpl {
         }
     }
 
-    BigInteger perimeter(BigInteger n){
+   public BigInteger perimeter(BigInteger n){
         BigInteger first = BigInteger.ONE;
         BigInteger second = BigInteger.ONE;
         BigInteger fourth = BigInteger.ONE;
