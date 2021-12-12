@@ -179,6 +179,24 @@ public class Main {
             }
             System.out.println("The result of method execution is " + Arrays.toString( new EightKataImpl().countPositivesSumNegatives(array)));
         }
-
+        else if ("3".equals(choice)){
+            System.out.println("Enter the value for Miles per hours");
+            float mpg = scanner.nextInt(); // mpg - miles per hour
+            System.out.println("The result of execute of Miles per gallon to kilometers per liter method is: " + new EightKataImpl().mpgToKPM(mpg));
+        }
+        else if ("8".equals(choice)) {
+            System.out.println("The user should enter the values of Numbers and Divisors");
+            System.out.println("How many Numbers do you want to divide?");
+            Scanner input = new Scanner(System.in);
+                int arrayNumbLenth = input.nextInt();
+                int arrayNumb[] = new int[arrayNumbLenth];
+                System.out.println("Enter the " + arrayNumbLenth + "s press the New Line button, to enter next number");
+                    for (int i = 0; i < arrayNumbLenth; i++) {
+                    arrayNumb[i] = input.nextInt();
+            }
+            System.out.println("Enter the value of the Divider");
+            int divisors = scanner.nextInt();
+            System.out.println("The result of method execution is " + Arrays.toString(new EightKataImpl().divisibleBy(arrayNumb, divisors)));
+        }
     }
 }
