@@ -24,9 +24,18 @@ public class EightKataImpl implements EightKata {
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
-        return new int[0];
-    }
+        int[] newArray = new int[array.length];
+        for (int i = 0; i < array.length; i++) {
+            int sqrt = (int) Math.sqrt(array[i]);
+            if (array[i] == sqrt * sqrt) {
+                newArray[i] = sqrt;
+            } else {
+                newArray[i] = array[i] * array[i];
+            }
+        }
+        return newArray;
 
+    }
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
         if (input == null || input.length == 0) {
