@@ -3,9 +3,10 @@ package kata;
 import kata.impl.AnastasiaZadolinna.EightKataImpl;
 import kata.impl.AnastasiaZadolinna.SixthKataImpl;
 import kata.impl.DmytroHursrkyi.SevenKataImpl;
+import kata.impl.SerhiiZdoima.FiveKataImpl;
 import kata.impl.DmytroHursrkyi.Sixkataimpl;
 import kata.utils.ConsoleInput;
-
+import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -70,6 +71,7 @@ public class Main {
 
     private static void fiveKataHandler(Scanner scanner) {
 
+
         System.out.println("Choice your method:\n " +
                 "1 - to run artificialRain(int[]) method\n " +
                 "2 - to run gap(int, long, long) method\n " +
@@ -78,9 +80,14 @@ public class Main {
                 "5 - to run solve(double) method\n " +
                 "6 - to run smallest(long) method\n " +
                 "or other symbol to exit");
-
+        String choice = scanner.nextLine();
+        if ("4".equals(choice)) {
+            System.out.println("Enter number");
+            String input = scanner.nextLine();
+            BigInteger m = new BigInteger(input);
+            System.out.println("The result of execute of  perimeter method is: " + new FiveKataImpl().perimeter(m));
+        }
     }
-
     private static void sixthKataHandler(Scanner scanner) {
 
         System.out.println("Choice your method:\n " +
@@ -149,6 +156,12 @@ public class Main {
 
             System.out.println("The result of execute of newAvg method is: " + new SevenKataImpl().newAvg(doubleArr, value));
 
+        }
+        else if("2".equals(choice)) {
+            System.out.println("Enter number");
+            String input = scanner.nextLine();
+            int i = Integer.parseInt ( input);
+            System.out.println("The result of execute of  method is: " + new SevenKataImpl().seriesSum(i));
         }
 
     }
