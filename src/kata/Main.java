@@ -84,7 +84,7 @@ public class Main {
         if ("4".equals(choice)) {
             System.out.println("Enter number");
             String input = scanner.nextLine();
-            BigInteger m=new BigInteger(input);
+            BigInteger m = new BigInteger(input);
             System.out.println("The result of execute of  perimeter method is: " + new FiveKataImpl().perimeter(m));
         }
     }
