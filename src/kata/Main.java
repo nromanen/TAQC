@@ -1,6 +1,7 @@
 package kata;
 
 import kata.impl.AnastasiaZadolinna.EightKataImpl;
+import kata.impl.AnastasiaZadolinna.FiveKataImpl;
 import kata.impl.AnastasiaZadolinna.SixthKataImpl;
 import kata.impl.DmytroHursrkyi.SevenKataImpl;
 import kata.impl.DmytroHursrkyi.Sixkataimpl;
@@ -79,6 +80,27 @@ public class Main {
                 "6 - to run smallest(long) method\n " +
                 "or other symbol to exit");
 
+        String choice = scanner.nextLine();
+
+        if ("1".equals(choice)) {
+
+        } else if ("2".equals(choice)) {
+
+        } else if ("3".equals(choice)) {
+
+        } else if ("4".equals(choice)) {
+
+        } else if ("5".equals(choice)) {
+
+        } else if ("6".equals(choice)) {
+
+            System.out.println("Input long value:");
+
+            Long value = Long.parseLong(scanner.nextLine());
+
+            System.out.println("The result of execute of getVolumeOfCuboid method is: " + new FiveKataImpl().smallest(value));
+            
+        }
     }
 
     private static void sixthKataHandler(Scanner scanner) {
