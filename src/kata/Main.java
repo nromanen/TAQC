@@ -1,10 +1,10 @@
 package kata;
 
-import kata.impl.AnastasiaZadolinna.EightKataImpl;
 import kata.impl.AnastasiaZadolinna.SixthKataImpl;
+import kata.impl.AnastasiaZadolinna.EightKataImpl;
 import kata.impl.DmytroHursrkyi.SevenKataImpl;
 import kata.impl.SerhiiZdoima.FiveKataImpl;
-import kata.impl.DmytroHursrkyi.Sixkataimpl;
+import kata.impl.DmytroHursrkyi.SixKataImpl;
 import kata.utils.ConsoleInput;
 import java.math.BigInteger;
 import java.util.Arrays;
@@ -123,7 +123,7 @@ public class Main {
             System.out.println("Enter the name of town");
             String town = String.valueOf(scanner.nextLine());
 
-            System.out.println("The result of execute of Miles per gallon to kilometers per liter method is: " + new Sixkataimpl().variance(town, DATA_FOR_RAINFALL));
+            System.out.println("The result of execute of Miles per gallon to kilometers per liter method is: " + new SixKataImpl().variance(town, DATA_FOR_RAINFALL));
         }
     }
 
@@ -167,6 +167,7 @@ public class Main {
     }
 
     private static void eightKataHandler(Scanner scanner) {
+        EightKata eightKata = new EightKataImpl();
 
         System.out.println("Enter your choice:\n " +
                 "1 - to run getVolumeOfCuboid(double,double,double) method\n " +
@@ -182,35 +183,22 @@ public class Main {
         String choice = scanner.nextLine();
 
         if ("1".equals(choice)) {
-
             System.out.println("Input double length:");
-
             Double length = Double.parseDouble(scanner.nextLine());
-
             System.out.println("Input double width:");
-
             Double width = Double.parseDouble(scanner.nextLine());
-
             System.out.println("Input double height:");
-
             Double height = Double.parseDouble(scanner.nextLine());
 
-            System.out.println("The result of execute of getVolumeOfCuboid method is: " + new EightKataImpl().getVolumeOfCuboid(length, width, height));
+            System.out.println("The result of execute of getVolumeOfCuboid method is: " + eightKata.getVolumeOfCuboid(length, width, height));
 
         } else if ("2".equals(choice)) {
-
             System.out.println("Input double number:");
-
             double value = scanner.nextDouble();
-
-            System.out.println("The result of execute of Liters method is: " + new EightKataImpl().liters(value));
-
+            System.out.println("The result of execute of Liters method is: " + eightKata.liters(value));
         } else if ("6".equals(choice)) {
-
             System.out.println("Input number:");
-
             String number = scanner.nextLine();
-
         } else if ("4".equals(choice)) {
             Scanner input = new Scanner(System.in);
             System.out.println("Enter count of elements");
@@ -220,7 +208,7 @@ public class Main {
             for (int i = 0; i < arrayLenght; i++) {
                 array[i] = input.nextInt();
             }
-            System.out.println("The result of method execution is " + Arrays.toString( new EightKataImpl().squareOrSquareRoot(array)));
+            System.out.println("The result of method execution is " + Arrays.toString(eightKata.squareOrSquareRoot(array)));
         }
         else if ("5".equals(choice)){
             int arrayLenght = ConsoleInput.intInput("Enter count of elements");
@@ -230,12 +218,12 @@ public class Main {
             for (int i = 0; i < arrayLenght; i++) {
                 array[i] = input.nextInt();
             }
-            System.out.println("The result of method execution is " + Arrays.toString( new EightKataImpl().countPositivesSumNegatives(array)));
+            System.out.println("The result of method execution is " + Arrays.toString(eightKata.countPositivesSumNegatives(array)));
         }
         else if ("3".equals(choice)){
             System.out.println("Enter the value for Miles per hours");
             float mpg = scanner.nextInt(); // mpg - miles per hour
-            System.out.println("The result of execute of Miles per gallon to kilometers per liter method is: " + new EightKataImpl().mpgToKPM(mpg));
+            System.out.println("The result of execute of Miles per gallon to kilometers per liter method is: " + eightKata.mpgToKPM(mpg));
         }
         else if ("8".equals(choice)) {
             int arrayNumbLenth = ConsoleInput.intInput("Enter the values of Numbers and Divisors\n How many Numbers do you want to divide?");
@@ -247,7 +235,7 @@ public class Main {
             }
             System.out.println("Enter the value of the Divider");
             int divisors = scanner.nextInt();
-            System.out.println("The result of method execution is " + Arrays.toString(new EightKataImpl().divisibleBy(arrayNumb, divisors)));
+            System.out.println("The result of method execution is " + Arrays.toString(eightKata.divisibleBy(arrayNumb, divisors)));
         }
     }
 }
