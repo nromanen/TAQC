@@ -7,9 +7,7 @@ public class EightKataImpl implements EightKata {
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
 
-        double volumeOfCuboid = length * width * height;
-
-        return volumeOfCuboid;
+        return length * width * height;
     }
 
     @Override

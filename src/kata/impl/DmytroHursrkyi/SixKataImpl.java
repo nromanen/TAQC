@@ -11,40 +11,22 @@ public class SixKataImpl implements SixthKata {
     @Override
     public long findNb(long m) {
         long result = 0;
-        long sum = 0;
-        while (sum < m) {
+        long sum =0;
+        while (sum <m) {
             result++;
-            sum += result * result * result;
+            sum += result*result*result;
         }
-        return sum == m ? result : -1;
+        return sum ==m?result:-1;
     }
 
     @Override
-    public String balance(String book) {
-        return null;
-    }
+    public String balance(String book) {return "0";}
+
 
     @Override
     public double f(double x) {
         return 0;
     }
-
-//    @Override
-//    public double mean(String town, String strng) {
-//        return 0;
-//    }
-
-
-    @Override
-    public String nbaCup(String resultSheet, String toFind) {
-        return null;
-    }
-
-    @Override
-    public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
-        return null;
-    }
-
 
     @Override
     public double mean(String town, String strng) {
@@ -76,6 +58,7 @@ public class SixKataImpl implements SixthKata {
         }
         return resultList.toArray(new Double[0]);
     }
+
     public double variance(String town, String strng) {
 
         Pattern pattern = Pattern.compile("\\w+");
@@ -84,11 +67,11 @@ public class SixKataImpl implements SixthKata {
             Matcher matcher = pattern.matcher(element);
             while (matcher.find()) {
                 if (matcher.group().equals(town)) {
-                    double avg = mean (town,strng);
+                    double avg = mean(town, strng);
                     Double[] values = parseLine(element);
                     double sum = 0;
                     for (double elem : values) {
-                        sum += (elem-avg)*(elem-avg);
+                        sum += (elem - avg) * (elem - avg);
                     }
                     return sum / (values.length);
                 }
@@ -97,4 +80,13 @@ public class SixKataImpl implements SixthKata {
         throw new IllegalArgumentException(town + " does not contains in " + strng);
     }
 
+    @Override
+    public String nbaCup(String resultSheet, String toFind) {
+        return null;
+    }
+
+    @Override
+    public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
+        return null;
+    }
 }

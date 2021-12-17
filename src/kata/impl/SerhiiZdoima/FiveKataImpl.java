@@ -1,13 +1,17 @@
 package kata.impl.SerhiiZdoima;
 
+import kata.FiveKata;
+
 import java.math.BigInteger;
 
-public class FiveKataImpl {
-    int artificialRain(final int[] v){return 0;}
+public class FiveKataImpl implements FiveKata {
 
-    long[] gap(int g, long m, long n){return null;}
+    @Override
+    public int artificialRain(final int[] v){return 0;}
 
-    int zeros(int n){
+    public long[] gap(int g, long m, long n){return null;}
+
+    public int zeros(int n){
         {
             int count = 0;
             for (int a = 5; n / a >= 1; a *= 5)
@@ -16,7 +20,9 @@ public class FiveKataImpl {
         }
     }
 
-   public BigInteger perimeter(BigInteger n){
+
+   @Override
+    public BigInteger perimeter(BigInteger n){
         BigInteger first = BigInteger.ONE;
         BigInteger second = BigInteger.ONE;
         BigInteger fourth = BigInteger.ONE;
@@ -30,8 +36,8 @@ public class FiveKataImpl {
         return sum.multiply( new BigInteger("4"));
     }
 
-    double solve(double m){return 0;}
+    public double solve(double m){return 0;}
 
-    long[] smallest(long n){return null;}
+    public long[] smallest(long n){return null;}
 }
 
