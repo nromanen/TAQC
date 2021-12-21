@@ -1,11 +1,12 @@
 package kata;
 
-import kata.impl.AnastasiaZadolinna.SixthKataImpl;
 import kata.impl.AnastasiaZadolinna.EightKataImpl;
+import kata.impl.AnastasiaZadolinna.SixthKataImpl;
 import kata.impl.DmytroHursrkyi.SevenKataImpl;
-import kata.impl.SerhiiZdoima.FiveKataImpl;
 import kata.impl.DmytroHursrkyi.SixKataImpl;
+import kata.impl.SerhiiZdoima.FiveKataImpl;
 import kata.utils.ConsoleInput;
+
 import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -34,7 +35,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Choice kata:\n 1 - EightKata\n " +
+        System.out.println("Choice kata:\n " +
+                "1 - EightKata\n " +
                 "2 - SevenKata\n " +
                 "3 - SixthKata\n " +
                 "4 - FiveKata\n " +
@@ -45,33 +47,24 @@ public class Main {
 
         switch (choice) {
 
-            case "1": eightKataHandler(scanner); break;
-
+            case "1":
+                eightKataHandler();
+                break;
             case "2":
-
-                sevenKataHandler(scanner);
-
+                sevenKataHandler();
                 break;
-
             case "3":
-
-                sixthKataHandler(scanner);
-
+                sixthKataHandler();
                 break;
-
             case "4":
-
-                fiveKataHandler(scanner);
-
+                fiveKataHandler();
                 break;
-
         }
-
     }
 
-    private static void fiveKataHandler(Scanner scanner) {
+    private static void fiveKataHandler() {
 
-
+        FiveKata fiveKata = new FiveKataImpl();
         System.out.println("Choice your method:\n " +
                 "1 - to run artificialRain(int[]) method\n " +
                 "2 - to run gap(int, long, long) method\n " +
@@ -80,19 +73,20 @@ public class Main {
                 "5 - to run solve(double) method\n " +
                 "6 - to run smallest(long) method\n " +
                 "or other symbol to exit");
+
+        Scanner scanner = new Scanner(System.in);
         String choice = scanner.nextLine();
         if ("4".equals(choice)) {
-            System.out.println("Enter number");
-            String input = scanner.nextLine();
-            BigInteger m = new BigInteger(input);
-            System.out.println("The result of execute of  perimeter method is: " + new FiveKataImpl().perimeter(m));
+            BigInteger m = ConsoleInput.bigIntegerInput("Enter number");
+            System.out.println("The result of execute of  perimeter method is: " + fiveKata.perimeter(m));
         } else if ("6".equals(choice)) {
             System.out.println("Input long value:");
             Long value = Long.parseLong(scanner.nextLine());
             System.out.println("The result of execute of smallest method is: " + new kata.impl.AnastasiaZadolinna.FiveKataImpl().smallest(value));
         }
     }
-    private static void sixthKataHandler(Scanner scanner) {
+
+    private static void sixthKataHandler() {
 
         System.out.println("Choice your method:\n " +
                 "1 - to run findNb(long) method\n " +
@@ -104,77 +98,58 @@ public class Main {
                 "7 - to run stockSummary(String[], String[]) method\n " +
                 "or other symbol to exit");
 
+        Scanner scanner = new Scanner(System.in);
         String choice = scanner.nextLine();
 
         if ("1".equals(choice)) {
-            System.out.println("Enter the total volume of the building");
-            System.out.println("Enter the integer n");
-            
-
-
-
         } else if ("2".equals(choice)) {
-
-
         } else if ("3".equals(choice)) {
 
             System.out.println("Input double number:");
-
             Double value = Double.parseDouble(scanner.nextLine());
-
             System.out.println("The result of execute of f method is: " + new SixthKataImpl().f(value));
-
         }
-        if ("4".equals(choice)) { // Rainfall
 
+        if ("4".equals(choice)) {
             System.out.println("Enter the town for which you want to receive the average annual rainfall\n \n" + DATA_FOR_RAINFALL);
             System.out.println("Enter the name of town");
             String town = String.valueOf(scanner.nextLine());
-
             System.out.println("The result of execute of Miles per gallon to kilometers per liter method is: " + new SixKataImpl().variance(town, DATA_FOR_RAINFALL));
         }
     }
 
-    private static void sevenKataHandler(Scanner scanner) {
+    private static void sevenKataHandler() {
+        SevenKata sevenKata = new SevenKataImpl();
 
-        System.out.println("Choice your method:\n 1 - to run newAvg(double[], double) method\n 2 - to run seriesSum(long) method\n " +
+        System.out.println("Choice your method:\n " +
+                "1 - to run newAvg(double[], double) method\n " +
+                "2 - to run seriesSum(long) method\n " +
                 "or other symbol to exit");
 
+        Scanner scanner = new Scanner(System.in);
         String choice = scanner.nextLine();
 
         if ("1".equals(choice)) {
-
-            System.out.println("Input double values separated by commas:");
-
+            System.out.println("Input double values separated by comma:");
             String arr = scanner.nextLine();
-
             String[] convertedRankArray = arr.split("\\s*,\\s*");
-
             double[] doubleArr = new double[convertedRankArray.length];
-
             for (int i = 0; i < doubleArr.length; i++) {
-
                 doubleArr[i] = Double.parseDouble(convertedRankArray[i]);
-
             }
-
             System.out.println("Input double value:");
-
             double value = scanner.nextDouble();
-
-            System.out.println("The result of execute of newAvg method is: " + new SevenKataImpl().newAvg(doubleArr, value));
-
-        }
-        else if("2".equals(choice)) {
+            System.out.println("The result of execute of newAvg method is: " + sevenKata.newAvg(doubleArr, value));
+        } else if ("2".equals(choice)) {
             System.out.println("Enter number");
             String input = scanner.nextLine();
-            int i = Integer.parseInt ( input);
-            System.out.println("The result of execute of  method is: " + new SevenKataImpl().seriesSum(i));
+            int i = Integer.parseInt(input);
+            System.out.println("The result of execute of  method is: " + sevenKata.seriesSum(i));
         }
 
     }
 
-    private static void eightKataHandler(Scanner scanner) {
+    private static void eightKataHandler() {
         EightKata eightKata = new EightKataImpl();
 
         System.out.println("Enter your choice:\n " +
@@ -188,6 +163,7 @@ public class Main {
                 "8 - to run twoDecimalPlaces(double) method\n " +
                 "9 - to run divisibleBy(int[], int) method\n or other symbol to exit");
 
+        Scanner scanner = new Scanner(System.in);
         String choice = scanner.nextLine();
 
         if ("1".equals(choice)) {
@@ -199,7 +175,6 @@ public class Main {
             Double height = Double.parseDouble(scanner.nextLine());
 
             System.out.println("The result of execute of getVolumeOfCuboid method is: " + eightKata.getVolumeOfCuboid(length, width, height));
-
         } else if ("2".equals(choice)) {
             System.out.println("Input double number:");
             double value = scanner.nextDouble();
@@ -211,35 +186,32 @@ public class Main {
             Scanner input = new Scanner(System.in);
             System.out.println("Enter count of elements");
             int arrayLenght = input.nextInt();
-            int array[]=new int[arrayLenght];
+            int array[] = new int[arrayLenght];
             System.out.println("Enter the " + arrayLenght + "s numbers now splitted by new line ");
             for (int i = 0; i < arrayLenght; i++) {
                 array[i] = input.nextInt();
             }
             System.out.println("The result of method execution is " + Arrays.toString(eightKata.squareOrSquareRoot(array)));
-        }
-        else if ("5".equals(choice)){
+        } else if ("5".equals(choice)) {
             int arrayLenght = ConsoleInput.intInput("Enter count of elements");
             Scanner input = new Scanner(System.in);
-            int array[]=new int[arrayLenght];
+            int array[] = new int[arrayLenght];
             System.out.println("Enter the " + arrayLenght + "s numbers now splitted by new line ");
             for (int i = 0; i < arrayLenght; i++) {
                 array[i] = input.nextInt();
             }
             System.out.println("The result of method execution is " + Arrays.toString(eightKata.countPositivesSumNegatives(array)));
-        }
-        else if ("3".equals(choice)){
+        } else if ("3".equals(choice)) {
             System.out.println("Enter the value for Miles per hours");
-            float mpg = scanner.nextInt(); // mpg - miles per hour
+            float mpg = scanner.nextFloat(); // mpg - miles per hour
             System.out.println("The result of execute of Miles per gallon to kilometers per liter method is: " + eightKata.mpgToKPM(mpg));
-        }
-        else if ("8".equals(choice)) {
+        } else if ("8".equals(choice)) {
             int arrayNumbLenth = ConsoleInput.intInput("Enter the values of Numbers and Divisors\n How many Numbers do you want to divide?");
             Scanner input = new Scanner(System.in);
-                int arrayNumb[] = new int[arrayNumbLenth];
-                System.out.println("Enter the " + arrayNumbLenth + "s press the New Line button, to enter next number");
-                    for (int i = 0; i < arrayNumbLenth; i++) {
-                    arrayNumb[i] = input.nextInt();
+            int arrayNumb[] = new int[arrayNumbLenth];
+            System.out.println("Enter the " + arrayNumbLenth + "s press the New Line button, to enter next number");
+            for (int i = 0; i < arrayNumbLenth; i++) {
+                arrayNumb[i] = input.nextInt();
             }
             System.out.println("Enter the value of the Divider");
             int divisors = scanner.nextInt();
