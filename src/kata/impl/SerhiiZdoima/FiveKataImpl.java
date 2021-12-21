@@ -9,6 +9,7 @@ public class FiveKataImpl implements FiveKata {
     @Override
     public int artificialRain(final int[] v){return 0;}
 
+    @Override
     public long[] gap(int g, long m, long n){return null;}
 
     public int zeros(int n){
