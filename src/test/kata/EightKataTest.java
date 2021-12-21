@@ -29,4 +29,6 @@ public class EightKataTest {
                 Arguments.of(new kata.impl.DmytroHursrkyi.EightKataImpl())
         );
     }
+
+
 }
