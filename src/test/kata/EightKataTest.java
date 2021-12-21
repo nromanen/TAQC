@@ -30,7 +30,6 @@ public class EightKataTest {
                 Arguments.of(new kata.impl.DmytroHursrkyi.EightKataImpl())
         );
     }
-
     @ParameterizedTest
     @MethodSource("dataSourceForTwoDecimalPlaces")
     public void twoDecimalPlacesValidTest(double input, double expected) {
