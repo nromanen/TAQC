@@ -79,6 +79,10 @@ public class Main {
         if ("4".equals(choice)) {
             BigInteger m = ConsoleInput.bigIntegerInput("Enter number");
             System.out.println("The result of execute of  perimeter method is: " + fiveKata.perimeter(m));
+        } else if ("6".equals(choice)) {
+            System.out.println("Input long value:");
+            Long value = Long.parseLong(scanner.nextLine());
+            System.out.println("The result of execute of smallest method is: " + new kata.impl.AnastasiaZadolinna.FiveKataImpl().smallest(value));
         }
     }
 
