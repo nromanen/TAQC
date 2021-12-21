@@ -107,6 +107,10 @@ public class Main {
         String choice = scanner.nextLine();
 
         if ("1".equals(choice)) {
+            System.out.println("Enter the total volume of the building");
+            System.out.println("Enter the integer n");
+            
+
 
 
         } else if ("2".equals(choice)) {
