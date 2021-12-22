@@ -1,2 +1,6 @@
-package test.kata;public class SevenKataTest {
+package test.kata;
+
+public class SevenKataTest {
+
+
 }

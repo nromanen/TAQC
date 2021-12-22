@@ -6,6 +6,9 @@ public class EightKataImpl implements EightKata {
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
+        if (length <0 || width <0 || height <0){
+            throw new IllegalArgumentException("All parameters should be positive numbers");
+        }
 
         return length * width * height;
     }
