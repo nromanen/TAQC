@@ -84,11 +84,7 @@ public class EightKataImpl implements EightKata {
 
 	@Override
 	public double twoDecimalPlaces(double number) {
-		String TempVal = String.format("%.2f", number);
-
-		double result = Double.parseDouble(TempVal);
-
-		return result;
+		return (double) Math.round(number * 100) / 100;
 	}
 
 	@Override
