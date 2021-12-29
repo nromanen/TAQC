@@ -18,7 +18,7 @@ public class ConsoleInput {
         }
     }
 
-    public static BigInteger bigIntegerInput(String welcomeMessage){
+    public static BigInteger bigIntegerInput(String welcomeMessage) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             try {
@@ -31,5 +31,16 @@ public class ConsoleInput {
         }
     }
 
+    public static double doubleInput(String welcomeMessage) {
+        Scanner input = new Scanner(System.in);
+        while (true) {
+            System.out.println(welcomeMessage);
+            try {
+                return Double.parseDouble(input.nextLine());
+            } catch (NumberFormatException | InputMismatchException e) {
+                System.out.println("You should input double value");
+            }
+        }
+    }
 }
 
