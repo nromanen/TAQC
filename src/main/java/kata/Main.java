@@ -73,12 +73,9 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String choice = scanner.nextLine();
         if ("2".equals(choice)) {
-            System.out.println("Input int value G - (integer >= 2) which indicates the gap we are looking for:");
-            int g = Integer.parseInt(scanner.nextLine());
-            System.out.println("Input long value M - which gives the start of the search (m inclusive):");
-            long m = Long.parseLong(scanner.nextLine());
-            System.out.println("Input long value N (>= M) - which gives the end of the search (n inclusive) won't go beyond 1100000:");
-            long n = Long.parseLong(scanner.nextLine());
+            int g = ConsoleInput.intInput("Input int value G - (integer >= 2) which indicates the gap we are looking for:");
+            long m = ConsoleInput.longInput("Input long value M - which gives the start of the search (m inclusive):");
+            long n = ConsoleInput.longInput("Input long value N (>= M) - which gives the end of the search (n inclusive) won't go beyond 1100000:");
             System.out.println("Result is : \n");
             long[] res = fiveKata.gap(g, m, n);
             for (long re : res) {
@@ -88,8 +85,7 @@ public class Main {
             BigInteger m = ConsoleInput.bigIntegerInput("Enter number");
             System.out.println("The result of execute of  perimeter method is: " + fiveKata.perimeter(m));
         } else if ("6".equals(choice)) {
-            System.out.println("Input long value:");
-            Long value = Long.parseLong(scanner.nextLine());
+            Long value = ConsoleInput.longInput("Input long value:");
             System.out.println("The result of execute of smallest method is: " + fiveKata.smallest(value));
         }
     }
@@ -112,7 +108,6 @@ public class Main {
             System.out.println("Input check for balance: \n" + DATA_FOR_BALANCE);
             System.out.println("The result of execute of BALANCE method is: \n" + new SixthKataImpl().balance(DATA_FOR_BALANCE));
         } else if ("3".equals(choice)) {
-            System.out.println("Input double number:");
             Double value = ConsoleInput.doubleInput("Input double value: ");
             System.out.println("The result of execute of f method is: " + sixthKata.f(value));
         } else if ("4".equals(choice)) {
@@ -145,9 +140,7 @@ public class Main {
             double value = scanner.nextDouble();
             System.out.println("The result of execute of newAvg method is: " + sevenKata.newAvg(doubleArr, value));
         } else if ("2".equals(choice)) {
-            System.out.println("Enter number");
-            String input = scanner.nextLine();
-            int i = Integer.parseInt(input);
+            int i = ConsoleInput.intInput("Enter number");
             System.out.println("The result of execute of  method is: " + sevenKata.seriesSum(i));
         }
     }
@@ -199,8 +192,7 @@ public class Main {
             }
             System.out.println("The result of method execution is " + Arrays.toString(eightKata.countPositivesSumNegatives(array)));
         } else if ("3".equals(choice)) {
-            System.out.println("Enter the value for Miles per hours");
-            float mpg = scanner.nextFloat();
+            float mpg = ConsoleInput.floatInput("Enter the value for Miles per hours: ");
             System.out.println("The result of execute of Miles per gallon to kilometers per liter method is: "
                     + eightKata.mpgToKPM(mpg));
         } else if ("8".equals(choice)) {
