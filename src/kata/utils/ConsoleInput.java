@@ -42,5 +42,29 @@ public class ConsoleInput {
             }
         }
     }
+
+    public static float floatInput (String welcomeMessage) {
+        Scanner input = new Scanner(System.in);
+        while (true) {
+            System.out.println(welcomeMessage);
+            try {
+                return Float.parseFloat(input.nextLine());
+            } catch (NumberFormatException | InputMismatchException e) {
+                System.out.println("You should input float value");
+            }
+        }
+    }
+
+    public static long longInput (String welcomeMassage) {
+        Scanner input = new Scanner(System.in);
+        while (true) {
+            System.out.println(welcomeMassage);
+            try {
+                return Long.parseLong(input.nextLine());
+            } catch (NumberFormatException | InputMismatchException e) {
+                System.out.println("You should input long value");
+            }
+        }
+    }
 }
 
