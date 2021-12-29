@@ -1,6 +1,8 @@
 package test.kata;
 
 import kata.EightKata;
+import kata.impl.AnastasiaZadolinna.EightKataImpl;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -44,5 +46,52 @@ public class EightKataTest {
                 Arguments.of(2.491, 2.49),
                 Arguments.of(2.495, 2.50)
         );
+    }
+
+    @ParameterizedTest // by Anastasia Zadolinna
+    @MethodSource("provideImplStringToNumber")
+    public void stringToNumberTest(EightKata eightKata) {
+        int expected = 3;
+        String strNumber = "3";
+        int actual = eightKata.stringToNumber(strNumber);
+        assertEquals(expected, actual, "Wrong result for parameter " + strNumber);
+    }
+
+    private static Stream<Arguments> provideImplStringToNumber() {
+        return Stream.of(
+                Arguments.of(new kata.impl.AnastasiaZadolinna.EightKataImpl()),
+                Arguments.of(new kata.impl.DmytroHursrkyi.EightKataImpl()),
+                Arguments.of(new kata.impl.SerhiiZdoima.EightKataImpl()),
+                Arguments.of(new kata.impl.VolodimirD.EightKataImpl()),
+                Arguments.of(new kata.impl.YuriyShymkov.EightKataImpl())
+        );
+    }
+
+    @ParameterizedTest // by Anastasia Zadolinna
+    @MethodSource("provideImplStringToNumberNegativeValues")
+    public void stringToNumberTest2(EightKata eightKata) {
+        int expected = -9;
+        String strNumber = "-9";
+        int actual = eightKata.stringToNumber(strNumber);
+        assertEquals(expected, actual, "Wrong result for parameter " + strNumber);
+    }
+
+    private static Stream<Arguments> provideImplStringToNumberNegativeValues() {
+        return Stream.of(
+                Arguments.of(new kata.impl.AnastasiaZadolinna.EightKataImpl()),
+                Arguments.of(new kata.impl.DmytroHursrkyi.EightKataImpl()),
+                Arguments.of(new kata.impl.SerhiiZdoima.EightKataImpl()),
+                Arguments.of(new kata.impl.VolodimirD.EightKataImpl()),
+                Arguments.of(new kata.impl.YuriyShymkov.EightKataImpl())
+        );
+    }
+
+    @Test // by Anastasia Zadolinna
+    public void invalidStringToNumberTest() {
+        NumberFormatException thrown = Assertions.assertThrows(NumberFormatException.class, () -> {
+            EightKata eightKata = new EightKataImpl();
+            eightKata.stringToNumber("One");
+        });
+        Assertions.assertEquals("For input string: \"One\"", thrown.getMessage());
     }
 }
