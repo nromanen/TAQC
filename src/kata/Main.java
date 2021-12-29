@@ -112,9 +112,14 @@ public class Main {
 
         if ("4".equals(choice)) {
             System.out.println("Enter the town for which you want to receive the average annual rainfall\n \n" + DATA_FOR_RAINFALL);
-            System.out.println("Enter the name of town");
-            String town = String.valueOf(scanner.nextLine());
-            System.out.println("The result of execute of Miles per gallon to kilometers per liter method is: " + new SixKataImpl().variance(town, DATA_FOR_RAINFALL));
+            String town = ConsoleInput.stringInput("Enter any of towns from the header");
+            try {
+                System.out.println("The result of execute of Miles per gallon to kilometers per liter method is: " + new SixKataImpl().variance(town, DATA_FOR_RAINFALL));
+            }
+            catch (IllegalArgumentException e){
+                System.out.println("This town is not exist");
+            }
+
         }
     }
 

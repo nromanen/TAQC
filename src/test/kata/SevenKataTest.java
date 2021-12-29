@@ -36,16 +36,33 @@ public class SevenKataTest {
 
     @ParameterizedTest
     @MethodSource("newAvgData")
-    public void newAvgTest(double[] arrData, int intData, long expected) {
-        long actual = new kata.impl.SerhiiZdoima.SevenKataImpl().newAvg(arrData, intData); //newAv from array1 and int1 then the result == 628
+    public void newAvgTest(double[] arrData, int intData, long expected, SevenKata sevenKata) {
+        long actual = sevenKata.newAvg(arrData, intData); //newAv from array1 and int1 then the result == 628
         assertEquals(expected, actual);
     }
 
     private static Stream<Arguments> newAvgData() {
+        double[] arr1 = new double[]{14.0, 30.0, 5.0, 7.0, 9.0, 11.0, 16.0};
+        int val1Data1 = 90;
+        int val2Data1 = 628;
+        double[] arr2 = new double[]{14.0, 30.0, 5.0, 7.0, 9.0, 11.0, 15.0};
+        int val1Data2 = 30;
+        int val2Data2 = 149;
         return Stream.of(
-                Arguments.of(new double[]{14.0, 30.0, 5.0, 7.0, 9.0, 11.0, 16.0}, 90, 628),
-                Arguments.of(new double[]{14.0, 30.0, 5.0, 7.0, 9.0, 11.0, 15.0}, 30, 149)
-                //    Arguments.of(new kata.impl.DmytroHursrkyi.EightKataImpl())
+                // Arguments.of(new double[]{14.0, 30.0, 5.0, 7.0, 9.0, 11.0, 16.0}, 90, 628), // the test with parameters from the task
+                // Arguments.of(new double[]{14.0, 30.0, 5.0, 7.0, 9.0, 11.0, 15.0}, 30, 149),
+                Arguments.of(arr1, val1Data1, val2Data1,new kata.impl.SerhiiZdoima.SevenKataImpl()),
+                Arguments.of(arr1, val1Data1, val2Data1,new kata.impl.AnastasiaZadolinna.SevenKataImpl()),
+                Arguments.of(arr1, val1Data1, val2Data1,new kata.impl.YuriyShymkov.SevenKataImpl()),
+                Arguments.of(arr1, val1Data1, val2Data1,new kata.impl.VolodimirD.SevenKataImpl()),
+                Arguments.of(arr1, val1Data1, val2Data1,new kata.impl.NataliaZagoruiko.SevenKataImpl()),
+
+                Arguments.of(arr2, val1Data2, val2Data2,new kata.impl.SerhiiZdoima.SevenKataImpl()),
+                Arguments.of(arr2, val1Data2, val2Data2,new kata.impl.AnastasiaZadolinna.SevenKataImpl()),
+                Arguments.of(arr2, val1Data2, val2Data2,new kata.impl.YuriyShymkov.SevenKataImpl()),
+                Arguments.of(arr2, val1Data2, val2Data2,new kata.impl.VolodimirD.SevenKataImpl()),
+                Arguments.of(arr2, val1Data2, val2Data2,new kata.impl.NataliaZagoruiko.SevenKataImpl())
+
         );
     }
 

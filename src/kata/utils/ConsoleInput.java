@@ -31,5 +31,19 @@ public class ConsoleInput {
         }
     }
 
+    public static String stringInput (String welcomeMessage) {
+        Scanner town = new Scanner(System.in);
+        while (true) {
+            try {
+                System.out.println(welcomeMessage);
+                String input = town.nextLine();
+                return (input);
+            } catch (NumberFormatException nfe) {
+                System.out.println("Incorrect format for string");
+            }
+        }
+    }
+
+
 }
 

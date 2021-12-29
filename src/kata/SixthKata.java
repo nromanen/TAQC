@@ -37,8 +37,9 @@ public interface SixthKata {
 	 * @param town
 	 * @param strng
 	 * @return
+	 * @throws IllegalArgumentException when town doesn't contain in strng
 	 */
-	double variance(String town, String strng);
+	double variance(String town, String strng) throws IllegalArgumentException;
 
 	/**
 	 * 
