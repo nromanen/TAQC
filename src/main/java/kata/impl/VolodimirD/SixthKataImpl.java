@@ -11,100 +11,77 @@ import java.util.regex.Pattern;
 
 public class SixthKataImpl implements SixthKata {
 
-	@Override
-	public String balance(String book) {
+    @Override
+    public String balance(String book) {
+        book = book.replaceAll("[^0-9A-z\\.\n ]", "");
+        book = book.replaceAll("  ", " ");
+        book = book.replaceAll(" \n", "\n");
+        book = book.replaceAll(" ?;\n", "\n");
+        book = book.trim();
 
-		Double money = 0.0;
+        String arr[] = book.split("\n");
+        double bal = Double.parseDouble(arr[0]);
+        double totalExpense = 0;
+        for (int i = 1; i < arr.length; i++) {
+            totalExpense += Double.parseDouble(arr[i].split(" ")[2]);
+            bal -= Double.parseDouble(arr[i].split(" ")[2]);
+            arr[i] += " Balance " + String.format("%.2f", bal);
+        }
+        String newBook = "Original Balance: ";
+        for (int i = 0; i < arr.length; i++) {
+            newBook = newBook + arr[i] + "\r\n";
+        }
+        newBook = newBook + "Total expense  " + String.format("%.2f", totalExpense) + "\r\n";
+        newBook = newBook + "Average expense  " + String.format("%.2f", totalExpense / (arr.length - 1));
+        newBook = newBook.replaceAll(",",".");
+        return newBook;
+    }
 
-		Pattern forManey1 = Pattern.compile("(\\d+\\.\\d+)");
-		Matcher matcherM = forManey1.matcher(book);
-		matcherM.find();
-		money = Double.parseDouble(matcherM.group());
+    @Override
+    public long findNb(long m) {
+        long res = 0;
+        long sum = 0;
 
-		ArrayList<String> chek = new ArrayList<>();
-		ArrayList<String> chekOvnerName = new ArrayList<>();
-		ArrayList<Double> price = new ArrayList<>();
+        while (sum < m) {
+            res++;
+            sum += res * res * res;
+        }
 
-		while (matcherM.find()) {
-			price.add(Double.parseDouble(matcherM.group()));
-		}
+        if (sum == m) {
+            return res;
+        } else {
+            return -1;
+        }
+    }
 
-		Pattern forName = Pattern.compile("[a-zA-Z]{2,}");
-		Matcher matcherN = forName.matcher(book);
+    @Override
+    public double f(double x) {
 
-		while (matcherN.find()) {
-			chekOvnerName.add(matcherN.group());
-		}
+        return 0;
+    }
 
-		Pattern forchek = Pattern.compile("[ |:|\\n]([0-9]+)[ |:|[\\n]]");
-		Matcher matcherC = forchek.matcher(book);
+    @Override
+    public double mean(String town, String strng) {
 
-		while (matcherC.find()) {
-			chek.add(matcherC.group());
-		}
+        return 0;
+    }
 
-		String result = new String();
+    @Override
+    public double variance(String town, String strng) {
 
-		result += ("Original Balance: ") + money;
+        return 0;
+    }
 
-		for (int i = 0; i < chek.size(); i++) {
+    @Override
+    public String nbaCup(String resultSheet, String toFind) {
 
-			DecimalFormat decimalFormat = new DecimalFormat("#.##");
-			String okr = decimalFormat.format(money - price.get(i));
+        return null;
+    }
 
-			result += (chek.get(i)) + (chekOvnerName.get(i)) + (" " + price.get(i).toString()) + (" " + okr);
-			money = money - price.get(i);
-		}
+    @Override
+    public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
 
-		double sum = 0;
-		for (int i = 0; i < price.size(); i++) {
-			sum += price.get(i);
-		}
-
-		result = result.concat("\r\nTotal expense " + Math.round(sum * 100) / 100D);
-
-		sum = sum / price.size();
-
-		result = result.concat("\r\nAverage expense " + Math.round(sum * 100) / 100D);
-
-		return result;
-
-	}
-
-	@Override
-	public long findNb(long m) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public double f(double x) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public double mean(String town, String strng) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public double variance(String town, String strng) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public String nbaCup(String resultSheet, String toFind) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+        return null;
+    }
 
 }
