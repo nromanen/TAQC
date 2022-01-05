@@ -11,6 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -24,9 +25,9 @@ public class HomePageTest {
     public static void setUp() {
         Properties properties = new Properties();
         try {
-            String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
-            String appConfigPath = rootPath + "app.properties";
-            properties.load(new FileInputStream(appConfigPath));
+            InputStream input = new FileInputStream("src//test//resources//app.properties");
+            properties.load(input);
+
             System.setProperty("webdriver.chrome.driver", properties.getProperty("webdriver.chrome.driver"));
             baseUrl=properties.getProperty("base.url");
         } catch (IOException exception) {
@@ -44,8 +45,8 @@ public class HomePageTest {
     @Test
     public void toolBar() {
         try {
-            boolean isToolBar = driver.findElement(By.xpath("//header[@class=\"MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary MuiPaper-elevation0\"]")).isDisplayed();
-            assertTrue(isToolBar, "The toolBar is displayed");
+
+            assertTrue(, "The toolBar is displayed");
         } catch (NoSuchElementException exception) {
             assertTrue(false, "The toolBar is absent");
         }
