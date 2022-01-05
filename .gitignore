@@ -62,5 +62,9 @@ local.properties
 
 target/
 
+
 # Ignore for properties
 .properties
+
+resources/
+
