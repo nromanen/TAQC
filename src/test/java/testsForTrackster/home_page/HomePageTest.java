@@ -1,4 +1,4 @@
-package testsForTrackster;
+package testsForTrackster.home_page;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -45,8 +45,8 @@ public class HomePageTest {
     @Test
     public void toolBar() {
         try {
-
-            assertTrue(, "The toolBar is displayed");
+            boolean isToolBar = driver.findElement(By.xpath("//header[@class=\"MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary MuiPaper-elevation0\"]")).isDisplayed();
+            assertTrue(isToolBar, "The toolBar is displayed");
         } catch (NoSuchElementException exception) {
             assertTrue(false, "The toolBar is absent");
         }
