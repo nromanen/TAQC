@@ -61,4 +61,10 @@ local.properties
 #.project
 
 target/
+
+
+# Ignore for properties
+.properties
+
 resources/
+
