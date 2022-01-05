@@ -44,7 +44,6 @@ public class Main {
         String choice = scanner.nextLine();
 
         switch (choice) {
-
             case "1":
                 eightKataHandler();
                 break;
