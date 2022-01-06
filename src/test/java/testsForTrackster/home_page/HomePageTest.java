@@ -1,4 +1,4 @@
-package testsForTrackster;
+package testsForTrackster.home_page;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -11,6 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -24,9 +25,9 @@ public class HomePageTest {
     public static void setUp() {
         Properties properties = new Properties();
         try {
-            String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
-            String appConfigPath = rootPath + "app.properties";
-            properties.load(new FileInputStream(appConfigPath));
+            InputStream input = new FileInputStream("src//test//resources//app.properties");
+            properties.load(input);
+
             System.setProperty("webdriver.chrome.driver", properties.getProperty("webdriver.chrome.driver"));
             baseUrl=properties.getProperty("base.url");
         } catch (IOException exception) {
