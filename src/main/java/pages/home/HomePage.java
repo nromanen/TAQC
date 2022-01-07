@@ -86,82 +86,63 @@ public class HomePage extends BasePage {
     }
 
     /**
-     * Find elements on page
+     * Methods find elements on page
      */
-    public HomePage findToolBar() {
-        driver.findElement(toolBar).isDisplayed();
-        return this;
+    public boolean findToolBar() {
+        return driver.findElement(toolBar).isDisplayed();
     }
-    public HomePage findImgLogo() {
-        driver.findElement(imgLogo).isDisplayed();
-        return this;
+    public boolean findImgLogo() {
+        return driver.findElement(imgLogo).isDisplayed();
     }
-    public HomePage findHeadingFindYourParcel() {
-        driver.findElement(headingFindYourParcel).isDisplayed();
-        return this;
+    public boolean findHeadingFindYourParcel() {
+        return driver.findElement(headingFindYourParcel).isDisplayed();
     }
-    public HomePage findButtonForInputSearch() {
-        driver.findElement(buttonForInputSearch).isDisplayed();
-        return this;
+    public boolean findButtonForInputSearch() {
+        return driver.findElement(buttonForInputSearch).isDisplayed();
     }
-    public HomePage findButtonForSearchByPhoto() {
-        driver.findElement(buttonForSearchByPhoto).isDisplayed();
-        return this;
+    public boolean findButtonForSearchByPhoto() {
+        return driver.findElement(buttonForSearchByPhoto).isDisplayed();
     }
-    public HomePage findImgLabelFastTracking() {
-        driver.findElement(imgLabelFastTracking).isDisplayed();
-        return this;
+    public boolean findImgLabelFastTracking() {
+        return driver.findElement(imgLabelFastTracking).isDisplayed();
     }
-    public HomePage findLabelFastTracking() {
-        driver.findElement(labelFastTracking).isDisplayed();
-        return this;
+    public boolean findLabelFastTracking() {
+        return driver.findElement(labelFastTracking).isDisplayed();
     }
-    public HomePage findLabelIntuitiveInterface() {
-        driver.findElement(labelIntuitiveInterface).isDisplayed();
-        return this;
+    public boolean findLabelIntuitiveInterface() {
+        return driver.findElement(labelIntuitiveInterface).isDisplayed();
     }
-    public HomePage findImgLabelIntuitiveInterface() {
-        driver.findElement(imgLabelIntuitiveInterface).isDisplayed();
-        return this;
+    public boolean findImgLabelIntuitiveInterface() {
+        return driver.findElement(imgLabelIntuitiveInterface).isDisplayed();
     }
-    public HomePage findLabelArchiveParcels() {
-        driver.findElement(labelArchiveParcels).isDisplayed();
-        return this;
+    public boolean findLabelArchiveParcels() {
+        return driver.findElement(labelArchiveParcels).isDisplayed();
     }
-    public HomePage findImgLabelArchiveParcels() {
-        driver.findElement(imgLabelArchiveParcels).isDisplayed();
-        return this;
+    public boolean findImgLabelArchiveParcels() {
+        return driver.findElement(imgLabelArchiveParcels).isDisplayed();
     }
-    public HomePage findHeadingOurPartners() {
-        driver.findElement(headingOurPartners).isDisplayed();
-        return this;
+    public boolean findHeadingOurPartners() {
+        return driver.findElement(headingOurPartners).isDisplayed();
     }
-    public HomePage findImgNovaPoshta() {
-        driver.findElement(imgNovaPoshta).isDisplayed();
-        return this;
+    public boolean findImgNovaPoshta() {
+        return driver.findElement(imgNovaPoshta).isDisplayed();
     }
-    public HomePage findImgJustin() {
-        driver.findElement(imgJustin).isDisplayed();
-        return this;
+    public boolean findImgJustin() {
+        return driver.findElement(imgJustin).isDisplayed();
     }
-    public HomePage findImgDhl() {
-        driver.findElement(imgDhl).isDisplayed();
-        return this;
+    public boolean findImgDhl() {
+        return driver.findElement(imgDhl).isDisplayed();
     }
-    public HomePage findButtonOfMenu() {
-        driver.findElement(buttonOfMenu).isDisplayed();
-        return this;
+    public boolean findButtonOfMenu() {
+        return driver.findElement(buttonOfMenu).isDisplayed();
     }
-    public HomePage findButtonFollowToLandingPage() {
-        driver.findElement(buttonFollowToLandingPage).isDisplayed();
-        return this;
+    public boolean findButtonFollowToLandingPage() {
+        return driver.findElement(buttonFollowToLandingPage).isDisplayed();
     }
-    public HomePage findButtonForSelectMenuOfLanguage() {
-        driver.findElement(buttonForSelectMenuOfLanguage).isDisplayed();
-        return this;
+    public boolean findButtonForSelectMenuOfLanguage() {
+        return driver.findElement(buttonForSelectMenuOfLanguage).isDisplayed();
     }
-    public HomePage findInputFold() {
-        driver.findElement(inputFold).isDisplayed();
-        return this;
+    public boolean findInputFold() {
+        return driver.findElement(inputFold).isDisplayed();
     }
 }

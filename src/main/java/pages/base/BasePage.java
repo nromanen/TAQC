@@ -16,8 +16,9 @@ public class BasePage {
         this.driver = driver;
     }
 
-    public void open(String url) {
+    public BasePage open(String url) {
         driver.get(url);
+        return this;
     }
 
     public WebElement waitElementIsVisiable(WebElement element) {
