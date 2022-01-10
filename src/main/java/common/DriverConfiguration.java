@@ -11,7 +11,7 @@ import java.util.Properties;
 
 import static common.constants.Constant.TimeoutVariable.IMPLICIT_WAIT;
 
-public class CommonActions {
+public class DriverConfiguration {
     public static WebDriver createDriver() {
         WebDriver driver = null;
         Properties properties = new Properties();
@@ -23,6 +23,7 @@ public class CommonActions {
             exception.printStackTrace();
         }
         driver = new ChromeDriver();
+        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(IMPLICIT_WAIT));
         return driver;
     }
