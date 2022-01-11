@@ -8,6 +8,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static common.constants.Constant.TimeoutVariable.EXPLICIT_WAIT;
+
 public class BasePage {
     protected WebDriver driver;
 
@@ -15,17 +17,13 @@ public class BasePage {
         this.driver = driver;
     }
 
-    /**
-     * Method for open pages
-     * @param url
-     */
-    public void open(String url) {
-
+    public BasePage open(String url) {
         driver.get(url);
+        return this;
     }
 
-    public WebElement waitElementIsVisible(WebElement element) {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(element));
+    public WebElement waitElementIsVisiable(WebElement element) {
+        new WebDriverWait(driver,Duration.ofSeconds(EXPLICIT_WAIT)).until(ExpectedConditions.visibilityOf(element));
         return element;
     }
 
