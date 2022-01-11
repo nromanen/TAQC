@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pages.base.BasePage;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -67,14 +68,14 @@ public class FuncTest {
     @Test
     public void testNotFoundDelivery() {
 
+        String invalidTrackNumb = "1234567890";
         WebElement input = driver.findElement(By.cssSelector("input.MuiInputBase-input"));
-        input.sendKeys("1234567890");
+        input.sendKeys(invalidTrackNumb);
 
-        WebElement buton = driver.findElement(By.cssSelector("button.MuiButtonBase-root.MuiIconButton-root.jss23"));
-        buton.click();
+        WebElement button = driver.findElement(By.cssSelector("button.MuiButtonBase-root.MuiIconButton-root.jss23"));
+        button.click();
 
-        WebElement notf = (new WebDriverWait(driver, Duration.ofSeconds(10)))
-                .until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div.not-found p")));
+        WebElement notf = new BasePage(driver).waitElementIsVisible(By.cssSelector("div.not-found p"));
 
         String actual = notf.getText();
         String expected = "Nothing found...";
@@ -85,15 +86,7 @@ public class FuncTest {
     @Test
     public void testMainButton() {
 
-        driver.get(findUrl);
 
-        WebElement butonMenu = driver.findElement(By.cssSelector("button.MuiButtonBase-root.MuiIconButton-root.jss2.MuiIconButton-colorInherit.MuiIconButton-edgeStart"));
-        butonMenu.click();
-
-        WebElement butonMain = driver.findElement(By.cssSelector("span.MuiTypography-root.MuiListItemText-primary.MuiTypography-body1.MuiTypography-displayBlock"));
-        butonMain.click();
-
-        driver.getCurrentUrl();
 
         WebElement backToHome = (new WebDriverWait(driver, Duration.ofSeconds(10)))
                 .until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div.jss19")));

@@ -2,6 +2,7 @@ package pages.trackster_home;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import pages.base.BasePage;
 
 public class HomePage extends BasePage {
@@ -47,4 +48,14 @@ public class HomePage extends BasePage {
             ("img[src=\"/static/media/justin.112383fd.svg\"]");
     private final By imgDhl = By.cssSelector
             ("img[src=\"/static/media/dhl.eda3e6a1.png\"]");
+    public HomePage searchParcel(String trackN){
+
+        WebElement butonMenu = driver.findElement(By.cssSelector("button.MuiButtonBase-root.MuiIconButton-root.jss2.MuiIconButton-colorInherit.MuiIconButton-edgeStart"));
+        butonMenu.click();
+
+        WebElement butonMain = driver.findElement(By.cssSelector("span.MuiTypography-root.MuiListItemText-primary.MuiTypography-body1.MuiTypography-displayBlock"));
+        butonMain.click();
+
+        return this;
+    }
 }
