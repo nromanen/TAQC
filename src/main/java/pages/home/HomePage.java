@@ -49,14 +49,20 @@ public class HomePage extends BasePage {
     private final By imgDhl = By.cssSelector
             ("img[src=\"/static/media/dhl.eda3e6a1.png\"]");
 
-    /**
-     * Find and click to buttonOfMenu
-     */
-    public HomePage clickToButtonOfMenu() {
-        WebElement buttonOfMenuFind = driver.findElement(buttonOfMenu);
-        buttonOfMenuFind.click();
+
+
+    public HomePage clickToButtonInputSearch() {
+        WebElement buttonInputSearchFind = driver.findElement(buttonForInputSearch);
+        buttonInputSearchFind.click();
         return this;
     }
+
+    public HomePage searchRequest(String val) {
+        WebElement inputTest = driver.findElement(inputFold);
+        inputTest.sendKeys(val);
+        return this;
+    }
+
 
     /**
      * Find and click to buttonForSelectMenuOfLanguage
@@ -88,61 +94,71 @@ public class HomePage extends BasePage {
     /**
      * Methods find elements on page
      */
-    public boolean findToolBar() {
-        return driver.findElement(toolBar).isDisplayed();
-    }
+    public boolean findToolBar() {return driver.findElement(toolBar).isDisplayed();}
+
     public boolean findImgLogo() {
         return driver.findElement(imgLogo).isDisplayed();
     }
+
     public boolean findHeadingFindYourParcel() {
         return driver.findElement(headingFindYourParcel).isDisplayed();
     }
+
     public boolean findButtonForInputSearch() {
         return driver.findElement(buttonForInputSearch).isDisplayed();
     }
+
     public boolean findButtonForSearchByPhoto() {
         return driver.findElement(buttonForSearchByPhoto).isDisplayed();
     }
+
     public boolean findImgLabelFastTracking() {
         return driver.findElement(imgLabelFastTracking).isDisplayed();
     }
+
     public boolean findLabelFastTracking() {
         return driver.findElement(labelFastTracking).isDisplayed();
     }
+
     public boolean findLabelIntuitiveInterface() {
         return driver.findElement(labelIntuitiveInterface).isDisplayed();
     }
-    public boolean findImgLabelIntuitiveInterface() {
-        return driver.findElement(imgLabelIntuitiveInterface).isDisplayed();
-    }
+
+    public boolean findImgLabelIntuitiveInterface() {return driver.findElement(imgLabelIntuitiveInterface).isDisplayed();}
+
     public boolean findLabelArchiveParcels() {
         return driver.findElement(labelArchiveParcels).isDisplayed();
     }
+
     public boolean findImgLabelArchiveParcels() {
         return driver.findElement(imgLabelArchiveParcels).isDisplayed();
     }
+
     public boolean findHeadingOurPartners() {
         return driver.findElement(headingOurPartners).isDisplayed();
     }
+
     public boolean findImgNovaPoshta() {
         return driver.findElement(imgNovaPoshta).isDisplayed();
     }
+
     public boolean findImgJustin() {
         return driver.findElement(imgJustin).isDisplayed();
     }
+
     public boolean findImgDhl() {
         return driver.findElement(imgDhl).isDisplayed();
     }
-    public boolean findButtonOfMenu() {
-        return driver.findElement(buttonOfMenu).isDisplayed();
-    }
-    public boolean findButtonFollowToLandingPage() {
-        return driver.findElement(buttonFollowToLandingPage).isDisplayed();
-    }
-    public boolean findButtonForSelectMenuOfLanguage() {
-        return driver.findElement(buttonForSelectMenuOfLanguage).isDisplayed();
-    }
+
+    public boolean findButtonOfMenu() {return driver.findElement(buttonOfMenu).isDisplayed();}
+
+    public boolean findButtonFollowToLandingPage() {return driver.findElement(buttonFollowToLandingPage).isDisplayed();}
+
+    public boolean findButtonForSelectMenuOfLanguage() {return driver.findElement(buttonForSelectMenuOfLanguage).isDisplayed();}
+
     public boolean findInputFold() {
         return driver.findElement(inputFold).isDisplayed();
     }
+
 }
+

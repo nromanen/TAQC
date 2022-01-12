@@ -8,5 +8,6 @@ public class Constant {
 
     public static  class Urls {
         public static final String HOME_PAGE_URL = "http://ttrackster.herokuapp.com/";
+        public static final String UNK_SEARCH_PAGE_URL = "http://ttrackster.herokuapp.com/tracking?number=12345678";
     }
 }
