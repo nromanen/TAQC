@@ -1,9 +1,10 @@
-package pages.home;
+package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import pages.base.BasePage;
+import pages.*;
+
 
 public class MenuPage extends BasePage {
     public MenuPage(WebDriver driver) {
@@ -21,28 +22,22 @@ public class MenuPage extends BasePage {
     private final By menuBtn = By.xpath
             ("//button[@class=\"MuiButtonBase-root MuiIconButton-root jss2 MuiIconButton-colorInherit MuiIconButton-edgeStart\"]");
 
-    public MenuPage clkMenuBtn() {
-        WebElement menuBtnEl = waitElementIsVisible(menuBtn);
-        menuBtnEl.click();
-        return this;
-    }
-
     public LoginPage clkLoginBtn() {
         WebElement loginBtnTest = waitElementIsVisible(loginBtn);
         loginBtnTest.click();
         return new LoginPage(driver);
     }
 
-    public MenuPage clkSingupBtn() {
+    public SignupPage clkSingupBtn() {
         WebElement singupBtnTest = waitElementIsVisible(singupBtn);
         singupBtnTest.click();
-        return this;
+        return new SignupPage(driver);
     }
 
-    public MenuPage clkMainBtn() {
+    public HomePage clkMainBtn() {
         WebElement mainBtnTest = waitElementIsVisible(mainBtn);
         mainBtnTest.click();
-        return this;
+        return new HomePage(driver);
     }
 
     public boolean isLogInDsp() {
@@ -56,6 +51,11 @@ public class MenuPage extends BasePage {
     }
 
     public boolean isHdnMenuDsp() {
+        WebElement hdnMenuDsp = waitElementIsVisible(hdnMenu);
+        return hdnMenuDsp.isDisplayed();
+    }
+
+    public boolean isUserMenuDsp() {
         WebElement hdnMenuDsp = waitElementIsVisible(hdnMenu);
         return hdnMenuDsp.isDisplayed();
     }

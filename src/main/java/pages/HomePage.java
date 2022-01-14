@@ -1,9 +1,10 @@
-package pages.home;
+package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import pages.base.BasePage;
+import pages.*;
+import pages.BasePage;
 
 public class HomePage extends BasePage {
     public HomePage(WebDriver driver) {
@@ -52,18 +53,23 @@ public class HomePage extends BasePage {
     /**
      * Find and click to buttonOfMenu
      */
-    public HomePage clickMenuBtn() {
-        WebElement btnMenuFind = driver.findElement(btnMenu);
+    public MenuPage clkMenuBtn() {
+        WebElement btnMenuFind = waitElementIsVisible(btnMenu);
         btnMenuFind.click();
-        return this;
+        return new MenuPage(driver);
     }
 
-    public HomePage searchRequest(String val) {
+    public SrchFldPage clkBtnInptSrch() {
+        WebElement buttonInputSearchFind = driver.findElement(btnInputSearch);
+        buttonInputSearchFind.click();
+        return new SrchFldPage(driver);
+    }
+
+    public HomePage srchRqst(String val) {
         WebElement inputTest = driver.findElement(inputFold);
         inputTest.sendKeys(val);
         return this;
     }
-
 
     /**
      * Find and click to buttonForSelectMenuOfLanguage
