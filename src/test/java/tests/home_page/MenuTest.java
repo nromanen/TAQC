@@ -1,10 +1,10 @@
 package tests.home_page;
 
 import org.assertj.core.api.SoftAssertions;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import pages.BasePage;
 import pages.HomePage;
 import pages.LoginPage;
@@ -33,8 +33,10 @@ public class MenuTest extends BaseTest {
     }
 
     @BeforeEach
-    public void beforeEach() {
+    public void beforeEach() throws InterruptedException {
         homePage.open(DriverConfiguration.BASE_URL);
+        homePage.clkMenuBtn().clkUserLogOutBtn();
+        homePage.clkMenuBtn().clkMainBtn();
     }
 
     @Test
@@ -67,7 +69,7 @@ public class MenuTest extends BaseTest {
         homePage.clkMenuBtn()
                 .clkMainBtn();
         String actual = driver.getCurrentUrl();
-        String expected = "http://ttrackster.herokuapp.com/";
+        String expected = "https://ttrackster.herokuapp.com/";
         assertEquals(actual, expected, "Returning to the home page does not work correctly");
     }
 
@@ -77,7 +79,7 @@ public class MenuTest extends BaseTest {
         homePage.clkMenuBtn()
                 .clkLoginBtn();
         String actual = driver.getCurrentUrl();
-        String expected = "http://ttrackster.herokuapp.com/login";
+        String expected = "https://ttrackster.herokuapp.com/login";
         assertEquals(expected, actual, "Going to the login page is incorrect");
     }
 
@@ -87,7 +89,7 @@ public class MenuTest extends BaseTest {
         homePage.clkMenuBtn()
                 .clkSingupBtn();
         String actual = driver.getCurrentUrl();
-        String expected = "http://ttrackster.herokuapp.com/signup";
+        String expected = "https://ttrackster.herokuapp.com/signup";
         assertEquals(actual, expected, "Going to the signup page is incorrect");
     }
 
@@ -127,7 +129,7 @@ public class MenuTest extends BaseTest {
                 .clkUserParselBtn();
 
         String expected = driver.getCurrentUrl();
-        String actual = "http://ttrackster.herokuapp.com/parcels";
+        String actual = "https://ttrackster.herokuapp.com/parcels";
         assertEquals(actual, expected, "Going to the signup page is incorrect");
     }
 
@@ -141,7 +143,9 @@ public class MenuTest extends BaseTest {
                 .clkMenuBtn()
                 .clkUserSetingsBtn();
 
-        assertTrue(true, "Going to the signup page is incorrect");
+        String expected = driver.getCurrentUrl();
+        String actual = "https://ttrackster.herokuapp.com/parcels";
+        assertEquals(actual, expected, "Going to the signup page is incorrect");
     }
 
     @Test
