@@ -65,7 +65,7 @@ public class HomePage extends BasePage {
         return new SrchFldPage(driver);
     }
 
-    public HomePage srchRqst(String val) {
+    public HomePage srchFldParse(String val) {
         WebElement inputTest = driver.findElement(inputFold);
         inputTest.sendKeys(val);
         return this;
