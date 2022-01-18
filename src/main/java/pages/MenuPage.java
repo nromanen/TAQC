@@ -3,7 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
+import pages.*;
 
 
 public class MenuPage extends BasePage {
@@ -19,16 +19,8 @@ public class MenuPage extends BasePage {
             ("//span[contains(.,'Sign Up')]");
     private final By mainBtn = By.xpath
             ("//span[contains(.,'Main')]");
-    private final By userMain = By.cssSelector
-            ("a.MuiButtonBase-root.MuiListItem-root.MuiListItem-gutters.MuiListItem-button:nth-of-type(1)");
-    private final By userParsel = By.cssSelector
-            ("a.MuiButtonBase-root.MuiListItem-root.MuiListItem-gutters.MuiListItem-button:nth-of-type(2)");
-    private final By userSetings = By.cssSelector
-            ("a.MuiButtonBase-root.MuiListItem-root.MuiListItem-gutters.MuiListItem-button:nth-of-type(3)");
-    private final By userLogOut = By.cssSelector
-            ("ul.MuiList-root.MuiList-padding:nth-of-type(2) span.MuiTypography-root.MuiListItemText-primary.MuiTypography-body1.MuiTypography-displayBlock");
-
-
+    private final By menuBtn = By.xpath
+            ("//button[@class=\"MuiButtonBase-root MuiIconButton-root jss2 MuiIconButton-colorInherit MuiIconButton-edgeStart\"]");
 
     public LoginPage clkLoginBtn() {
         WebElement loginBtnTest = waitElementIsVisible(loginBtn);
@@ -48,31 +40,6 @@ public class MenuPage extends BasePage {
         return new HomePage(driver);
     }
 
-    // ------------------------------------------------------
-
-    public SrchFldPage clkUserParselBtn() throws InterruptedException {
-        Thread.sleep(1000);
-        WebElement userParselTest = waitElementIsVisible(userParsel);
-        userParselTest.click();
-        return new SrchFldPage(driver);
-    }
-
-    public HomePage clkUserSetingsBtn() throws InterruptedException {
-        Thread.sleep(1000);
-        WebElement userSetingsTest = waitElementIsVisible(userSetings);
-        userSetingsTest.click();
-        return new HomePage(driver);
-    }
-
-    public HomePage clkUserLogOutBtn() throws InterruptedException {
-        Thread.sleep(1000);
-        WebElement userLogOutTest = waitElementIsVisible(userLogOut);
-        userLogOutTest.click();
-        return new HomePage(driver);
-    }
-
-    // ------------------------------------------------------
-
     public boolean isLogInDsp() {
         WebElement logInDsp = waitElementIsVisible(loginBtn);
         return logInDsp.isDisplayed();
@@ -88,24 +55,29 @@ public class MenuPage extends BasePage {
         return hdnMenuDsp.isDisplayed();
     }
 
-    // ------------------------------------------------------
-
-    public boolean isUserMainDsp() {
-        WebElement userMainDsp = waitElementIsVisible(userMain);
-        return userMainDsp.isDisplayed();
-    }
-    public boolean isUserParselDsp() {
-        WebElement userParselDsp = waitElementIsVisible(userParsel);
-        return userParselDsp.isDisplayed();
-    }
-    public boolean isUserSetingsDsp() {
-        WebElement userSetingsDsp = waitElementIsVisible(userSetings);
-        return userSetingsDsp.isDisplayed();
-    }
-    public boolean isUserLogOutDsp() {
-        WebElement userLogOutDsp = waitElementIsVisible(userLogOut);
-        return userLogOutDsp.isDisplayed();
+    public boolean isUserMenuDsp() {
+        WebElement hdnMenuDsp = waitElementIsVisible(hdnMenu);
+        return hdnMenuDsp.isDisplayed();
     }
 
+    /**
+     * for myParcelsPageTest
+     */
+    private final By tracksterHdng = By.xpath
+            ("//h6[@class=\"MuiTypography-root jss4 MuiTypography-h6\"]");
+
+    public boolean isTracksterHdngDsp() {
+        WebElement tracksterHdngDsp = waitElementIsVisible(tracksterHdng);
+        return tracksterHdngDsp.isDisplayed();
+    }
+
+    private final By logOutBtn = By.xpath
+            ("//ul[2]//a");
+
+    public HomePage clkLogOutBtn() {
+        WebElement clklogoutBtn = waitElementIsVisible(logOutBtn);
+        clklogoutBtn.click();
+        return new HomePage(driver);
+    }
 }
 
