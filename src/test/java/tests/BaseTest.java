@@ -9,7 +9,7 @@ public class BaseTest {
     protected WebDriver driver;
 
     public BaseTest() {
-        driver = new DriverConfiguration().createDriver();
+        driver = DriverConfiguration.createDriver();
     }
 
     @AfterEach
