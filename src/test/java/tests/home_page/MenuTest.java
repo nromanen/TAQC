@@ -127,7 +127,6 @@ public class MenuTest extends BaseTest {
                 .clkSubmitLogin()
                 .clkMenuBtn()
                 .clkUserParselBtn();
-
         String expected = driver.getCurrentUrl();
         String actual = "https://ttrackster.herokuapp.com/parcels";
         assertEquals(actual, expected, "Going to the signup page is incorrect");
