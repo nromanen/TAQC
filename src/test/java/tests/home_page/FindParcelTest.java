@@ -11,6 +11,7 @@ import tests.BaseTest;
 import utils.DriverConfiguration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class FindParcelTest extends BaseTest {
@@ -35,15 +36,68 @@ public class FindParcelTest extends BaseTest {
     public void testNFndDlv() {
 
         String invalidTrackNumb = "1234567890";
-        homePage.srchRqst(invalidTrackNumb)
+        homePage.srchFldParse(invalidTrackNumb)
                 .clkBtnInptSrch();
 
-        WebElement notf = basePage.waitElementIsVisible(By.cssSelector("div.not-found p")); // FIX LATER
-        String actual = notf.getText();
-        String expected = "Nothing found...";
-
-        assertEquals(actual, expected, "The result of an empty search is incorrect");
+        assertTrue(srchFldPage.isNFoundFldDsp(), "There must be a mistake");
     }
+
+    @Test
+    public void testSrch() {
+
+        String trackNumb = "20450498476837";
+        homePage.srchFldParse(trackNumb)
+                .clkBtnInptSrch();
+
+        assertTrue(srchFldPage.isResultSrchDsp(), "Something is wrong with finding a parcel");
+    }
+
+    @Test
+    public void testBtnDetails() {
+
+        String trackNumb = "20450498476837";
+        homePage.srchFldParse(trackNumb)
+                .clkBtnInptSrch()
+                .clkBtnDetails();
+
+        assertTrue(srchFldPage.isMoreDetailsDsp(), "There must be a mistake");
+    }
+
+    @Test
+    public void testIsBtnDetailsDsp() {
+
+        String trackNumb = "20450498476837";
+        homePage.srchFldParse(trackNumb)
+                .clkBtnInptSrch();
+
+        assertTrue(srchFldPage.isBtnDetailsDsp(), "There must be a mistake");
+    }
+
+    @Test
+    public void testIsFldSrchDsp() {
+
+        String trackNumb = "20450498476837";
+        homePage.srchFldParse(trackNumb)
+                .clkBtnInptSrch();
+
+        assertTrue(srchFldPage.isFldSrchDsp(), "There must be a mistake");
+    }
+
+    @Test
+    public void testSrchWork() {
+
+        String trackNumb = "59000777883118";
+
+        homePage.srchFldParse("")
+                .clkBtnInptSrch()
+                .parseFldSrch(trackNumb)
+                .clkBtnSrch();
+
+        assertTrue(srchFldPage.isResultSrchDsp(), "There must be a mistake");
+    }
+
+
+
 
 
 
