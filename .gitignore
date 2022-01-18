@@ -64,3 +64,4 @@ target/
 
 # Ignore for properties
 .properties
+/src/test/resources/
