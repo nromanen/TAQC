@@ -1,14 +1,9 @@
 package tests.home_page;
 
 import org.assertj.core.api.SoftAssertions;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import pages.BasePage;
-import pages.HomePage;
-import pages.LoginPage;
-import pages.MenuPage;
+import pages.*;
 import tests.BaseTest;
 import utils.DriverConfiguration;
 
@@ -23,6 +18,8 @@ public class MenuTest extends BaseTest {
     protected HomePage homePage;
     protected BasePage basePage;
     protected LoginPage loginPage;
+    protected MyParcelsPage myparselPage;
+    protected SettingsPage settingsPage;
 
     public MenuTest() {
         super();
@@ -30,15 +27,18 @@ public class MenuTest extends BaseTest {
         basePage = new BasePage(driver);
         menuPage = new MenuPage(driver);
         loginPage = new LoginPage(driver);
+        myparselPage = new MyParcelsPage(driver);
+        settingsPage = new SettingsPage(driver);
     }
 
     @BeforeEach
-    public void beforeEach() throws InterruptedException {
+    public void beforeEach() {
         homePage.open(DriverConfiguration.BASE_URL);
-        homePage.clkMenuBtn().clkUserLogOutBtn();
-        homePage.clkMenuBtn().clkMainBtn();
     }
 
+    /**
+     * Test whether the menu will be displayed after pressing MenuBatton
+     */
     @Test
     public void testIsHdnMenuDsp() {
 
@@ -46,7 +46,9 @@ public class MenuTest extends BaseTest {
         assertTrue(menuPage.isHdnMenuDsp(), "The menuBtn does not work properly");
     }
 
-
+    /**
+     * Test whether the LoginButton element is displayed
+     */
     @Test
     public void testIsLogInDsp() {
 
@@ -54,13 +56,19 @@ public class MenuTest extends BaseTest {
         assertTrue(menuPage.isLogInDsp(), "There is no LogIn item in the Menu");
     }
 
+    /**
+     * Test whether the SingUpButton element is displayed
+     */
     @Test
     public void testIsSingUpDsp() {
 
         homePage.clkMenuBtn();
-        assertTrue(menuPage.isSingUpDsp(), "There is no SignUp item in the Menu");
+        assertTrue(menuPage.isSignUpDsp(), "There is no SignUp item in the Menu");
     }
 
+    /**
+     * Test whether the Main button works
+     */
     @Test
     public void testMainBtn() {
 
@@ -69,25 +77,33 @@ public class MenuTest extends BaseTest {
         homePage.clkMenuBtn()
                 .clkMainBtn();
         String actual = driver.getCurrentUrl();
-        String expected = "https://ttrackster.herokuapp.com/";
-        assertEquals(actual, expected, "Returning to the home page does not work correctly");
+        String expected = "http://ttrackster.herokuapp.com/";
+        assertEquals(expected,actual , "Returning to the home page does not work correctly");
     }
 
+    /**
+     * Test whether you switch to LoginPage by clicking the LogIn button
+     */
     @Test
     public void testLogInBtn() {
 
         homePage.clkMenuBtn()
                 .clkLoginBtn();
-        String actual = driver.getCurrentUrl();
-        String expected = "https://ttrackster.herokuapp.com/login";
-        assertEquals(expected, actual, "Going to the login page is incorrect");
+
+        assertTrue(loginPage.isDivLoginDsp(), "There is no SignUp item in the Menu");
+
+
     }
 
+    // TODO: 19.01.2022
+    /**
+     * Test whether you switch to SignupPage by clicking the SingUp button
+     */
     @Test
-    public void testSingUpBtn() {
+    public void testSignUpBtn() {
 
         homePage.clkMenuBtn()
-                .clkSingupBtn();
+                .clkSignupBtn();
         String actual = driver.getCurrentUrl();
         String expected = "https://ttrackster.herokuapp.com/signup";
         assertEquals(actual, expected, "Going to the signup page is incorrect");
@@ -95,6 +111,9 @@ public class MenuTest extends BaseTest {
 
     // --------------------------------------------------------------------------------
 
+    /**
+     * Check whether the User Menu is displayed after user authorization
+     */
     @Test
     public void testIsUserMenuDsp() {
 
@@ -118,8 +137,11 @@ public class MenuTest extends BaseTest {
         softAssertions.assertAll();
     }
 
+    /**
+     * Check the transition to the MyParcels page after click
+     */
     @Test
-    public void testUserParselBtn() throws InterruptedException {
+    public void testUserParselBtn() {
 
         homePage.clkMenuBtn()
                 .clkLoginBtn()
@@ -127,28 +149,36 @@ public class MenuTest extends BaseTest {
                 .clkSubmitLogin()
                 .clkMenuBtn()
                 .clkUserParselBtn();
-        String expected = driver.getCurrentUrl();
-        String actual = "https://ttrackster.herokuapp.com/parcels";
-        assertEquals(actual, expected, "Going to the signup page is incorrect");
+
+        assertTrue(myparselPage.isTrckNbrFldDisplayed(), "There is no SignUp item in the Menu");
+
+        homePage.clkMenuBtn().clkUserLogOutBtn();
     }
 
+    /**
+     * Check the transition to the Settings page after click
+     */
     @Test
-    public void testUserSetingsBtn() throws InterruptedException {
+    public void testUserSettingsBtn() {
 
         homePage.clkMenuBtn()
                 .clkLoginBtn()
                 .insertLoginFld(USER_NAME, USER_PASSWORD)
                 .clkSubmitLogin()
                 .clkMenuBtn()
-                .clkUserSetingsBtn();
+                .clkUserSettingsBtn();
 
-        String expected = driver.getCurrentUrl();
-        String actual = "https://ttrackster.herokuapp.com/parcels";
-        assertEquals(actual, expected, "Going to the signup page is incorrect");
+        assertTrue(settingsPage.findheadingProfile(), "Problem settins");
+
+        homePage.clkMenuBtn().clkUserLogOutBtn();
+
     }
 
+    /**
+     * Check log out correctly after clicking on the LogOut button
+     */
     @Test
-    public void testUserLogOutBtn() throws InterruptedException {
+    public void testUserLogOutBtn() {
 
         homePage.clkMenuBtn()
                 .clkLoginBtn()
@@ -164,10 +194,11 @@ public class MenuTest extends BaseTest {
                 .withFailMessage("Menu isn't displayed").isTrue();
         softAssertions.assertThat(menuPage.isLogInDsp())
                 .withFailMessage("LogIn isn't displayed").isTrue();
-        softAssertions.assertThat(menuPage.isSingUpDsp())
+        softAssertions.assertThat(menuPage.isSignUpDsp())
                 .withFailMessage("SingUp isn't displayed").isTrue();
 
         softAssertions.assertAll();
+
     }
 
 }

@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WebDriver;
-import pages.base.BasePage;
 
 public class SettingsPage extends BasePage {
     public SettingsPage(WebDriver driver) {

@@ -19,27 +19,27 @@ public class SrchFldPage extends BasePage {
     private final By resultSrch = By.cssSelector
             ("div.MuiPaper-root.MuiPaper-elevation1.MuiPaper-rounded");
     private final By btnDetails = By.cssSelector
-            ("p.MuiTypography-root.MuiTypography-body1");
+            ("button p.MuiTypography-root.MuiTypography-body1");
     private final By headerDetails = By.cssSelector
-            ("div.jss31");
+            ("div.MuiPaper-root.MuiPaper-elevation1.MuiPaper-rounded div:nth-child(4) div:nth-child(1)");
     private final By bodyDetails = By.cssSelector
-            ("div.jss37");
+            ("div.MuiPaper-root.MuiPaper-elevation1.MuiPaper-rounded div:nth-child(4) div:nth-child(4)");
     private final By statusDetails = By.cssSelector
-            ("div.jss35");
+            ("div.MuiPaper-root.MuiPaper-elevation1.MuiPaper-rounded div:nth-child(4) div:nth-child(5)");
 
     public SrchFldPage parseFldSrch(String req) {
-        WebElement parseFldSrchTest = waitElementIsVisible(fldSrch);
-        parseFldSrchTest.sendKeys(req);
+        WebElement parseFldSrch = waitElementIsVisible(fldSrch);
+        parseFldSrch.sendKeys(req);
         return this;
     }
     public SrchFldPage clkBtnSrch() {
-        WebElement clkBtnSrchTest = waitElementIsVisible(btnSrch);
-        clkBtnSrchTest.click();
+        WebElement clkBtnSrch = waitElementIsVisible(btnSrch);
+        clkBtnSrch.click();
         return this;
     }
     public SrchFldPage clkBtnDetails() {
-        WebElement clkBtnDetailsTest = waitElementIsVisible(btnDetails);
-        clkBtnDetailsTest.click();
+        WebElement clkBtnDetails = waitElementIsVisible(btnDetails);
+        clkBtnDetails.click();
         return this;
     }
 
