@@ -1,9 +1,10 @@
 package tests.home_page;
 
+import org.assertj.core.api.SoftAssertions;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import pages.BasePage;
 import pages.HomePage;
 import pages.LoginPage;
@@ -32,8 +33,10 @@ public class MenuTest extends BaseTest {
     }
 
     @BeforeEach
-    public void beforeEach() {
+    public void beforeEach() throws InterruptedException {
         homePage.open(DriverConfiguration.BASE_URL);
+        homePage.clkMenuBtn().clkUserLogOutBtn();
+        homePage.clkMenuBtn().clkMainBtn();
     }
 
     @Test
@@ -43,17 +46,6 @@ public class MenuTest extends BaseTest {
         assertTrue(menuPage.isHdnMenuDsp(), "The menuBtn does not work properly");
     }
 
-    @Test
-    public void testIsUserMenuDsp() {
-
-
-        homePage.clkMenuBtn()
-                .clkLoginBtn()
-                .insertLoginFld(USER_NAME,USER_PASSWORD)
-                .clkSubmitLogin()
-                .clkMenuBtn();
-        assertTrue(menuPage.isUserMenuDsp(), "The UserMenu does not work properly");
-    }
 
     @Test
     public void testIsLogInDsp() {
@@ -77,7 +69,7 @@ public class MenuTest extends BaseTest {
         homePage.clkMenuBtn()
                 .clkMainBtn();
         String actual = driver.getCurrentUrl();
-        String expected = "http://ttrackster.herokuapp.com/";
+        String expected = "https://ttrackster.herokuapp.com/";
         assertEquals(actual, expected, "Returning to the home page does not work correctly");
     }
 
@@ -87,7 +79,7 @@ public class MenuTest extends BaseTest {
         homePage.clkMenuBtn()
                 .clkLoginBtn();
         String actual = driver.getCurrentUrl();
-        String expected = "http://ttrackster.herokuapp.com/login";
+        String expected = "https://ttrackster.herokuapp.com/login";
         assertEquals(expected, actual, "Going to the login page is incorrect");
     }
 
@@ -97,8 +89,85 @@ public class MenuTest extends BaseTest {
         homePage.clkMenuBtn()
                 .clkSingupBtn();
         String actual = driver.getCurrentUrl();
-        String expected = "http://ttrackster.herokuapp.com/signup";
+        String expected = "https://ttrackster.herokuapp.com/signup";
         assertEquals(actual, expected, "Going to the signup page is incorrect");
+    }
+
+    // --------------------------------------------------------------------------------
+
+    @Test
+    public void testIsUserMenuDsp() {
+
+        homePage.clkMenuBtn()
+                .clkLoginBtn()
+                .insertLoginFld(USER_NAME, USER_PASSWORD)
+                .clkSubmitLogin()
+                .clkMenuBtn();
+
+        SoftAssertions softAssertions = new SoftAssertions();
+
+        softAssertions.assertThat(menuPage.isUserMainDsp())
+                .withFailMessage("UserMain isn't displayed").isTrue();
+        softAssertions.assertThat(menuPage.isUserParselDsp())
+                .withFailMessage("UserParsel isn't displayed").isTrue();
+        softAssertions.assertThat(menuPage.isUserSetingsDsp())
+                .withFailMessage("UserSetings isn't displayed").isTrue();
+        softAssertions.assertThat(menuPage.isUserLogOutDsp())
+                .withFailMessage("UserLogOut isn't displayed").isTrue();
+
+        softAssertions.assertAll();
+    }
+
+    @Test
+    public void testUserParselBtn() throws InterruptedException {
+
+        homePage.clkMenuBtn()
+                .clkLoginBtn()
+                .insertLoginFld(USER_NAME, USER_PASSWORD)
+                .clkSubmitLogin()
+                .clkMenuBtn()
+                .clkUserParselBtn();
+        String expected = driver.getCurrentUrl();
+        String actual = "https://ttrackster.herokuapp.com/parcels";
+        assertEquals(actual, expected, "Going to the signup page is incorrect");
+    }
+
+    @Test
+    public void testUserSetingsBtn() throws InterruptedException {
+
+        homePage.clkMenuBtn()
+                .clkLoginBtn()
+                .insertLoginFld(USER_NAME, USER_PASSWORD)
+                .clkSubmitLogin()
+                .clkMenuBtn()
+                .clkUserSetingsBtn();
+
+        String expected = driver.getCurrentUrl();
+        String actual = "https://ttrackster.herokuapp.com/parcels";
+        assertEquals(actual, expected, "Going to the signup page is incorrect");
+    }
+
+    @Test
+    public void testUserLogOutBtn() throws InterruptedException {
+
+        homePage.clkMenuBtn()
+                .clkLoginBtn()
+                .insertLoginFld(USER_NAME, USER_PASSWORD)
+                .clkSubmitLogin()
+                .clkMenuBtn()
+                .clkUserLogOutBtn()
+                .clkMenuBtn();
+
+        SoftAssertions softAssertions = new SoftAssertions();
+
+        softAssertions.assertThat(menuPage.isHdnMenuDsp())
+                .withFailMessage("Menu isn't displayed").isTrue();
+        softAssertions.assertThat(menuPage.isLogInDsp())
+                .withFailMessage("LogIn isn't displayed").isTrue();
+        softAssertions.assertThat(menuPage.isSingUpDsp())
+                .withFailMessage("SingUp isn't displayed").isTrue();
+
+        softAssertions.assertAll();
     }
 
 }

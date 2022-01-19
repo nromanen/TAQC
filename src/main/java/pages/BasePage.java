@@ -21,11 +21,6 @@ public class BasePage {
         return this;
     }
 
-    public WebElement waitElementIsVisiable(WebElement element) {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(element));
-        return element;
-    }
-
     public WebElement waitElementIsVisible(By by) {
         return new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.presenceOfElementLocated(by));
     }
