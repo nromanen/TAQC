@@ -10,7 +10,7 @@ import java.time.Duration;
 import java.util.Properties;
 
 public class DriverConfiguration {
-    public WebDriver driver;
+    public static WebDriver driver;
     public static String BASE_URL;
     public static Long IMPLICIT_WAIT;
     public static String UNK_SEARCH_PAGE_URL;
@@ -33,7 +33,7 @@ public class DriverConfiguration {
             exception.printStackTrace();
         }
     }
-    public WebDriver createDriver() {
+    public static WebDriver createDriver() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(IMPLICIT_WAIT));

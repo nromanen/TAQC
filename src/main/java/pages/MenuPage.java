@@ -107,5 +107,24 @@ public class MenuPage extends BasePage {
         return userLogOutDsp.isDisplayed();
     }
 
+    /**
+     * for myParcelsPageTest
+     */
+    private final By tracksterHdng = By.xpath
+            ("//h6[@class=\"MuiTypography-root jss4 MuiTypography-h6\"]");
+
+    public boolean isTracksterHdngDsp() {
+        WebElement tracksterHdngDsp = waitElementIsVisible(tracksterHdng);
+        return tracksterHdngDsp.isDisplayed();
+    }
+
+    private final By logOutBtn = By.xpath
+            ("//ul[2]//a");
+
+    public HomePage clkLogOutBtn() {
+        WebElement clklogoutBtn = waitElementIsVisible(logOutBtn);
+        clklogoutBtn.click();
+        return new HomePage(driver);
+    }
 }
 

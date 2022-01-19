@@ -3,8 +3,6 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import pages.*;
-import pages.BasePage;
 
 public class HomePage extends BasePage {
     public HomePage(WebDriver driver) {
@@ -14,44 +12,52 @@ public class HomePage extends BasePage {
     private final By tbr = By.xpath
             ("//header[@class='MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary MuiPaper-elevation0']");
     private final By btnMenu = By.xpath
-            ("//button[@class='MuiButtonBase-root MuiIconButton-root jss2 MuiIconButton-colorInherit MuiIconButton-edgeStart']");
+            ("//div[@class='MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters']//button");
     private final By imgLogo = By.cssSelector
-            ("img[src=\"/static/media/cardboard-box.e6f6462e.svg\"]");
+            ("img[src='/static/media/cardboard-box.e6f6462e.svg']");
     private final By lnkLogo = By.xpath
-            ("//a[@class=\"logo-link active\"]");
+            ("//a[@class='logo-link active']");
     private final By btnListBox = By.xpath
-            ("//div[@aria-haspopup=\"listbox\"]");
-    private final By headingFindYourParcel = By.xpath
-            ("//h5[@class=\"MuiTypography-root jss13 MuiTypography-h5\"]");
-    private final By inputFold = By.xpath
-            ("//input[@class=\"MuiInputBase-input\"]");
-    private final By btnInputSearch = By.xpath
-            ("//button[@type=\"submit\"]");
-    private final By btnSearchByPhoto = By.xpath
-            ("(//button[@class=\"MuiButtonBase-root MuiIconButton-root jss23\"])[2]");
-    private final By imgLabelFastTracking = By.xpath
-            ("(//div[@class=\"jss15\"]/*[name()='svg'])[1]");
-    private final By labelFastTracking = By.xpath
-            ("//div[@class=\"jss15\"][1]");
-    private final By labelIntuitiveInterface = By.xpath
-            ("//div[@class=\"jss15\"][2]");
-    private final By imgLabelIntuitiveInterface = By.xpath
-            ("(//div[@class=\"jss15\"]/*[name()='svg'])[2]");
-    private final By labelArchiveParcels = By.xpath
-            ("//div[@class=\"jss15\"][3]");
-    private final By imgLabelArchiveParcels = By.xpath
-            ("(//div[@class=\"jss15\"]/*[name()='svg'])[3]");
-    private final By headingOurPartners = By.xpath
-            ("//h4[@class=\"MuiTypography-root jss13 MuiTypography-h4\"]");
+            ("//div[@aria-haspopup='listbox']");
+    private final By hdngFindYourParcel = By.xpath
+            ("//h5[contains(@class, 'MuiTypography-h5')]");
+    private final By inptField = By.xpath
+            ("//input[@class='MuiInputBase-input']");
+    private final By btnInptSearch = By.xpath
+            ("//button[@type='submit']");
+    private final By btnSrchByPhoto = By.xpath
+            ("(//button[contains(@class, 'MuiButtonBase-root MuiIconButton-root')])[4]");
+    private final By imgLbFastTracking = By.xpath
+            ("(//div[@class='jss15']/*[name()='svg'])[1]");
+    private final By lbFastTracking = By.xpath
+            ("//div[@class='jss15'][1]");
+    private final By lbIntuitiveInterface = By.xpath
+            ("//div[@class='jss15'][2]");
+    private final By imgLbIntuitiveInterface = By.xpath
+            ("(//div[@class='jss15']/*[name()='svg'])[2]");
+    private final By lbArchiveParcels = By.xpath
+            ("//div[@class='jss15'][3]");
+    private final By imgLbArchiveParcels = By.xpath
+            ("(//div[@class='jss15']/*[name()='svg'])[3]");
+    private final By hdngOurPartners = By.xpath
+            ("//h4[@class='MuiTypography-root jss13 MuiTypography-h4']");
     private final By imgNovaPoshta = By.cssSelector
-            ("img[src=\"/static/media/nova-poshta.7e612a5d.png\"]");
+            ("img[src='/static/media/nova-poshta.7e612a5d.png']");
     private final By imgJustin = By.cssSelector
-            ("img[src=\"/static/media/justin.112383fd.svg\"]");
+            ("img[src='/static/media/justin.112383fd.svg']");
     private final By imgDhl = By.cssSelector
-            ("img[src=\"/static/media/dhl.eda3e6a1.png\"]");
+            ("img[src='/static/media/dhl.eda3e6a1.png']");
+    private final By uaBtnLanguage = By.xpath
+            ("//li[@class='MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button']");
+    private final By hdngUa = By.xpath
+            ("//h5[text()='Знайдіть вашу посилку в один клік']");
+    private final By engBtnLanguage = By.xpath
+            ("//li[@class='MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button']");
+    private final By hdngEng = By.xpath
+            ("//h5[text()='Find your parcel just in one moment']");
 
     /**
-     * Find and click to buttonOfMenu
+     * Find and click on buttonOfMenu
      */
     public MenuPage clkMenuBtn() {
         WebElement btnMenuFind = waitElementIsVisible(btnMenu);
@@ -59,14 +65,17 @@ public class HomePage extends BasePage {
         return new MenuPage(driver);
     }
 
+    /**
+     * Find and click on button Input Search
+     */
     public SrchFldPage clkBtnInptSrch() {
-        WebElement buttonInputSearchFind = driver.findElement(btnInputSearch);
+        WebElement buttonInputSearchFind = driver.findElement(btnInptSearch);
         buttonInputSearchFind.click();
         return new SrchFldPage(driver);
     }
 
     public HomePage srchFldParse(String val) {
-        WebElement inputTest = driver.findElement(inputFold);
+        WebElement inputTest = driver.findElement(inptField);
         inputTest.sendKeys(val);
         return this;
     }
@@ -74,109 +83,131 @@ public class HomePage extends BasePage {
     /**
      * Find and click to buttonForSelectMenuOfLanguage
      */
-    public HomePage clickListBoxBtn() {
+    public HomePage clkListBoxBtn() {
         WebElement btnListBoxFind = driver.findElement(btnListBox);
         btnListBoxFind.click();
         return this;
     }
 
     /**
-     * Find and click to inputFold
+     * Click UA button to change Language on Page
      */
-    public HomePage clickInputFold() {
-        WebElement inputFoldFind = driver.findElement(inputFold);
-        inputFoldFind.click();
+    public HomePage clkUaBtn() {
+        WebElement uaBtn = waitElementIsVisible(uaBtnLanguage);
+        uaBtn.click();
         return this;
     }
 
     /**
-     * Find and click to Trackster link
+     * Heading on Ukrainian
      */
-    public HomePage clickLnkLogo() {
+    public boolean isUaHdngDisplayed() {
+        return driver.findElement(hdngUa).isDisplayed();
+    }
+
+    /**
+     * Click ENG button to change Language on Page
+     */
+    public HomePage clkEngBtn() {
+        WebElement engBtn = waitElementIsVisible(engBtnLanguage);
+        engBtn.click();
+        return this;
+    }
+
+    /**
+     * Heading on English
+     */
+    public boolean isEngHdngDisplayed() {
+        return driver.findElement(hdngEng).isDisplayed();
+    }
+
+    /**
+     * Find and click on Trackster link
+     */
+    public HomePage clkLnkLogo() {
         WebElement lnkLogoFind = driver.findElement(lnkLogo);
         lnkLogoFind.click();
         return this;
     }
 
     /**
-     * Methods find elements on HomePage
+     * Methods find elements on page
      */
-    public boolean isTbrDisplayed() {
+    public boolean isTbrDsp() {
 
         return driver.findElement(tbr).isDisplayed();
     }
-    public boolean isImgLogoDisplayed() {
+    public boolean isImgLogoDsp() {
 
         return driver.findElement(imgLogo).isDisplayed();
     }
-    public boolean isHeadingFindYourParcelDisplayed() {
+    public boolean isHdngFindYourParcelDsp() {
 
-        return driver.findElement(headingFindYourParcel).isDisplayed();
+        return driver.findElement(hdngFindYourParcel).isDisplayed();
     }
-    public boolean isBtnInputSearchDisplayed() {
+    public boolean isBtnInptSrchDsp() {
 
-        return driver.findElement(btnInputSearch).isDisplayed();
+        return driver.findElement(btnInptSearch).isDisplayed();
     }
-    public boolean isBtnSearchByPhoto() {
+    public boolean isBtnSrchByPhotoDsp() {
 
-        return driver.findElement(btnSearchByPhoto).isDisplayed();
+        return driver.findElement(btnSrchByPhoto).isDisplayed();
     }
-    public boolean isImgLabelFastTrackingDisplayed() {
+    public boolean isImgFastTrackingDsp() {
 
-        return driver.findElement(imgLabelFastTracking).isDisplayed();
+        return driver.findElement(imgLbFastTracking).isDisplayed();
     }
-    public boolean isLabelFastTrackingDisplayed() {
+    public boolean isLbFastTrackingDsp() {
 
-        return driver.findElement(labelFastTracking).isDisplayed();
+        return driver.findElement(lbFastTracking).isDisplayed();
     }
-    public boolean isLabelIntuitiveInterfaceDisplayed() {
+    public boolean isLbIntuitiveInterfaceDsp() {
 
-        return driver.findElement(labelIntuitiveInterface).isDisplayed();
+        return driver.findElement(lbIntuitiveInterface).isDisplayed();
     }
-    public boolean isImgLabelIntuitiveInterfaceDisplayed() {
+    public boolean isImgIntuitiveInterfaceDsp() {
 
-        return driver.findElement(imgLabelIntuitiveInterface).isDisplayed();
+        return driver.findElement(imgLbIntuitiveInterface).isDisplayed();
     }
-    public boolean isLabelArchiveParcelsDisplayed() {
+    public boolean isLbArchiveParcelsDsp() {
 
-        return driver.findElement(labelArchiveParcels).isDisplayed();
+        return driver.findElement(lbArchiveParcels).isDisplayed();
     }
-    public boolean isImgLabelArchiveParcelsDisplayed() {
+    public boolean isImgArchiveParcelsDsp() {
 
-        return driver.findElement(imgLabelArchiveParcels).isDisplayed();
+        return driver.findElement(imgLbArchiveParcels).isDisplayed();
     }
-    public boolean isHeadingOurPartnersDisplayed() {
+    public boolean isHdngOurPartnersDsp() {
 
-        return driver.findElement(headingOurPartners).isDisplayed();
+        return driver.findElement(hdngOurPartners).isDisplayed();
     }
-    public boolean isImgNovaPoshtaDisplayed() {
+    public boolean isImgNovaPoshtaDsp() {
 
         return driver.findElement(imgNovaPoshta).isDisplayed();
     }
-    public boolean isImgJustinDisplayed() {
+    public boolean isImgJustinDsp() {
 
         return driver.findElement(imgJustin).isDisplayed();
     }
-    public boolean isImgDhlDisplayed() {
+    public boolean isImgDhlDsp() {
 
         return driver.findElement(imgDhl).isDisplayed();
     }
-    public boolean isBtnMenuDisplayed() {
+    public boolean isBtnMenuDsp() {
 
         return driver.findElement(btnMenu).isDisplayed();
     }
-    public boolean isLnkLogoDisplayed() {
+    public boolean isLnkLogoDsp() {
 
         return driver.findElement(lnkLogo).isDisplayed();
     }
-    public boolean isBtnListBoxDisplayed() {
+    public boolean isBtnListBoxDsp() {
 
         return driver.findElement(btnListBox).isDisplayed();
     }
-    public boolean isInputFoldDisplayed() {
+    public boolean isInptFieldDsp() {
 
-        return driver.findElement(inputFold).isDisplayed();
+        return driver.findElement(inptField).isDisplayed();
     }
-
 }
 

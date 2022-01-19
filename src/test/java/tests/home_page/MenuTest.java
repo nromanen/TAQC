@@ -5,6 +5,8 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import pages.BasePage;
 import pages.HomePage;
 import pages.LoginPage;
@@ -66,7 +68,6 @@ public class MenuTest extends BaseTest {
 
         homePage.clkMenuBtn()
                 .clkMainBtn();
-
         String actual = driver.getCurrentUrl();
         String expected = "https://ttrackster.herokuapp.com/";
         assertEquals(actual, expected, "Returning to the home page does not work correctly");
@@ -130,13 +131,10 @@ public class MenuTest extends BaseTest {
         String expected = driver.getCurrentUrl();
         String actual = "https://ttrackster.herokuapp.com/parcels";
         assertEquals(actual, expected, "Going to the signup page is incorrect");
-
-        homePage.clkMenuBtn().clkUserLogOutBtn();
-
     }
 
     @Test
-    public void testUserSettingsBtn() throws InterruptedException {
+    public void testUserSetingsBtn() throws InterruptedException {
 
         homePage.clkMenuBtn()
                 .clkLoginBtn()
