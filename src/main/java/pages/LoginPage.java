@@ -9,6 +9,8 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
+    private final By divLogin = By.cssSelector("div.MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-md-6.MuiGrid-grid-lg-4");
+
     private final By userEmail = By.cssSelector("input#email");
     private final By userPassword = By.cssSelector("input#password");
     private final By loginBtn = By.xpath("//button[@type=\"submit\"]");
@@ -45,6 +47,10 @@ public class LoginPage extends BasePage {
         WebElement loginBtnClk = waitElementIsVisible(loginBtn);
         loginBtnClk.click();
         return new HomePage(driver);
+    }
+
+    public boolean isDivLoginDsp() {
+        return driver.findElement(divLogin).isDisplayed();
     }
 
     /**

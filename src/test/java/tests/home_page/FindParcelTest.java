@@ -32,6 +32,9 @@ public class FindParcelTest extends BaseTest {
         srchFldPage.open(DriverConfiguration.BASE_URL);
     }
 
+    /**
+     * Test window not found parcel
+     */
     @Test
     public void testNFndDlv() {
 
@@ -42,8 +45,11 @@ public class FindParcelTest extends BaseTest {
         assertTrue(srchFldPage.isNFoundFldDsp(), "There must be a mistake");
     }
 
+    /**
+     * Test whether the search for a valid track number works
+     */
     @Test
-    public void testSrch() {
+    public void testResultSrchDsp() {
 
         String trackNumb = "20450498476837";
         homePage.srchFldParse(trackNumb)
@@ -52,8 +58,11 @@ public class FindParcelTest extends BaseTest {
         assertTrue(srchFldPage.isResultSrchDsp(), "Something is wrong with finding a parcel");
     }
 
+    /**
+     * Check that all fields of advanced Details are displayed
+     */
     @Test
-    public void testBtnDetails() {
+    public void testBtnDetailsDsp() {
 
         String trackNumb = "20450498476837";
         homePage.srchFldParse(trackNumb)
@@ -63,6 +72,9 @@ public class FindParcelTest extends BaseTest {
         assertTrue(srchFldPage.isMoreDetailsDsp(), "There must be a mistake");
     }
 
+    /**
+     * Check the presence of the Details button
+     */
     @Test
     public void testIsBtnDetailsDsp() {
 
@@ -73,6 +85,9 @@ public class FindParcelTest extends BaseTest {
         assertTrue(srchFldPage.isBtnDetailsDsp(), "There must be a mistake");
     }
 
+    /**
+     * Check the presence of the search field
+     */
     @Test
     public void testIsFldSrchDsp() {
 
@@ -83,6 +98,9 @@ public class FindParcelTest extends BaseTest {
         assertTrue(srchFldPage.isFldSrchDsp(), "There must be a mistake");
     }
 
+    /**
+     * Test whether the search works correctly on SrchFldPage
+     */
     @Test
     public void testSrchWork() {
 
