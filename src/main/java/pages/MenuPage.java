@@ -23,7 +23,7 @@ public class MenuPage extends BasePage {
             ("a.MuiButtonBase-root.MuiListItem-root.MuiListItem-gutters.MuiListItem-button:nth-of-type(1)");
     private final By userParsel = By.cssSelector
             ("a.MuiButtonBase-root.MuiListItem-root.MuiListItem-gutters.MuiListItem-button:nth-of-type(2)");
-    private final By userSetings = By.cssSelector
+    private final By userSettings = By.cssSelector
             ("a.MuiButtonBase-root.MuiListItem-root.MuiListItem-gutters.MuiListItem-button:nth-of-type(3)");
     private final By userLogOut = By.cssSelector
             ("ul.MuiList-root.MuiList-padding:nth-of-type(2) span.MuiTypography-root.MuiListItemText-primary.MuiTypography-body1.MuiTypography-displayBlock");
@@ -57,9 +57,9 @@ public class MenuPage extends BasePage {
         return new SrchFldPage(driver);
     }
 
-    public HomePage clkUserSetingsBtn() throws InterruptedException {
+    public HomePage clkUserSettingsBtn() throws InterruptedException {
         Thread.sleep(1000);
-        WebElement userSetingsTest = waitElementIsVisible(userSetings);
+        WebElement userSetingsTest = waitElementIsVisible(userSettings);
         userSetingsTest.click();
         return new HomePage(driver);
     }
@@ -99,7 +99,7 @@ public class MenuPage extends BasePage {
         return userParselDsp.isDisplayed();
     }
     public boolean isUserSetingsDsp() {
-        WebElement userSetingsDsp = waitElementIsVisible(userSetings);
+        WebElement userSetingsDsp = waitElementIsVisible(userSettings);
         return userSetingsDsp.isDisplayed();
     }
     public boolean isUserLogOutDsp() {

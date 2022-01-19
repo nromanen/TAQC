@@ -33,10 +33,8 @@ public class MenuTest extends BaseTest {
     }
 
     @BeforeEach
-    public void beforeEach() throws InterruptedException {
+    public void beforeEach() {
         homePage.open(DriverConfiguration.BASE_URL);
-        homePage.clkMenuBtn().clkUserLogOutBtn();
-        homePage.clkMenuBtn().clkMainBtn();
     }
 
     @Test
@@ -68,6 +66,7 @@ public class MenuTest extends BaseTest {
 
         homePage.clkMenuBtn()
                 .clkMainBtn();
+
         String actual = driver.getCurrentUrl();
         String expected = "https://ttrackster.herokuapp.com/";
         assertEquals(actual, expected, "Returning to the home page does not work correctly");
@@ -131,21 +130,27 @@ public class MenuTest extends BaseTest {
         String expected = driver.getCurrentUrl();
         String actual = "https://ttrackster.herokuapp.com/parcels";
         assertEquals(actual, expected, "Going to the signup page is incorrect");
+
+        homePage.clkMenuBtn().clkUserLogOutBtn();
+
     }
 
     @Test
-    public void testUserSetingsBtn() throws InterruptedException {
+    public void testUserSettingsBtn() throws InterruptedException {
 
         homePage.clkMenuBtn()
                 .clkLoginBtn()
                 .insertLoginFld(USER_NAME, USER_PASSWORD)
                 .clkSubmitLogin()
                 .clkMenuBtn()
-                .clkUserSetingsBtn();
+                .clkUserSettingsBtn();
 
         String expected = driver.getCurrentUrl();
-        String actual = "https://ttrackster.herokuapp.com/parcels";
+        String actual = "https://ttrackster.herokuapp.com/settings";
         assertEquals(actual, expected, "Going to the signup page is incorrect");
+
+        homePage.clkMenuBtn().clkUserLogOutBtn();
+
     }
 
     @Test
@@ -169,6 +174,7 @@ public class MenuTest extends BaseTest {
                 .withFailMessage("SingUp isn't displayed").isTrue();
 
         softAssertions.assertAll();
+
     }
 
 }
