@@ -1,5 +1,6 @@
 package tests.home_page;
 
+import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -43,17 +44,6 @@ public class MenuTest extends BaseTest {
         assertTrue(menuPage.isHdnMenuDsp(), "The menuBtn does not work properly");
     }
 
-    @Test
-    public void testIsUserMenuDsp() {
-
-
-        homePage.clkMenuBtn()
-                .clkLoginBtn()
-                .insertLoginFld(USER_NAME,USER_PASSWORD)
-                .clkSubmitLogin()
-                .clkMenuBtn();
-        assertTrue(menuPage.isUserMenuDsp(), "The UserMenu does not work properly");
-    }
 
     @Test
     public void testIsLogInDsp() {
@@ -99,6 +89,82 @@ public class MenuTest extends BaseTest {
         String actual = driver.getCurrentUrl();
         String expected = "http://ttrackster.herokuapp.com/signup";
         assertEquals(actual, expected, "Going to the signup page is incorrect");
+    }
+
+    // --------------------------------------------------------------------------------
+
+    @Test
+    public void testIsUserMenuDsp() {
+
+        homePage.clkMenuBtn()
+                .clkLoginBtn()
+                .insertLoginFld(USER_NAME, USER_PASSWORD)
+                .clkSubmitLogin()
+                .clkMenuBtn();
+
+        SoftAssertions softAssertions = new SoftAssertions();
+
+        softAssertions.assertThat(menuPage.isUserMainDsp())
+                .withFailMessage("UserMain isn't displayed").isTrue();
+        softAssertions.assertThat(menuPage.isUserParselDsp())
+                .withFailMessage("UserParsel isn't displayed").isTrue();
+        softAssertions.assertThat(menuPage.isUserSetingsDsp())
+                .withFailMessage("UserSetings isn't displayed").isTrue();
+        softAssertions.assertThat(menuPage.isUserLogOutDsp())
+                .withFailMessage("UserLogOut isn't displayed").isTrue();
+
+        softAssertions.assertAll();
+    }
+
+    @Test
+    public void testUserParselBtn() {
+
+        homePage.clkMenuBtn()
+                .clkLoginBtn()
+                .insertLoginFld(USER_NAME, USER_PASSWORD)
+                .clkSubmitLogin()
+                .clkMenuBtn()
+                .clkUserParselBtn();
+
+        String expected = driver.getCurrentUrl();
+        String actual = "http://ttrackster.herokuapp.com/parcels";
+        assertEquals(actual, expected, "Going to the signup page is incorrect");
+    }
+
+    @Test
+    public void testUserSetingsBtn() {
+        homePage.clkMenuBtn()
+                .clkLoginBtn()
+                .insertLoginFld(USER_NAME, USER_PASSWORD)
+                .clkSubmitLogin()
+                .clkMenuBtn()
+                .clkUserSetingsBtn();
+
+        String actual = driver.getCurrentUrl();
+        String expected = "http://ttrackster.herokuapp.com/settings";
+        assertEquals(actual, expected, "Going to the signup page is incorrect");
+    }
+    @Test
+    public void testUserLogOutBtn() {
+
+        homePage.clkMenuBtn()
+                .clkLoginBtn()
+                .insertLoginFld(USER_NAME, USER_PASSWORD)
+                .clkSubmitLogin()
+                .clkMenuBtn()
+                .clkUserLogOutBtn()
+                .clkMenuBtn();
+
+        SoftAssertions softAssertions = new SoftAssertions();
+
+        softAssertions.assertThat(menuPage.isHdnMenuDsp())
+                .withFailMessage("Menu isn't displayed").isTrue();
+        softAssertions.assertThat(menuPage.isLogInDsp())
+                .withFailMessage("LogIn isn't displayed").isTrue();
+        softAssertions.assertThat(menuPage.isSingUpDsp())
+                .withFailMessage("SingUp isn't displayed").isTrue();
+
+        softAssertions.assertAll();
     }
 
 }
