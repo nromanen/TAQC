@@ -19,6 +19,7 @@ public class MenuTest extends BaseTest {
     protected BasePage basePage;
     protected LoginPage loginPage;
     protected MyParcelsPage myparselPage;
+    protected SettingsPage settingsPage;
 
     public MenuTest() {
         super();
@@ -27,6 +28,7 @@ public class MenuTest extends BaseTest {
         menuPage = new MenuPage(driver);
         loginPage = new LoginPage(driver);
         myparselPage = new MyParcelsPage(driver);
+        settingsPage = new SettingsPage(driver);
     }
 
     @BeforeEach
@@ -153,7 +155,6 @@ public class MenuTest extends BaseTest {
         homePage.clkMenuBtn().clkUserLogOutBtn();
     }
 
-    // TODO: 19.01.2022
     /**
      * Check the transition to the Settings page after click
      */
@@ -167,9 +168,7 @@ public class MenuTest extends BaseTest {
                 .clkMenuBtn()
                 .clkUserSettingsBtn();
 
-        String expected = driver.getCurrentUrl();
-        String actual = "https://ttrackster.herokuapp.com/settings";
-        assertEquals(actual, expected, "Going to the signup page is incorrect");
+        assertTrue(settingsPage.findheadingProfile(), "Problem settins");
 
         homePage.clkMenuBtn().clkUserLogOutBtn();
 
