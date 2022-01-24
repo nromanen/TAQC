@@ -71,6 +71,7 @@ public class HomePage extends BasePage {
     public SrchFldPage clkBtnInptSrch() {
         WebElement buttonInputSearchFind = driver.findElement(btnInptSearch);
         buttonInputSearchFind.click();
+        // driver.findElement(btnInptSearch).click();
         return new SrchFldPage(driver);
     }
 

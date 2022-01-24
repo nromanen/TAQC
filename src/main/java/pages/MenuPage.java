@@ -11,97 +11,113 @@ public class MenuPage extends BasePage {
         super(driver);
     }
 
+
+//    private final By hdnMenu = By.xpath
+//            ("//*[@id=\"root\"]/div/div[1]/div/div");
     private final By hdnMenu = By.cssSelector
-            ("div.MuiPaper-root.MuiDrawer-paper.jss7.MuiDrawer-paperAnchorLeft.MuiDrawer-paperAnchorDockedLeft.MuiPaper-elevation0");
-    private final By loginBtn = By.xpath
-            ("//span[contains(.,'Log In')]");
-    private final By signupBtn = By.xpath
-            ("//span[contains(.,'Sign Up')]");
-    private final By mainBtn = By.xpath
-            ("//span[contains(.,'Main')]");
+            ("div.jss1 > div.MuiDrawer-root.MuiDrawer-docked > div");
+
+//    private final By loginBtn = By.xpath
+//            ("//span[contains(.,'Log In')]");
+    private final By loginBtn = By.cssSelector
+            ("div.MuiPaper-root.MuiDrawer-paper.MuiDrawer-paperAnchorLeft.MuiDrawer-paperAnchorDockedLeft.MuiPaper-elevation0 > ul:nth-child(5) > a:nth-child(1)");
+
+//    private final By signupBtn = By.xpath
+//            ("//span[contains(.,'Sign Up')]");
+    private final By signupBtn = By.cssSelector
+            ("div > ul:nth-child(5) > a:nth-child(2) > div.MuiListItemText-root > span");
+
+//    private final By mainBtn = By.xpath
+//            ("//span[contains(.,'Main')]");
+    private final By mainBtn = By.cssSelector
+            ("div > ul:nth-child(3) > a:nth-child(1) > div.MuiListItemText-root > span");
+
+//    private final By userMain = By.xpath
+//            ("//*[@id=\"root\"]/div/div[1]/div/div/ul[1]/a");
     private final By userMain = By.cssSelector
-            ("a.MuiButtonBase-root.MuiListItem-root.MuiListItem-gutters.MuiListItem-button:nth-of-type(1)");
-    private final By userParsel = By.xpath
-            ("//span[contains(.,'My Parcels')]");
-    private final By userSettings = By.xpath
-            ("//span[contains(.,'Settings')]");
+            ("div > ul:nth-child(3) > a:nth-child(1) > div.MuiListItemText-root > span");
+
+//    private final By userParsel = By.xpath
+//            ("//span[contains(.,'My Parcels')]");
+    private final By userParsel = By.cssSelector
+            ("div > ul:nth-child(3) > a.MuiButtonBase-root.MuiListItem-root.jss10.MuiListItem-gutters.MuiListItem-button.active > div.MuiListItemText-root > span");
+
+
+//    private final By userSettings = By.xpath
+//            ("//span[contains(.,'Settings')]");
+    private final By userSettings = By.cssSelector
+            ("div.MuiPaper-root.MuiDrawer-paper.MuiDrawer-paperAnchorLeft.MuiDrawer-paperAnchorDockedLeft.MuiPaper-elevation0 > ul:nth-child(3) > a:nth-child(3)");
+
+
     private final By userLogOut = By.xpath
             ("//span[contains(.,'Log Out')]");
+
+//  It needs to be changed because there are problems with localization, or finds another element
+
+//  private final By userLogOut = By.cssSelector
+//            ("div > ul:nth-child(5) > a > div.MuiListItemText-root > span");
 
 
 
     public LoginPage clkLoginBtn() {
-        WebElement loginBtnClk = waitElementIsVisible(loginBtn);
-        loginBtnClk.click();
+        waitElementIsVisible(loginBtn).click();
         return new LoginPage(driver);
     }
 
     public SignupPage clkSignupBtn() {
-        WebElement signupBtnClk = waitElementIsVisible(signupBtn);
-        signupBtnClk.click();
+        waitElementIsVisible(signupBtn).click();
         return new SignupPage(driver);
     }
 
     public HomePage clkMainBtn() {
-        WebElement mainBtnClk = waitElementIsVisible(mainBtn);
-        mainBtnClk.click();
+        waitElementIsVisible(mainBtn).click();
         return new HomePage(driver);
     }
 
     // ------------------------------------------------------
 
     public MyParcelsPage clkUserParselBtn() {
-        WebElement userParselClk = waitElementIsVisible(userParsel);
-        userParselClk.click();
+        waitElementIsVisible(userParsel).click();
         return new MyParcelsPage(driver);
     }
 
     public HomePage clkUserSettingsBtn() {
-        WebElement userSetingsClk = waitElementIsVisible(userSettings);
-        userSetingsClk.click();
+        waitElementIsVisible(userSettings).click();
         return new HomePage(driver);
     }
 
     public HomePage clkUserLogOutBtn() {
-        WebElement userLogOutClk = waitElementIsVisible(userLogOut);
-        userLogOutClk.click();
+        waitElementIsVisible(userLogOut).click();
         return new HomePage(driver);
     }
 
     // ------------------------------------------------------
 
     public boolean isLogInDsp() {
-        WebElement logInDsp = waitElementIsVisible(loginBtn);
-        return logInDsp.isDisplayed();
+        return waitElementIsVisible(loginBtn).isDisplayed();
     }
 
     public boolean isSignUpDsp() {
-        WebElement signUpDsp = waitElementIsVisible(signupBtn);
-        return signUpDsp.isDisplayed();
+        return waitElementIsVisible(signupBtn).isDisplayed();
     }
 
     public boolean isHdnMenuDsp() {
-        WebElement hdnMenuDsp = waitElementIsVisible(hdnMenu);
-        return hdnMenuDsp.isDisplayed();
+        return waitElementIsVisible(hdnMenu).isDisplayed();
     }
 
     // ------------------------------------------------------
 
     public boolean isUserMainDsp() {
-        WebElement userMainDsp = waitElementIsVisible(userMain);
-        return userMainDsp.isDisplayed();
+        return waitElementIsVisible(userMain).isDisplayed();
     }
     public boolean isUserParselDsp() {
-        WebElement userParselDsp = waitElementIsVisible(userParsel);
-        return userParselDsp.isDisplayed();
+        return waitElementIsVisible(userParsel).isDisplayed();
     }
     public boolean isUserSetingsDsp() {
-        WebElement userSetingsDsp = waitElementIsVisible(userSettings);
-        return userSetingsDsp.isDisplayed();
+        return waitElementIsVisible(userSettings).isDisplayed();
     }
     public boolean isUserLogOutDsp() {
-        WebElement userLogOutDsp = waitElementIsVisible(userLogOut);
-        return userLogOutDsp.isDisplayed();
+        return waitElementIsVisible(userLogOut).isDisplayed();
     }
 
     /**
@@ -111,16 +127,14 @@ public class MenuPage extends BasePage {
             ("//h6[@class=\"MuiTypography-root jss4 MuiTypography-h6\"]");
 
     public boolean isTracksterHdngDsp() {
-        WebElement tracksterHdngDsp = waitElementIsVisible(tracksterHdng);
-        return tracksterHdngDsp.isDisplayed();
+        return waitElementIsVisible(tracksterHdng).isDisplayed();
     }
 
     private final By logOutBtn = By.xpath
             ("//ul[2]//a");
 
     public HomePage clkLogOutBtn() {
-        WebElement clklogoutBtn = waitElementIsVisible(logOutBtn);
-        clklogoutBtn.click();
+        waitElementIsVisible(logOutBtn).click();
         return new HomePage(driver);
     }
 }

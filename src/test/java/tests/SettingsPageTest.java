@@ -1,2 +1,4 @@
-package tests;public class SettingsPageTest {
+package tests;
+
+public class SettingsPageTest {
 }
