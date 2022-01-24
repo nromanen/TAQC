@@ -3,19 +3,20 @@ package tests;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import pages.BasePage;
-import pages.HomePage;
-import pages.LoginPage;
-import pages.MenuPage;
+import pages.*;
 import utils.DriverConfiguration;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static utils.DriverConfiguration.USER_NAME;
+import static utils.DriverConfiguration.USER_PASSWORD;
 
 public class LoginPageTest extends BaseTest {
     protected LoginPage loginPage;
     protected MenuPage menuPage;
     protected HomePage homePage;
     protected BasePage basePage;
+    protected SettingsPage settingsPage;
+    protected MyParcelsPage myParcelsPage;
 
     public LoginPageTest() {
         super();
@@ -23,6 +24,8 @@ public class LoginPageTest extends BaseTest {
         homePage = new HomePage(driver);
         basePage = new BasePage(driver);
         menuPage = new MenuPage(driver);
+        settingsPage = new SettingsPage(driver);
+        myParcelsPage = new MyParcelsPage(driver);
 
     }
 
@@ -62,6 +65,9 @@ public class LoginPageTest extends BaseTest {
 
     }
 
+    /**
+     * Test to verify that all buttons is clickable
+     */
     @Test
     public void isEmailFieldIsDsp() {
         homePage.clkMenuBtn()
@@ -104,16 +110,40 @@ public class LoginPageTest extends BaseTest {
         assertTrue(loginPage.isLoginWithFacebookDsp(), "Login with google facebook isn't displayed");
     }
 
-//    @Test
-//    public void siLoginPageLogoImageDsp() {
-//        homePage.clkMenuBtn()
-//                .clkLoginBtn();
-//        assertTrue(loginPage.isLoginPageLogoImageDsp(), "The login page image logo isn't displayed");
-//    }
-
+    /**
+     * User login and find the "Track number" field
+     */
     @Test
-    public void Login() {
-
+    public void loginTestClkTrckNbrFld() {
+        homePage.clkMenuBtn()
+                .clkLoginBtn()
+                .insertLoginFld(USER_NAME, USER_PASSWORD)
+                .clkSubmitLogin();
+        assertTrue(myParcelsPage.isTrckNbrFldDisplayed(), "The Track Number fluid isn't displayed when the user is logged in");
+        homePage.clkMenuBtn().clkUserLogOutBtn();
     }
 
+    /**
+     * User login and find the "Track number" field
+     */
+    @Test
+    public void loginClkBtnSrch() {
+        homePage.clkMenuBtn()
+                .clkLoginBtn()
+                .insertLoginFld(USER_NAME, USER_PASSWORD)
+                .clkSubmitLogin();
+        assertTrue(myParcelsPage.isBtnSrchDisplayed(), "The Search button isn't displayed when the user is logged in");
+        homePage.clkMenuBtn().clkUserLogOutBtn();
+    }
+
+    /**
+     * TThe user goes to the forgot password page, click on Email Fld
+     */
+    //    @Test
+//    public void clkForgotPasswordBnt(){
+//        homePage.clkMenuBtn()
+//                .clkLoginBtn().
+//                clkForgotPasswordBnt();
+//        assertTrue(, "T");
+//    }
 }
