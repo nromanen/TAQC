@@ -124,19 +124,6 @@ public class LoginPageTest extends BaseTest {
     }
 
     /**
-     * User login and find the "Track number" field
-     */
-    @Test
-    public void loginClkBtnSrch() {
-        homePage.clkMenuBtn()
-                .clkLoginBtn()
-                .insertLoginFld(USER_NAME, USER_PASSWORD)
-                .clkSubmitLogin();
-        assertTrue(myParcelsPage.isBtnSrchDisplayed(), "The Search button isn't displayed when the user is logged in");
-        homePage.clkMenuBtn().clkUserLogOutBtn();
-    }
-
-    /**
      * TThe user goes to the forgot password page, click on Email Fld
      */
     //    @Test

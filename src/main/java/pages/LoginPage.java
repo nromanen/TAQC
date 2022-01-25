@@ -98,10 +98,10 @@ public class LoginPage extends BasePage {
         return new HomePage(driver);
     }
 
-    public LoginPage clkForgotPasswordBnt() {
+    public ForgotPasswordPage clkForgotPasswordBnt() {
 
         WebElement forgotPasswordBntClk = waitElementIsVisible(forgotPasswordBnt);
         forgotPasswordBntClk.click();
-        return new LoginPage(driver);
+        return new ForgotPasswordPage(driver);
     }
 }

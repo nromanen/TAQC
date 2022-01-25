@@ -58,18 +58,42 @@ public class ForgotPasswordTest extends BaseTest {
 
     }
 
+    /**
+     * Open the forgot password page
+     */
     @Test
-    public void submitFrgotPassword() {
+    public void isEmailFieldIsDsp() {
         homePage.clkMenuBtn()
                 .clkLoginBtn()
                 .clkForgotPasswordBnt()
-                .clkUserEmailFld()
-                .insertLoginFld(USER_NAME)
-                .clkSubmitLogin();
-
-        assertTrue(forgotPasswordPage.isBackToLogInBtnDsp(), "The Search button isn't displayed when the user is logged in");
-        homePage.clkMenuBtn().clkUserLogOutBtn();
-
+                .clkUserEmailFld();
+        assertTrue(forgotPasswordPage.isUserEmailFldDsp(), "Email Field isn't displayed");
+    }
+    /** Open the forgot password page and back to Login Page
+     *
+     */
+    @Test
+    public void isTheUserBackToLofinPage() {
+        homePage.clkMenuBtn()
+                .clkLoginBtn()
+                .clkForgotPasswordBnt()
+                .clkBackToLogInBtn();
+        assertTrue(forgotPasswordPage.isUserEmailFldDsp(), "Email Field isn't displayed");
     }
 
-}
+//    @Test
+//    public void submitFrgotPassword() {
+//        homePage.clkMenuBtn()
+//                .clkLoginBtn()
+//                .clkForgotPasswordBnt()
+//                .clkUserEmailFld()
+//                .clkUserEmailFld()
+//                .insertLoginFld(USER_NAME, USER_PASSWORD)
+//                .clkSubmitLogin();
+//
+//        assertTrue(forgotPasswordPage.isBackToLogInBtnDsp(), "The Search button isn't displayed when the user is logged in");
+//        homePage.clkMenuBtn().clkUserLogOutBtn();
+//    }
+
+
+    }
