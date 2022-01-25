@@ -4,15 +4,14 @@ import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pages.*;
-import tests.BaseTest;
+import tests.AuthorizedTest;
+
 import utils.DriverConfiguration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static utils.DriverConfiguration.*;
 
-
-public class MenuTest extends BaseTest {
+public class MenuTest extends AuthorizedTest {
 
     protected MenuPage menuPage;
     protected HomePage homePage;
@@ -72,13 +71,11 @@ public class MenuTest extends BaseTest {
     @Test
     public void testMainBtn() {
 
-        basePage.open(UNK_SEARCH_PAGE_URL); // FIX LATER
+        homePage.clkMenuBtn().clkLoginBtn();
 
-        homePage.clkMenuBtn()
-                .clkMainBtn();
-        String actual = driver.getCurrentUrl();
-        String expected = "http://ttrackster.herokuapp.com/";
-        assertEquals(expected,actual , "Returning to the home page does not work correctly");
+        menuPage.clkMainBtn();
+
+        assertTrue(homePage.isInptFieldDsp(), "Main button don't work correctly");
     }
 
     /**
@@ -95,7 +92,7 @@ public class MenuTest extends BaseTest {
 
     }
 
-    // TODO: 19.01.2022
+    // TODO: 20.01.2022
     /**
      * Test whether you switch to SignupPage by clicking the SingUp button
      */
@@ -119,7 +116,7 @@ public class MenuTest extends BaseTest {
 
         homePage.clkMenuBtn()
                 .clkLoginBtn()
-                .insertLoginFld(USER_NAME, USER_PASSWORD)
+                .insertLoginFld(user.get("name"), user.get("password"))
                 .clkSubmitLogin()
                 .clkMenuBtn();
 
@@ -145,7 +142,7 @@ public class MenuTest extends BaseTest {
 
         homePage.clkMenuBtn()
                 .clkLoginBtn()
-                .insertLoginFld(USER_NAME, USER_PASSWORD)
+                .insertLoginFld(user.get("name"), user.get("password"))
                 .clkSubmitLogin()
                 .clkMenuBtn()
                 .clkUserParselBtn();
@@ -163,7 +160,7 @@ public class MenuTest extends BaseTest {
 
         homePage.clkMenuBtn()
                 .clkLoginBtn()
-                .insertLoginFld(USER_NAME, USER_PASSWORD)
+                .insertLoginFld(user.get("name"), user.get("password"))
                 .clkSubmitLogin()
                 .clkMenuBtn()
                 .clkUserSettingsBtn();
@@ -182,7 +179,7 @@ public class MenuTest extends BaseTest {
 
         homePage.clkMenuBtn()
                 .clkLoginBtn()
-                .insertLoginFld(USER_NAME, USER_PASSWORD)
+                .insertLoginFld(user.get("name"), user.get("password"))
                 .clkSubmitLogin()
                 .clkMenuBtn()
                 .clkUserLogOutBtn()

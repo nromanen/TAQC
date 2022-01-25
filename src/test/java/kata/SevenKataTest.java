@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
@@ -34,6 +35,7 @@ public class SevenKataTest {
 
     @ParameterizedTest
     @MethodSource("newAvgData")
+    //@CsvFileSource("")
     public void newAvgTest(double[] arrData, int intData, long expected) {
         long actual = new kata.impl.SerhiiZdoima.SevenKataImpl().newAvg(arrData, intData); //newAv from array1 and int1 then the result == 628
         assertEquals(expected, actual);

@@ -110,9 +110,6 @@
     <orderEntry type="library" name="Maven: io.opentelemetry:opentelemetry-exporter-logging:1.9.1" level="project" />
     <orderEntry type="library" name="Maven: io.opentelemetry:opentelemetry-sdk-metrics:1.9.1-alpha" level="project" />
     <orderEntry type="library" name="Maven: io.opentelemetry:opentelemetry-sdk-logs:1.9.1-alpha" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.13.0" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.13.0" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: com.fasterxml.jackson.core:jackson-core:2.13.0" level="project" />
     <orderEntry type="library" name="Maven: io.opentelemetry:opentelemetry-sdk-common:1.9.1" level="project" />
     <orderEntry type="library" name="Maven: io.opentelemetry:opentelemetry-sdk-extension-autoconfigure-spi:1.9.1" level="project" />
     <orderEntry type="library" name="Maven: io.opentelemetry:opentelemetry-sdk-extension-autoconfigure:1.9.1-alpha" level="project" />
@@ -138,5 +135,10 @@
     <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-safari-driver:4.1.1" level="project" />
     <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-support:4.1.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.assertj:assertj-core:3.21.0" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.13.1" level="project" />
+    <orderEntry type="library" name="Maven: org.yaml:snakeyaml:1.28" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.13.1" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.13.1" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.13.1" level="project" />
   </component>
 </module>
