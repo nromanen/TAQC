@@ -6,7 +6,8 @@ import org.openqa.selenium.WebElement;
 
 public class ForgotPasswordPage extends BasePage{
     public ForgotPasswordPage(WebDriver driver) {
-        super(driver);}
+        super(driver);
+    }
 
     /**
      * Xpath and CSS selectors for all elements on the "Login Page"
@@ -80,4 +81,6 @@ public class ForgotPasswordPage extends BasePage{
     }
 
 
+    public void assertTrue(boolean userEmailFldDsp, String s) {
+    }
 }
