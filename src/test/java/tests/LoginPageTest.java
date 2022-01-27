@@ -1,14 +1,15 @@
 package tests;
 
 import org.assertj.core.api.SoftAssertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pages.*;
 import utils.DriverConfiguration;
+import utils.YAMLDeserializer;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static utils.DriverConfiguration.USER_NAME;
-import static utils.DriverConfiguration.USER_PASSWORD;
+
 
 public class LoginPageTest extends BaseTest {
     protected LoginPage loginPage;
@@ -18,9 +19,14 @@ public class LoginPageTest extends BaseTest {
     protected SettingsPage settingsPage;
     protected MyParcelsPage myParcelsPage;
 
+    public static String USER_NAME;
+    public static String USER_PASSWORD;
+    public static String INVALID_USER_NAME;
+    public static String INVALID_USER_PASSWORD;
+
     public LoginPageTest() {
         super();
-        loginPage = new LoginPage(driver);
+//        loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
         basePage = new BasePage(driver);
         menuPage = new MenuPage(driver);
@@ -29,21 +35,28 @@ public class LoginPageTest extends BaseTest {
 
     }
 
+    @BeforeAll
+    public static void beforeAll() {
+        USER_NAME = YAMLDeserializer.fromFileToMap("login_test_data.yaml").get("user_name");
+        USER_PASSWORD = YAMLDeserializer.fromFileToMap("login_test_data.yaml").get("user_password");
+        INVALID_USER_NAME = YAMLDeserializer.fromFileToMap("login_test_data.yaml").get("invalid_user_name");
+        INVALID_USER_PASSWORD = YAMLDeserializer.fromFileToMap("login_test_data.yaml").get("invalid_user_password");
+    }
+
     @BeforeEach
     public void beforeEach() {
         homePage.open(DriverConfiguration.BASE_URL);
+        loginPage = homePage.clkMenuBtn()
+                .clkLoginBtn();
     }
 
     /**
      * Test verify that all elements on LoginPage are displayed
      */
     @Test
-    public void findElements() {
+    public void verifyThatAllElementsAreDisplayed() {
 
         SoftAssertions softAssertions = new SoftAssertions();
-        homePage.clkMenuBtn()
-                .clkLoginBtn();
-
         softAssertions.assertThat(loginPage.isLogInYourAccountTxtDsp())
                 .withFailMessage("Log in your account text isn't displayed").isTrue();
         softAssertions.assertThat(loginPage.isEmailFieldBtnDsp())
@@ -62,83 +75,48 @@ public class LoginPageTest extends BaseTest {
                 .withFailMessage("login page image logo isn't displayed").isTrue();
         softAssertions.assertThat(loginPage.isDontHaveAnAccountTxtDsp())
                 .withFailMessage("Don't have an account text isn't displayed").isTrue();
-
     }
 
     /**
-     * Test to verify that all buttons is clickable
+     * Login with invalid email
      */
     @Test
-    public void isEmailFieldIsDsp() {
-        homePage.clkMenuBtn()
-                .clkLoginBtn();
-        assertTrue(loginPage.isEmailFieldBtnDsp(), "Email Field isn't displayed");
-    }
-
-    @Test
-    public void isPasswordFieldDsp() {
-        homePage.clkMenuBtn()
-                .clkLoginBtn();
-        assertTrue(loginPage.isPasswordFieldDsp(), "Password Field isn't displayed");
-    }
-
-    @Test
-    public void isFindLoginBtnDsp() {
-        homePage.clkMenuBtn()
-                .clkLoginBtn();
-        assertTrue(loginPage.isLoginBtnDsp(), "Login Button isn't displayed");
-    }
-
-    @Test
-    public void isdForgotPasswordBtnDsp() {
-        homePage.clkMenuBtn()
-                .clkLoginBtn();
-        assertTrue(loginPage.isForgotPasswordBtnDsp(), "Forgot Password Button isn't displayed");
-    }
-
-    @Test
-    public void isLoginWithGoogleBtnDsp() {
-        homePage.clkMenuBtn()
-                .clkLoginBtn();
-        assertTrue(loginPage.isLoginWithGoogleBtnDsp(), "Login with google Button isn't displayed");
-    }
-
-    @Test
-    public void isLoginWithFacebookBtnDsp() {
-        homePage.clkMenuBtn()
-                .clkLoginBtn();
-        assertTrue(loginPage.isLoginWithFacebookDsp(), "Login with google facebook isn't displayed");
+    public void loginTestWhenTheEmailInvalid() {
+        loginPage.invalidLogin(INVALID_USER_NAME, USER_PASSWORD);
+        assertTrue(loginPage.isErrorTextEmailIsntValidDispl(), "Error Text Email Isn't Valid isn't displayed when the user is logged in");
     }
 
     /**
-     * User login and find the "Track number" field
+     * Login with invalid password
      */
     @Test
-    public void loginTestClkTrckNbrFld() {
-        homePage.clkMenuBtn()
-                .clkLoginBtn()
-                .insertLoginFld(USER_NAME, USER_PASSWORD)
-                .clkSubmitLogin();
-        assertTrue(myParcelsPage.isTrckNbrFldDisplayed(), "The Track Number fluid isn't displayed when the user is logged in");
-        homePage.clkMenuBtn().clkUserLogOutBtn();
+    public void loginTestWhenThePasswordInvalid() {
+        loginPage.invalidLogin(USER_NAME, INVALID_USER_PASSWORD);
+        assertTrue(loginPage.isErrorMessageIncorrectEmailOrPasswordDispl(), "Incorrect email or password Isn't Vali isn't displayed when the user is logged in");
     }
+    
+    
+//    @ParameterizedTest
+//    @MethodSource("invalidCredentials")
+//    public void loginTestInvalidCredentials(String name, String password, String errorMessage) {
+//        homePage.clkMenuBtn()
+//                .clkLoginBtn()
+//                .insertLoginFld(name, password)
+//                .clkSubmitLogin();
+//        assertTrue(loginPage.isErrorMessageIncorrectEmailOrPasswordDispl(), errorMessage);
+//    }
+//
+//    private static Stream<Arguments> invalidCredentials() {
+//        return Stream.of(
+//                Arguments.of(INVALID_USER_NAME, USER_PASSWORD, "Error Text Email Isn't Valid isn't displayed when the user is logged in"),
+//                Arguments.of(USER_NAME, INVALID_USER_PASSWORD, "Incorrect email or password Isn't Vali isn't displayed when the user is logged in")
+//        );
+//    }
 
-    /**
-     * User login and find the "Track number" field
-     */
-    @Test
-    public void loginClkBtnSrch() {
-        homePage.clkMenuBtn()
-                .clkLoginBtn()
-                .insertLoginFld(USER_NAME, USER_PASSWORD)
-                .clkSubmitLogin();
-        assertTrue(myParcelsPage.isBtnSrchDisplayed(), "The Search button isn't displayed when the user is logged in");
-        homePage.clkMenuBtn().clkUserLogOutBtn();
-    }
 
-    /**
-     * TThe user goes to the forgot password page, click on Email Fld
-     */
+//    /**
+////     * TThe user goes to the forgot password page, click on Email Fld
+////     */
     //    @Test
 //    public void clkForgotPasswordBnt(){
 //        homePage.clkMenuBtn()
@@ -146,4 +124,5 @@ public class LoginPageTest extends BaseTest {
 //                clkForgotPasswordBnt();
 //        assertTrue(, "T");
 //    }
+
 }
