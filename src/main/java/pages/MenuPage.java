@@ -17,10 +17,10 @@ public class MenuPage extends BasePage {
     private final By hdnMenu = By.cssSelector
             ("div.jss1 > div.MuiDrawer-root.MuiDrawer-docked > div");
 
-//    private final By loginBtn = By.xpath
-//            ("//span[contains(.,'Log In')]");
-    private final By loginBtn = By.cssSelector
-            ("div.MuiPaper-root.MuiDrawer-paper.MuiDrawer-paperAnchorLeft.MuiDrawer-paperAnchorDockedLeft.MuiPaper-elevation0 > ul:nth-child(5) > a:nth-child(1)");
+    private final By loginBtn = By.xpath
+            ("//span[contains(.,'Log In')]");
+//    private final By loginBtn = By.cssSelector
+//            ("div.MuiPaper-root.MuiDrawer-paper.MuiDrawer-paperAnchorLeft.MuiDrawer-paperAnchorDockedLeft.MuiPaper-elevation0 > ul:nth-child(5) > a:nth-child(1)");
 
 //    private final By signupBtn = By.xpath
 //            ("//span[contains(.,'Sign Up')]");

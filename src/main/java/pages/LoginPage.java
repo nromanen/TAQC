@@ -42,11 +42,11 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    public HomePage clkSubmitLogin() {
+    public MyParcelsPage clkSubmitLogin() {
 
         WebElement loginBtnClk = waitElementIsVisible(loginBtn);
         loginBtnClk.click();
-        return new HomePage(driver);
+        return new MyParcelsPage(driver);
     }
 
     public boolean isDivLoginDsp() {
