@@ -26,8 +26,8 @@ public class LoginPage extends BasePage {
     //private final By forgotPasswordBnt = By.cssSelector("a[href='/reset-password']");
     private final By loginWithGoogleBnt = By.xpath("//span[@class='MuiButton-startIcon MuiButton-iconSizeLarge']");
     //private final By loginWithGoogleBnt = By.cssSelector("//span[@class='MuiButton-startIcon MuiButton-iconSizeLarge']");
-    //private final By loginWithFacebookBnt = By.cssSelector("img[class='jss65']");
     private final By loginWithFacebookBnt = By.xpath("//span[@class='MuiButton-startIcon MuiButton-iconSizeLarge'][1]");
+    //private final By loginWithFacebookBnt = By.cssSelector("img[class='jss65']");
     //private final By loginPageLogoImg  = By.xpath("//img[@src='/static/media/login-img.8fa56c8b.svg']");
     private final By loginPageLogoImg = By.cssSelector("img[alt='login-svg']");
     private final By dontHaveAnAccountTxt = By.cssSelector("h4.MuiTypography-root.MuiTypography-h4.MuiTypography-gutterBottom");
@@ -103,10 +103,10 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    public HomePage clkSubmitLogin() { //todo - change naming
+    public MyParcelsPage clkSubmitLogin() { //todo - change naming
 
         waitElementIsVisible(loginBtn).click();
-        return new HomePage(driver);
+        return new MyParcelsPage(driver);
     }
 
     public ForgotPasswordPage clkForgotPasswordBnt() {
