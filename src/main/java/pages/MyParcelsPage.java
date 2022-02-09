@@ -3,7 +3,7 @@ package pages;
 import org.openqa.selenium.*;
 
 public class MyParcelsPage extends BasePage {
-    protected HomePage homePage;
+   // protected HomePage homePage;
 
     public MyParcelsPage(WebDriver driver) {
 
@@ -249,8 +249,8 @@ public class MyParcelsPage extends BasePage {
     /**
      * Methods for input track number in track number fold and search this track number
      */
-    public MyParcelsPage inpTrckNbrAndClkEnter() {
-        driver.findElement(trckNbrFld).sendKeys("20450498476837", Keys.ENTER);
+    public MyParcelsPage inpTrckNbrAndClkEnter(String trckNbr) {
+        driver.findElement(trckNbrFld).sendKeys(trckNbr, Keys.ENTER);
         return this;
     }
 

@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class AuthorizedMenuTest extends AuthorizedTest {
 
     protected MenuPage menuPage;
-    protected BasePage basePage;
+    protected HeaderPage basePage;
     protected LoginPage loginPage;
     protected MyParcelsPage myparselPage;
     protected SettingsPage settingsPage;
@@ -19,7 +19,7 @@ public class AuthorizedMenuTest extends AuthorizedTest {
     // Fix Page extnds
     public AuthorizedMenuTest() {
         super();
-        basePage = new BasePage(driver);
+        basePage = new HeaderPage(driver);
         menuPage = new MenuPage(driver);
         loginPage = new LoginPage(driver);
         myparselPage = new MyParcelsPage(driver);

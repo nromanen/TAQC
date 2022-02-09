@@ -122,9 +122,9 @@ public class MenuTest extends AuthorizedTest {
         softAssertions.assertAll();
     }
 
-    /**
+   /* *//**
      * Check the transition to the MyParcels page after click
-     */
+     *//*
     @Test
     public void testUserParselBtn() {
 
@@ -134,7 +134,7 @@ public class MenuTest extends AuthorizedTest {
         assertTrue(myParcelsPage.isTrckNbrFldDisplayed(), "There is no SignUp item in the Menu");
 
         homePage.clkMenuBtn().clkUserLogOutBtn();
-    }
+    }*/
 
     /**
      * Check the transition to the Settings page after click

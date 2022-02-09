@@ -37,9 +37,10 @@ public class HomePage extends BasePage {
             ("img[src='/static/media/justin.112383fd.svg']");
     private final By imgDhl = By.cssSelector
             ("img[src='/static/media/dhl.eda3e6a1.png']");
-
-
-
+    private final By hdngUa = By.xpath
+            ("//h5[text()='Знайдіть вашу посилку в один клік']");
+    private final By hdngEng = By.xpath
+            ("//h5[text()='Find your parcel just in one moment']");
 
     /**
      * Find and click on button Input Search
@@ -57,12 +58,23 @@ public class HomePage extends BasePage {
         return this;
     }
 
+    /**
+     * Heading on Ukrainian
+     */
+    public boolean isUaHdngDisplayed() {
+        return driver.findElement(hdngUa).isDisplayed();
+    }
 
+    /**
+     * Heading on English
+     */
+    public boolean isEngHdngDisplayed() {
+        return driver.findElement(hdngEng).isDisplayed();
+    }
 
-
-
-
-
+    /**
+     * Methods find elements on page
+     */
     public boolean isHdngFindYourParcelDsp() {
 
         return driver.findElement(hdngFindYourParcel).isDisplayed();
@@ -115,10 +127,8 @@ public class HomePage extends BasePage {
 
         return driver.findElement(imgDhl).isDisplayed();
     }
-
     public boolean isInptFieldDsp() {
 
         return driver.findElement(inptField).isDisplayed();
     }
 }
-

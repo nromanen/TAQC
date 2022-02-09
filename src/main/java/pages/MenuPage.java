@@ -2,8 +2,6 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
 
 
 public class MenuPage extends BasePage {
@@ -120,22 +118,11 @@ public class MenuPage extends BasePage {
         return waitElementIsVisible(userLogOut).isDisplayed();
     }
 
-    /**
-     * for myParcelsPageTest
-     */
     private final By tracksterHdng = By.xpath
             ("//h6[@class=\"MuiTypography-root jss4 MuiTypography-h6\"]");
 
     public boolean isTracksterHdngDsp() {
         return waitElementIsVisible(tracksterHdng).isDisplayed();
-    }
-
-    private final By logOutBtn = By.xpath
-            ("//ul[2]//a");
-
-    public HomePage clkLogOutBtn() {
-        waitElementIsVisible(logOutBtn).click();
-        return new HomePage(driver);
     }
 }
 

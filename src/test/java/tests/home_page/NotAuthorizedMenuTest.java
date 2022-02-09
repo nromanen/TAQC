@@ -12,7 +12,7 @@ public class NotAuthorizedMenuTest extends BaseTest {
 
     protected MenuPage menuPage;
     protected HomePage homePage;
-    protected BasePage basePage;
+    protected HeaderPage basePage;
     protected LoginPage loginPage;
     protected MyParcelsPage myparselPage;
     protected SettingsPage settingsPage;
@@ -20,7 +20,7 @@ public class NotAuthorizedMenuTest extends BaseTest {
     public NotAuthorizedMenuTest() {
         super();
         homePage = new HomePage(driver);
-        basePage = new BasePage(driver);
+        basePage = new HeaderPage(driver);
         menuPage = new MenuPage(driver);
         loginPage = new LoginPage(driver);
         myparselPage = new MyParcelsPage(driver);
