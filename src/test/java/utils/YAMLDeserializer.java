@@ -10,7 +10,6 @@ import java.util.Map;
 
 public class YAMLDeserializer {
 
-    // *
     public static Map<String, String> fromFileToMap(String fileName) {
 
         Map<String, String> map = new HashMap<>();

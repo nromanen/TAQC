@@ -15,7 +15,7 @@ public class LoginPageTest extends BaseTest {
     protected LoginPage loginPage;
     protected MenuPage menuPage;
     protected HomePage homePage;
-    protected BasePage basePage;
+    protected HeaderPage basePage;
     protected SettingsPage settingsPage;
     protected MyParcelsPage myParcelsPage;
 
@@ -28,7 +28,7 @@ public class LoginPageTest extends BaseTest {
         super();
 //        loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
-        basePage = new BasePage(driver);
+        basePage = new HeaderPage(driver);
         menuPage = new MenuPage(driver);
         settingsPage = new SettingsPage(driver);
         myParcelsPage = new MyParcelsPage(driver);
