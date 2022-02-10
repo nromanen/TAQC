@@ -1,5 +1,6 @@
 package tests.home_page;
 
+import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pages.*;
@@ -167,7 +168,7 @@ public class MenuTest extends BaseTest {
                 .clkMenuBtn()
                 .clkUserSettingsBtn();
 
-        assertTrue(settingsPage.findheadingProfile(), "Problem settins");
+        assertTrue(settingsPage.findHeadingProfile(), "Problem settins");
 
         homePage.clkMenuBtn().clkUserLogOutBtn();
 
