@@ -35,7 +35,6 @@ public class HeaderPage extends BasePage {
         return new MenuPage(driver);
     }
 
-
     /**
      * Find and click on Trackster link
      */
@@ -43,18 +42,6 @@ public class HeaderPage extends BasePage {
         WebElement lnkLogoFind = driver.findElement(lnkLogo);
         lnkLogoFind.click();
         return this;
-    }
-
-    /**
-     * Methods find elements on page
-     */
-    public boolean isTbrDsp() {
-
-        return driver.findElement(tbr).isDisplayed();
-    }
-    public boolean isImgLogoDsp() {
-
-        return driver.findElement(imgLogo).isDisplayed();
     }
 
     /**
@@ -84,6 +71,17 @@ public class HeaderPage extends BasePage {
         return this;
     }
 
+    /**
+     * Methods find elements on page
+     */
+    public boolean isTbrDsp() {
+
+        return driver.findElement(tbr).isDisplayed();
+    }
+    public boolean isImgLogoDsp() {
+
+        return driver.findElement(imgLogo).isDisplayed();
+    }
     public boolean isBtnMenuDsp() {
 
         return driver.findElement(btnMenu).isDisplayed();
