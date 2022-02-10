@@ -12,10 +12,8 @@ public class BasePage {
     protected WebDriver driver;
 
     public BasePage(WebDriver driver) {
-
         this.driver = driver;
     }
-
     public BasePage open(String url) {
         driver.get(url);
         return this;

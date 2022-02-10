@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class SignupPage extends BasePage{
+public class SignupPage extends BasePage {
     public SignupPage(WebDriver driver) {
         super(driver);
     }

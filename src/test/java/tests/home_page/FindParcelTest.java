@@ -1,30 +1,37 @@
 package tests.home_page;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import pages.BasePage;
-import pages.HomePage;
 import pages.SrchFldPage;
 import tests.BaseTest;
 import utils.DriverConfiguration;
+import model.TestData;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.Map;
+
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static utils.YAMLDeserializer.fromFileToMap;
 
 
 public class FindParcelTest extends BaseTest {
 
     protected SrchFldPage srchFldPage;
-    protected HomePage homePage;
-    protected BasePage basePage;
+    private static TestData testData;
 
     public FindParcelTest() {
         super();
         srchFldPage = new SrchFldPage(driver);
-        homePage = new HomePage(driver);
-        basePage = new BasePage(driver);
+    }
+
+    @BeforeAll
+    static void beforeAll() {
+
+            testData = new TestData();
+            Map<String, String> map = fromFileToMap("testData.yaml");
+            testData.setCorrectIds(map.get("correctIds"));
+            testData.setIncorrectIds(map.get("incorrectIds"));
+
     }
 
     @BeforeEach
@@ -38,7 +45,7 @@ public class FindParcelTest extends BaseTest {
     @Test
     public void testNFndDlv() {
 
-        String invalidTrackNumb = "1234567890";
+        String invalidTrackNumb = testData.getIncorrectIds();
         homePage.srchFldParse(invalidTrackNumb)
                 .clkBtnInptSrch();
 
@@ -51,7 +58,7 @@ public class FindParcelTest extends BaseTest {
     @Test
     public void testResultSrchDsp() {
 
-        String trackNumb = "20450498476837";
+        String trackNumb = testData.getCorrectIds();
         homePage.srchFldParse(trackNumb)
                 .clkBtnInptSrch();
 
@@ -64,7 +71,7 @@ public class FindParcelTest extends BaseTest {
     @Test
     public void testBtnDetailsDsp() {
 
-        String trackNumb = "20450498476837";
+        String trackNumb = testData.getCorrectIds();
         homePage.srchFldParse(trackNumb)
                 .clkBtnInptSrch()
                 .clkBtnDetails();
@@ -78,7 +85,7 @@ public class FindParcelTest extends BaseTest {
     @Test
     public void testIsBtnDetailsDsp() {
 
-        String trackNumb = "20450498476837";
+        String trackNumb = testData.getCorrectIds();
         homePage.srchFldParse(trackNumb)
                 .clkBtnInptSrch();
 
@@ -89,9 +96,9 @@ public class FindParcelTest extends BaseTest {
      * Check the presence of the search field
      */
     @Test
-    public void testIsFldSrchDsp() {
+    public void IsFldSrchDsp() {
 
-        String trackNumb = "20450498476837";
+        String trackNumb = testData.getCorrectIds();
         homePage.srchFldParse(trackNumb)
                 .clkBtnInptSrch();
 
@@ -104,7 +111,7 @@ public class FindParcelTest extends BaseTest {
     @Test
     public void testSrchWork() {
 
-        String trackNumb = "59000777883118";
+        String trackNumb = testData.getCorrectIds();
 
         homePage.srchFldParse("")
                 .clkBtnInptSrch()

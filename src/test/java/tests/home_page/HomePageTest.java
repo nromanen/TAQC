@@ -1,16 +1,14 @@
 package tests.home_page;
 
 import org.assertj.core.api.SoftAssertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pages.HomePage;
 import pages.MenuPage;
-import tests.BaseTest;
-import utils.DriverConfiguration;
+import tests.AuthorizedTest;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class HomePageTest extends BaseTest {
+public class HomePageTest extends AuthorizedTest {
     protected HomePage homePage;
     protected MenuPage menuPage;
 
@@ -20,25 +18,10 @@ public class HomePageTest extends BaseTest {
         menuPage = new MenuPage(driver);
     }
 
-    @BeforeEach
-    public void beforeEach() {
-        homePage.open(DriverConfiguration.BASE_URL);
-    }
-
     @Test
     public void verifyThatAllElementsAreDisplayed() {
         SoftAssertions softAssertions = new SoftAssertions();
 
-        softAssertions.assertThat(homePage.isTbrDsp())
-                .withFailMessage("Tbr isn't displayed").isTrue();
-        softAssertions.assertThat(homePage.isBtnMenuDsp())
-                .withFailMessage("BtnMenu isn't displayed").isTrue();
-        softAssertions.assertThat(homePage.isImgLogoDsp())
-                .withFailMessage("ImgLogo isn't displayed").isTrue();
-        softAssertions.assertThat(homePage.isLnkLogoDsp())
-                .withFailMessage("LnkLogo isn't displayed").isTrue();
-        softAssertions.assertThat(homePage.isBtnListBoxDsp())
-                .withFailMessage("BtnListBox isn't displayed").isTrue();
         softAssertions.assertThat(homePage.isHdngFindYourParcelDsp())
                 .withFailMessage("HeadingFindYourParcel isn't displayed").isTrue();
         softAssertions.assertThat(homePage.isInptFieldDsp())
@@ -76,7 +59,7 @@ public class HomePageTest extends BaseTest {
      */
     @Test
     public void verifyThatUserIsAbleToClkMenuBtnToOpen() {
-        homePage.clkMenuBtn();
+        headerPage.clkMenuBtn();
         assertTrue(menuPage.isTracksterHdngDsp(), "Menu button doesn't work correctly");
     }
 
@@ -86,7 +69,7 @@ public class HomePageTest extends BaseTest {
      */
     @Test
     public void verifyThatChangingEngToUaIsPossible() {
-        homePage.clkListBoxBtn()
+        headerPage.clkListBoxBtn()
                 .clkUaBtn();
         assertTrue(homePage.isUaHdngDisplayed(), "Language isn't correct");
     }
@@ -97,7 +80,7 @@ public class HomePageTest extends BaseTest {
      */
     @Test
     public void verifyThatChangingUaToEngIsPossible() {
-        homePage.clkListBoxBtn()
+        headerPage.clkListBoxBtn()
                 .clkUaBtn()
                 .clkListBoxBtn()
                 .clkEngBtn();

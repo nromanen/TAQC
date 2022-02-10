@@ -1,46 +1,36 @@
 package tests.home_page;
 
 import org.assertj.core.api.SoftAssertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pages.*;
-import tests.BaseTest;
-import utils.DriverConfiguration;
+import tests.AuthorizedTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static utils.DriverConfiguration.*;
 
-
-public class MenuTest extends BaseTest {
+public class MenuTest extends AuthorizedTest {
 
     protected MenuPage menuPage;
-    protected HomePage homePage;
-    protected BasePage basePage;
-    protected LoginPage loginPage;
-    protected MyParcelsPage myparselPage;
     protected SettingsPage settingsPage;
+    protected LoginPage loginPage;
 
-    public MenuTest() {
+
+
+    public MenuTest () {
         super();
-        homePage = new HomePage(driver);
-        basePage = new BasePage(driver);
         menuPage = new MenuPage(driver);
-        loginPage = new LoginPage(driver);
-        myparselPage = new MyParcelsPage(driver);
         settingsPage = new SettingsPage(driver);
+        loginPage = new LoginPage(driver);
     }
 
-    @BeforeEach
-    public void beforeEach() {
-        homePage.open(DriverConfiguration.BASE_URL);
-    }
+
 
     /**
      * Test whether the menu will be displayed after pressing MenuBatton
      */
     @Test
     public void testIsHdnMenuDsp() {
+
 
         homePage.clkMenuBtn();
         assertTrue(menuPage.isHdnMenuDsp(), "The menuBtn does not work properly");
@@ -72,13 +62,12 @@ public class MenuTest extends BaseTest {
     @Test
     public void testMainBtn() {
 
-        basePage.open(UNK_SEARCH_PAGE_URL); // FIX LATER
-
         homePage.clkMenuBtn()
-                .clkMainBtn();
-        String actual = driver.getCurrentUrl();
-        String expected = "http://ttrackster.herokuapp.com/";
-        assertEquals(expected,actual , "Returning to the home page does not work correctly");
+                .clkUserSettingsBtn();
+
+        menuPage.clkMainBtn();
+
+        assertTrue(homePage.isInptFieldDsp(), "Main button don't work correctly");
     }
 
     /**
@@ -87,7 +76,7 @@ public class MenuTest extends BaseTest {
     @Test
     public void testLogInBtn() {
 
-        homePage.clkMenuBtn()
+         homePage.clkMenuBtn()
                 .clkLoginBtn();
 
         assertTrue(loginPage.isDivLoginDsp(), "There is no SignUp item in the Menu");
@@ -95,7 +84,7 @@ public class MenuTest extends BaseTest {
 
     }
 
-    // TODO: 19.01.2022
+    // TODO: 20.01.2022
     /**
      * Test whether you switch to SignupPage by clicking the SingUp button
      */
@@ -117,11 +106,7 @@ public class MenuTest extends BaseTest {
     @Test
     public void testIsUserMenuDsp() {
 
-        homePage.clkMenuBtn()
-                .clkLoginBtn()
-                .insertLoginFld(USER_NAME, USER_PASSWORD)
-                .clkSubmitLogin()
-                .clkMenuBtn();
+        homePage.clkMenuBtn();
 
         SoftAssertions softAssertions = new SoftAssertions();
 
@@ -137,23 +122,19 @@ public class MenuTest extends BaseTest {
         softAssertions.assertAll();
     }
 
-    /**
+   /* *//**
      * Check the transition to the MyParcels page after click
-     */
+     *//*
     @Test
     public void testUserParselBtn() {
 
-        homePage.clkMenuBtn()
-                .clkLoginBtn()
-                .insertLoginFld(USER_NAME, USER_PASSWORD)
-                .clkSubmitLogin()
-                .clkMenuBtn()
+        myParcelsPage.clkMenuBtn()
                 .clkUserParselBtn();
 
-        assertTrue(myparselPage.isTrckNbrFldDisplayed(), "There is no SignUp item in the Menu");
+        assertTrue(myParcelsPage.isTrckNbrFldDisplayed(), "There is no SignUp item in the Menu");
 
         homePage.clkMenuBtn().clkUserLogOutBtn();
-    }
+    }*/
 
     /**
      * Check the transition to the Settings page after click
@@ -162,10 +143,6 @@ public class MenuTest extends BaseTest {
     public void testUserSettingsBtn() {
 
         homePage.clkMenuBtn()
-                .clkLoginBtn()
-                .insertLoginFld(USER_NAME, USER_PASSWORD)
-                .clkSubmitLogin()
-                .clkMenuBtn()
                 .clkUserSettingsBtn();
 
         assertTrue(settingsPage.findHeadingProfile(), "Problem settins");
@@ -181,10 +158,6 @@ public class MenuTest extends BaseTest {
     public void testUserLogOutBtn() {
 
         homePage.clkMenuBtn()
-                .clkLoginBtn()
-                .insertLoginFld(USER_NAME, USER_PASSWORD)
-                .clkSubmitLogin()
-                .clkMenuBtn()
                 .clkUserLogOutBtn()
                 .clkMenuBtn();
 
