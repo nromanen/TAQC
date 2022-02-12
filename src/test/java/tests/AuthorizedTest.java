@@ -12,6 +12,9 @@ public abstract class AuthorizedTest extends BaseTest {
     protected Map<String, String> user;
     protected MyParcelsPage myParcelsPage;
     protected HeaderPage headerPage;
+    protected ForgotPasswordPage forgotPasswordPage;
+    protected LoginPage loginPage;
+    protected SignupPage signupPage;
 
     public AuthorizedTest() {
         super();
@@ -19,6 +22,9 @@ public abstract class AuthorizedTest extends BaseTest {
         user = fromFileToMap("user.yaml");
         myParcelsPage = new MyParcelsPage(driver);
         headerPage = new HeaderPage(driver);
+        forgotPasswordPage = new ForgotPasswordPage(driver);
+        loginPage = new LoginPage(driver);
+        signupPage = new SignupPage(driver);
     }
 
     public AuthorizedTest(String file) {
@@ -43,5 +49,4 @@ public abstract class AuthorizedTest extends BaseTest {
                 .clkUserLogOutBtn();*/
         super.tearDown();
     }
-
 }

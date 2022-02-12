@@ -82,6 +82,7 @@ public class MyParcelsPage extends BasePage {
             ("//div[@class='MuiDialogActions-root MuiDialogActions-spacing']//button/following-sibling::button");
     private final By tbrBtnParcel = By.xpath
             ("//div[@class='MuiCollapse-container MuiCollapse-entered']");
+    private final By nothingFoundImg = By.xpath("//div[@class='not-found']");
 
     /**
      * Methods find elements on page
@@ -244,6 +245,10 @@ public class MyParcelsPage extends BasePage {
     public boolean isLnkMoreInfoDisplayed() {
 
         return driver.findElement(lnkMoreInfo).isDisplayed();
+    }
+
+    public boolean isNothinfFoundImgDisplayed() {
+        return driver.findElement(nothingFoundImg).isDisplayed();
     }
 
     /**
