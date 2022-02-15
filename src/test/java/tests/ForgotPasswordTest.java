@@ -89,6 +89,6 @@ public class ForgotPasswordTest extends BaseTest {
         loginPage
                 .clkForgotPasswordBnt()
                 .clkSignUpBtn();
-        assertTrue(signupPage.isSignUpImgspl(), "Sign Up page isn't displayed");
+        assertTrue(signupPage.isSignUpImgDsp(), "Sign Up page isn't displayed");
     }
 }

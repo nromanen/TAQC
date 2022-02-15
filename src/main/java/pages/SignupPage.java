@@ -67,7 +67,7 @@ public class SignupPage extends BasePage {
 //        return new ForgotPasswordPage(driver);
 //    }
 
-    public boolean isSignUpImgspl() {
+    public boolean isSignUpImgDsp() {
         return driver.findElement(signUpImg).isDisplayed();
     }
 }
