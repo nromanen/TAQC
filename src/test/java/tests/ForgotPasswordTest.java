@@ -16,15 +16,23 @@ import static utils.DriverConfiguration.USER_NAME;
 import static utils.DriverConfiguration.USER_PASSWORD;
 
 @Story("Tests for ForgotPasswordPage")
-public class ForgotPasswordTest extends AuthorizedTest {
+public class ForgotPasswordTest extends BaseTest {
+
+    protected ForgotPasswordPage forgotPasswordPage;
+    protected LoginPage loginPage;
+    protected SignupPage signupPage;
 
     public ForgotPasswordTest() {
         super();
+
+        forgotPasswordPage = new ForgotPasswordPage(driver);
+        loginPage = new LoginPage(driver);
+        signupPage = new SignupPage(driver);
     }
 
     @BeforeEach
     public void beforeEach() {
-        homePage.open(DriverConfiguration.BASE_URL);
+        super.beforeEach();
         loginPage = headerPage.clkMenuBtn()
                 .clkLoginBtn();
     }
