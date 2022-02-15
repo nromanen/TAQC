@@ -55,4 +55,19 @@ public class SignupPage extends BasePage {
     public boolean findLogInUrl() {return driver.findElement(logInUrl).isDisplayed();}
     public boolean findMassageInvalidEmail() {return driver.findElement(massageInvalidEmail).isDisplayed();}
 
+    private final By signUpImg = By.cssSelector("div.MuiGrid-root.MuiGrid-container");
+
+
+//    public boolean isSignUpImgDsp() {
+//        return driver.findElement(signUpImg).isDisplayed();
+//    }
+//
+//    public ForgotPasswordPage clkSignUpImgBtn() {
+//        driver.findElement(signUpImg).click();
+//        return new ForgotPasswordPage(driver);
+//    }
+
+    public boolean isSignUpImgspl() {
+        return driver.findElement(signUpImg).isDisplayed();
+    }
 }
