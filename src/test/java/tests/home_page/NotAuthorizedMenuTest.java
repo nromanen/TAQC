@@ -17,6 +17,7 @@ public class NotAuthorizedMenuTest extends BaseTest {
     protected MyParcelsPage myparselPage;
     protected SettingsPage settingsPage;
     protected HeaderPage headerPage;
+    protected SignupPage signupPage;
 
     public NotAuthorizedMenuTest() {
         super();
@@ -27,6 +28,7 @@ public class NotAuthorizedMenuTest extends BaseTest {
         myparselPage = new MyParcelsPage(driver);
         settingsPage = new SettingsPage(driver);
         headerPage = new HeaderPage(driver);
+        signupPage = new SignupPage(driver);
     }
 
     /**
@@ -36,6 +38,7 @@ public class NotAuthorizedMenuTest extends BaseTest {
     public void testIsHdnMenuDsp() {
 
         headerPage.clkMenuBtn();
+
         assertTrue(menuPage.isHdnMenuDsp(), "The menuBtn does not work properly");
     }
 
@@ -46,6 +49,7 @@ public class NotAuthorizedMenuTest extends BaseTest {
     public void testIsLogInDsp() {
 
         headerPage.clkMenuBtn();
+
         assertTrue(menuPage.isLogInDsp(), "There is no LogIn item in the Menu");
     }
 
@@ -56,6 +60,7 @@ public class NotAuthorizedMenuTest extends BaseTest {
     public void testIsSingUpDsp() {
 
         headerPage.clkMenuBtn();
+
         assertTrue(menuPage.isSignUpDsp(), "There is no SignUp item in the Menu");
     }
 
@@ -66,7 +71,6 @@ public class NotAuthorizedMenuTest extends BaseTest {
     public void testMainBtn() {
 
         headerPage.clkMenuBtn().clkLoginBtn();
-
         menuPage.clkMainBtn();
 
         assertTrue(homePage.isInptFieldDsp(), "Main button don't work correctly");
@@ -82,11 +86,8 @@ public class NotAuthorizedMenuTest extends BaseTest {
                 .clkLoginBtn();
 
         assertTrue(loginPage.isDivLoginDsp(), "There is no SignUp item in the Menu");
-
-
     }
 
-    // TODO: 20.01.2022
     /**
      * Test whether you switch to SignupPage by clicking the SingUp button
      */
@@ -95,8 +96,7 @@ public class NotAuthorizedMenuTest extends BaseTest {
 
         headerPage.clkMenuBtn()
                 .clkSignupBtn();
-        String actual = driver.getCurrentUrl();
-        String expected = "https://ttrackster.herokuapp.com/signup";
-        assertEquals(actual, expected, "Going to the signup page is incorrect");
+
+        assertTrue(signupPage.isSignUpImgDsp(), "Going to the signup page is incorrect");
     }
 }

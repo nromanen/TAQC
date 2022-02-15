@@ -16,7 +16,6 @@ public class AuthorizedMenuTest extends AuthorizedTest {
     protected SettingsPage settingsPage;
 
 
-    // Fix Page extnds
     public AuthorizedMenuTest() {
         super();
         basePage = new HeaderPage(driver);
@@ -70,7 +69,7 @@ public class AuthorizedMenuTest extends AuthorizedTest {
         headerPage.clkMenuBtn()
                 .clkUserSettingsBtn();
 
-        assertTrue(settingsPage.findheadingProfile(), "Problem settins");
+        assertTrue(settingsPage.findHeadingProfile(), "Problem settins");
 
     }
 

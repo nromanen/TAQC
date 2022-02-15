@@ -82,7 +82,7 @@ public class MenuTest extends AuthorizedTest {
         headerPage.clkMenuBtn()
                 .clkUserSettingsBtn();
 
-        assertTrue(settingsPage.findheadingProfile(), "Problem settins");
+        assertTrue(settingsPage.findHeadingProfile(), "Problem settins");
     }
 
 }
