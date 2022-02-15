@@ -33,7 +33,7 @@ public class AuthorizedMenuTest extends AuthorizedTest {
     @Test
     public void verifyUserMenuDsp() {
 
-        homePage.clkMenuBtn();
+        headerPage.clkMenuBtn();
 
         SoftAssertions softAssertions = new SoftAssertions();
 
@@ -55,12 +55,10 @@ public class AuthorizedMenuTest extends AuthorizedTest {
     @Test
     public void userParselBtn() {
 
-        homePage.clkMenuBtn()
+        headerPage.clkMenuBtn()
                 .clkUserParselBtn();
 
         assertTrue(myparselPage.isTrckNbrFldDisplayed(), "There is no SignUp item in the Menu");
-
-        homePage.clkMenuBtn().clkUserLogOutBtn();
     }
 
     /**
@@ -69,12 +67,10 @@ public class AuthorizedMenuTest extends AuthorizedTest {
     @Test
     public void userSettingsBtn() {
 
-        homePage.clkMenuBtn()
+        headerPage.clkMenuBtn()
                 .clkUserSettingsBtn();
 
         assertTrue(settingsPage.findheadingProfile(), "Problem settins");
-
-        homePage.clkMenuBtn().clkUserLogOutBtn();
 
     }
 
@@ -84,9 +80,10 @@ public class AuthorizedMenuTest extends AuthorizedTest {
     @Test
     public void userLogOutBtn() {
 
-        homePage.clkMenuBtn()
-                .clkUserLogOutBtn()
-                .clkMenuBtn();
+        headerPage.clkMenuBtn()
+                .clkUserLogOutBtn();
+
+        headerPage.clkMenuBtn();
 
         SoftAssertions softAssertions = new SoftAssertions();
 

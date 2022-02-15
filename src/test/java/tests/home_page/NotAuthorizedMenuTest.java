@@ -16,6 +16,7 @@ public class NotAuthorizedMenuTest extends BaseTest {
     protected LoginPage loginPage;
     protected MyParcelsPage myparselPage;
     protected SettingsPage settingsPage;
+    protected HeaderPage headerPage;
 
     public NotAuthorizedMenuTest() {
         super();
@@ -25,6 +26,7 @@ public class NotAuthorizedMenuTest extends BaseTest {
         loginPage = new LoginPage(driver);
         myparselPage = new MyParcelsPage(driver);
         settingsPage = new SettingsPage(driver);
+        headerPage = new HeaderPage(driver);
     }
 
     /**
@@ -33,7 +35,7 @@ public class NotAuthorizedMenuTest extends BaseTest {
     @Test
     public void testIsHdnMenuDsp() {
 
-        homePage.clkMenuBtn();
+        headerPage.clkMenuBtn();
         assertTrue(menuPage.isHdnMenuDsp(), "The menuBtn does not work properly");
     }
 
@@ -43,7 +45,7 @@ public class NotAuthorizedMenuTest extends BaseTest {
     @Test
     public void testIsLogInDsp() {
 
-        homePage.clkMenuBtn();
+        headerPage.clkMenuBtn();
         assertTrue(menuPage.isLogInDsp(), "There is no LogIn item in the Menu");
     }
 
@@ -53,7 +55,7 @@ public class NotAuthorizedMenuTest extends BaseTest {
     @Test
     public void testIsSingUpDsp() {
 
-        homePage.clkMenuBtn();
+        headerPage.clkMenuBtn();
         assertTrue(menuPage.isSignUpDsp(), "There is no SignUp item in the Menu");
     }
 
@@ -63,7 +65,7 @@ public class NotAuthorizedMenuTest extends BaseTest {
     @Test
     public void testMainBtn() {
 
-        homePage.clkMenuBtn().clkLoginBtn();
+        headerPage.clkMenuBtn().clkLoginBtn();
 
         menuPage.clkMainBtn();
 
@@ -76,7 +78,7 @@ public class NotAuthorizedMenuTest extends BaseTest {
     @Test
     public void testLogInBtn() {
 
-        homePage.clkMenuBtn()
+        headerPage.clkMenuBtn()
                 .clkLoginBtn();
 
         assertTrue(loginPage.isDivLoginDsp(), "There is no SignUp item in the Menu");
@@ -91,7 +93,7 @@ public class NotAuthorizedMenuTest extends BaseTest {
     @Test
     public void testSignUpBtn() {
 
-        homePage.clkMenuBtn()
+        headerPage.clkMenuBtn()
                 .clkSignupBtn();
         String actual = driver.getCurrentUrl();
         String expected = "https://ttrackster.herokuapp.com/signup";
