@@ -145,7 +145,7 @@ public class MenuTest extends AuthorizedTest {
         homePage.clkMenuBtn()
                 .clkUserSettingsBtn();
 
-        assertTrue(settingsPage.findheadingProfile(), "Problem settins");
+        assertTrue(settingsPage.findHeadingProfile(), "Problem settins");
 
         homePage.clkMenuBtn().clkUserLogOutBtn();
 

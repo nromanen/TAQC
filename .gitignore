@@ -61,7 +61,7 @@ local.properties
 #.project
 
 target/
-
+.pom.xml
 # Ignore for properties
 .properties
 /src/test/resources/
