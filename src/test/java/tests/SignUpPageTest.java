@@ -15,6 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
         protected BasePage basePage;
         protected SettingsPage settingsPage;
         protected SignupPage signupPage;
+        protected HeaderPage headerPage;
 
         public SignUpPageTest() {
             super();
@@ -24,14 +25,15 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
             settingsPage = new SettingsPage(driver);
             basePage = new BasePage(driver);
             signupPage = new SignupPage(driver);
+            headerPage = new HeaderPage(driver);
 
         }
 
         @BeforeEach
         public void beforeEach() {
 
-            homePage.open(DriverConfiguration.BASE_URL);
-            homePage.clkMenuBtn()
+            //homePage.open(DriverConfiguration.BASE_URL);
+            headerPage.clkMenuBtn()
                     .clkSignupBtn();
         }
             @Test

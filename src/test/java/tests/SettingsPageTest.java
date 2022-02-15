@@ -12,7 +12,7 @@ import utils.DriverConfiguration;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class SettingsPageTest extends BaseTest {
+public class SettingsPageTest extends AuthorizedTest {
     protected LoginPage loginPage;
     protected MenuPage menuPage;
     protected HomePage homePage;
@@ -33,12 +33,7 @@ public class SettingsPageTest extends BaseTest {
     @BeforeEach
     public void beforeEach() {
 
-        homePage.open(DriverConfiguration.BASE_URL);
         headerPage.clkMenuBtn()
-                .clkLoginBtn()
-                .insertLoginFld("shymkov.yuriy@chnu.edu.ua","843hy8dh3698dhg")
-                .clkSubmitLogin()
-                .clkMenuBtn()
                 .clkUserSettingsBtn();
     }
 
