@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.devtools.v85.cachestorage.model.Header;
 import pages.*;
 import utils.DriverConfiguration;
 
@@ -17,6 +18,7 @@ public class SettingsPageTest extends BaseTest {
     protected HomePage homePage;
     protected BasePage basePage;
     protected SettingsPage settingsPage;
+    protected HeaderPage headerPage;
 
     public SettingsPageTest() {
         super();
@@ -25,13 +27,14 @@ public class SettingsPageTest extends BaseTest {
         menuPage = new MenuPage(driver);
         settingsPage = new SettingsPage(driver);
         basePage = new BasePage(driver);
+        headerPage = new HeaderPage(driver);
     }
 
     @BeforeEach
     public void beforeEach() {
 
         homePage.open(DriverConfiguration.BASE_URL);
-        homePage.clkMenuBtn()
+        headerPage.clkMenuBtn()
                 .clkLoginBtn()
                 .insertLoginFld("shymkov.yuriy@chnu.edu.ua","843hy8dh3698dhg")
                 .clkSubmitLogin()
