@@ -11,12 +11,9 @@ public class SignupPage extends BasePage {
 
     private final By createYourAcc = By.cssSelector
             ("h4.MuiTypography-root.MuiTypography-h4.MuiTypography-gutterBottom");
-    private final By fldEmail = By.cssSelector
-            ("div.MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-fullWidth.MuiInputBase-formControl.MuiInputBase-marginDense.MuiOutlinedInput-marginDense");
-    private final By fldPassword = By.cssSelector
-            ("div.MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-formControl.MuiInputBase-marginDense.MuiOutlinedInput-marginDense input#email");
-    private final By fldConfirmPassword = By.xpath
-            ("//div/form/div[4]/button/span[1]");
+    private final By fldEmail = By.id("email");
+    private final By fldPassword = By.id("pasword");
+    private final By fldConfirmPassword = By.id("password-confirmation");
     private final By btnSighUp = By.cssSelector
             ("button.MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-containedSizeLarge.MuiButton-sizeLarge.MuiButton-disableElevation");
     private final By loginWithGoogle = By.cssSelector
@@ -29,12 +26,9 @@ public class SignupPage extends BasePage {
             ("//p[@id='email-helper-text']");
 
     public SignupPage inputNewEmail(String newEmail, String password, String confirmPassword){
-        WebElement emailInput = driver.findElement(fldEmail);
-        emailInput.sendKeys(newEmail);
-        WebElement fldNewPasswordInput = driver.findElement(fldPassword);
-        fldNewPasswordInput.sendKeys(password);
-        WebElement fldConfirmPasswordInput = driver.findElement(fldConfirmPassword);
-        fldConfirmPasswordInput.sendKeys(confirmPassword);
+        waitElementIsVisible(fldEmail).sendKeys(newEmail);
+        waitElementIsVisible(fldPassword).sendKeys(password);
+        waitElementIsVisible(fldConfirmPassword).sendKeys(confirmPassword);
         WebElement btnSignUpClk = driver.findElement(btnSighUp);
         btnSignUpClk.click();
         return this;
