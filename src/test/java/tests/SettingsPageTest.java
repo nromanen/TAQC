@@ -82,7 +82,9 @@ public class SettingsPageTest extends AuthorizedTest {
         settingsPage.confirmNewPassword("123456", "12345");
         assertTrue(settingsPage.findMassagePasswordConfirmation(), "Password confirmation does not match password");
     }
-
+// //
+    //
+    //
     /**
      * Test verify that user cannot change password with incorrect current password
      */
