@@ -102,9 +102,6 @@ public class LoginPageTest extends BaseTest {
         loginPage.invalidLogin(USER_NAME, INVALID_USER_PASSWORD);
         assertTrue(loginPage.isErrorMessageIncorrectEmailOrPasswordDispl(), "Error message 'Incorrect email or password' isn't displayed when the user is enter the invalid password");
 
-//        Allure.addAttachment("Error Text",
-//                new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
-//        assertTrue(false);
     }
 
     @Test
