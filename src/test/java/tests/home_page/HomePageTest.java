@@ -4,11 +4,11 @@ import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.Test;
 import pages.HomePage;
 import pages.MenuPage;
-import tests.AuthorizedTest;
+import tests.BaseTest;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class HomePageTest extends AuthorizedTest {
+public class HomePageTest extends BaseTest {
     protected HomePage homePage;
     protected MenuPage menuPage;
 
