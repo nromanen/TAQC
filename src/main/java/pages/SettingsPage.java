@@ -11,8 +11,8 @@ public class SettingsPage extends BasePage {
 
     private final By tbr = By.xpath
             ("//header[@class = 'MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary MuiPaper-elevation0']");
-    private final By btnMenu = By.cssSelector
-            ("button.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-colorInherit.MuiIconButton-edgeStart");
+    private final By btnMenu = By.xpath
+            ("//div[@class='MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters']//button");
     private final By imgLogo = By.cssSelector
             ("//img[src='/static/media/cardboard-box.e6f6462e.svg']");
     private final By btnFollowToLandingPage = By.xpath
