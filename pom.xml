@@ -18,6 +18,45 @@
     </properties>
     <dependencies>
         <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.3</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>3.3.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest</artifactId>
+            <version>2.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20211205</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-yaml</artifactId>
+            <version>2.13.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>java-hamcrest</artifactId>
+            <version>2.0.0.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.12</version>
+        </dependency>
+        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.jupiter.version}</version>
@@ -53,7 +92,6 @@
         </dependency>
 
 
-
         <dependency>
 
             <groupId>com.fasterxml.jackson.dataformat</groupId>
@@ -65,7 +103,6 @@
         </dependency>
 
 
-
         <dependency>
 
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -75,7 +112,6 @@
             <version>2.13.1</version>
 
         </dependency>
-
 
 
         <dependency>
@@ -185,7 +221,6 @@
                 <artifactId>maven-compiler-plugin</artifactId>
 
                 <version>${maven-compiler-plugin.version}</version>
-
 
 
                 <configuration>

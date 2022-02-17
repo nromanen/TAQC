@@ -13,21 +13,15 @@ import utils.DriverConfiguration;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SettingsPageTest extends AuthorizedTest {
-    protected LoginPage loginPage;
-    protected MenuPage menuPage;
-    protected HomePage homePage;
-    protected BasePage basePage;
+
     protected SettingsPage settingsPage;
-    protected HeaderPage headerPage;
+
 
     public SettingsPageTest() {
         super();
-        loginPage = new LoginPage(driver);
-        homePage = new HomePage(driver);
-        menuPage = new MenuPage(driver);
+
         settingsPage = new SettingsPage(driver);
-        basePage = new BasePage(driver);
-        headerPage = new HeaderPage(driver);
+
     }
 
     @BeforeEach
