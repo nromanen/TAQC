@@ -25,7 +25,7 @@ public class AuthorizedMenuTest extends AuthorizedTest {
 
         headerPage.clkMenuBtn()
                 .clkUserSettingsBtn();
-        menuPage.clkMainBtn();
+        headerPage.clkMenuBtn().clkMainBtn();
 
         assertTrue(homePage.isInptFieldDsp(), "Main button don't work correctly");
     }

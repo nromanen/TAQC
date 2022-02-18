@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 import pages.*;
 import tests.BaseTest;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class NotAuthorizedMenuTest extends BaseTest {

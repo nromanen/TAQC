@@ -90,9 +90,7 @@ public class MenuPage extends BasePage {
         return new HomePage(driver);
     }
 
-    public boolean isLogInDsp() {
-        return waitElementIsVisible(loginBtn).isDisplayed();
-    }
+    public boolean isLogInDsp() {return waitElementIsVisible(loginBtn).isDisplayed();}
     public boolean isSignUpDsp() {
         return waitElementIsVisible(signupBtn).isDisplayed();
     }
