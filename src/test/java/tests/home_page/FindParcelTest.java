@@ -1,5 +1,6 @@
 package tests.home_page;
 
+import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -34,29 +35,18 @@ public class FindParcelTest extends BaseTest {
 
     }
 
-    @BeforeEach
-    public void beforeEach() {
-        srchFldPage.open(DriverConfiguration.BASE_URL);
-    }
-
-    /**
-     * Test window not found parcel
-     */
     @Test
-    public void testNFndDlv() {
+    public void displayingParcelNotFoundPage() {
 
         String invalidTrackNumb = testData.getIncorrectIds();
         homePage.srchFldParse(invalidTrackNumb)
                 .clkBtnInptSrch();
 
-        assertTrue(srchFldPage.isNFoundFldDsp(), "There must be a mistake");
+        assertTrue(srchFldPage.isNFoundFldDsp(), "The search does not work correctly if the deception is incorrect");
     }
 
-    /**
-     * Test whether the search for a valid track number works
-     */
     @Test
-    public void testResultSrchDsp() {
+    public void searchResultIsDisplayed() {
 
         String trackNumb = testData.getCorrectIds();
         homePage.srchFldParse(trackNumb)
@@ -65,54 +55,50 @@ public class FindParcelTest extends BaseTest {
         assertTrue(srchFldPage.isResultSrchDsp(), "Something is wrong with finding a parcel");
     }
 
-    /**
-     * Check that all fields of advanced Details are displayed
-     */
     @Test
-    public void testBtnDetailsDsp() {
+    public void displayAdditionalInformation() {
 
         String trackNumb = testData.getCorrectIds();
         homePage.srchFldParse(trackNumb)
                 .clkBtnInptSrch()
                 .clkBtnDetails();
 
-        assertTrue(srchFldPage.isMoreDetailsDsp(), "There must be a mistake");
+        SoftAssertions softAssertions = new SoftAssertions();
+
+        softAssertions.assertThat(srchFldPage.isHeaderDetails())
+                .withFailMessage("No 'header' part displayed").isTrue();
+        softAssertions.assertThat(srchFldPage.isBodyDetails())
+                .withFailMessage("No 'body' part displayed").isTrue();
+        softAssertions.assertThat(srchFldPage.isStatusDetails())
+                .withFailMessage("No 'status' part displayed").isTrue();
+
+        softAssertions.assertAll();
     }
 
-    /**
-     * Check the presence of the Details button
-     */
     @Test
-    public void testIsBtnDetailsDsp() {
+    public void verifyButtonDetailsDisplaying() {
 
         String trackNumb = testData.getCorrectIds();
         homePage.srchFldParse(trackNumb)
                 .clkBtnInptSrch();
 
-        assertTrue(srchFldPage.isBtnDetailsDsp(), "There must be a mistake");
+        assertTrue(srchFldPage.isBtnDetailsDsp(), "The Details button did not display");
     }
 
-    /**
-     * Check the presence of the search field
-     */
     @Test
-    public void IsFldSrchDsp() {
+    public void verifyFieldSearchDisplayed() {
 
         String trackNumb = testData.getCorrectIds();
         homePage.srchFldParse(trackNumb)
                 .clkBtnInptSrch();
 
-        assertTrue(srchFldPage.isFldSrchDsp(), "There must be a mistake");
+        assertTrue(srchFldPage.isFldSrchDsp(), "Search Field not displayed");
     }
 
-    /**
-     * Test whether the search works correctly on SrchFldPage
-     */
     @Test
-    public void testSrchWork() {
+    public void verifyWorkSearch() {
 
         String trackNumb = testData.getCorrectIds();
-
         homePage.srchFldParse("")
                 .clkBtnInptSrch()
                 .parseFldSrch(trackNumb)
@@ -120,10 +106,5 @@ public class FindParcelTest extends BaseTest {
 
         assertTrue(srchFldPage.isResultSrchDsp(), "There must be a mistake");
     }
-
-
-
-
-
 
 }

@@ -75,8 +75,6 @@ public class MenuPage extends BasePage {
         return new HomePage(driver);
     }
 
-    // ------------------------------------------------------
-
     public MyParcelsPage clkUserParselBtn() {
         waitElementIsVisible(userParsel).click();
         return new MyParcelsPage(driver);
@@ -92,22 +90,14 @@ public class MenuPage extends BasePage {
         return new HomePage(driver);
     }
 
-    // ------------------------------------------------------
-
-    public boolean isLogInDsp() {
-        return waitElementIsVisible(loginBtn).isDisplayed();
-    }
-
+    public boolean isLogInDsp() {return waitElementIsVisible(loginBtn).isDisplayed();}
     public boolean isSignUpDsp() {
         return waitElementIsVisible(signupBtn).isDisplayed();
     }
-
     public boolean isHdnMenuDsp() {
         return waitElementIsVisible(hdnMenu).isDisplayed();
     }
-
     // ------------------------------------------------------
-
     public boolean isUserMainDsp() {
         return waitElementIsVisible(mainBtn).isDisplayed();
     }
