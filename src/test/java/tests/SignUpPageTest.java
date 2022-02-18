@@ -1,12 +1,11 @@
 package tests;
 
 import org.assertj.core.api.SoftAssertions;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
 import pages.*;
 import utils.DriverConfiguration;
+import utils.YAMLDeserializer;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -24,14 +23,13 @@ public class SignUpPageTest extends BaseTest {
     public void VerifyThatUserInputsValidEmail() {
         headerPage.clkMenuBtn()
                 .clkSignupBtn();
-        signupPage.inputNewEmail("user2gmail.com", "123456", "123456");
+        String newEmail = YAMLDeserializer.fromFileToMap("user_data").get("email");
+        String password = YAMLDeserializer.fromFileToMap("user_data").get("password");
+        String confirmPassword = YAMLDeserializer.fromFileToMap("user_data").get("confirm_password");
+        signupPage.inputNewEmail(newEmail, password, confirmPassword);
         assertTrue(signupPage.findMassageInvalidEmail(), "Email is invalid");
     }
 
-    @AfterEach
-    public void tearDown(){
-
-    }
     @Test
     public void verifyThatAllElementsAreDisplayed() {
         headerPage.clkMenuBtn()

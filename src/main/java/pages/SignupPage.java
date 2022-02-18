@@ -25,7 +25,7 @@ public class SignupPage extends BasePage {
     private final By massageInvalidEmail = By.xpath
             ("//p[@id='email-helper-text']");
 
-    public SignupPage inputNewEmail(String newEmail, String password, String confirmPassword){
+    public SignupPage inputNewEmail(String newEmail, String password, String confirmPassword) {
         waitElementIsVisible(fldEmail).sendKeys(newEmail);
         waitElementIsVisible(fldPassword).sendKeys(password);
         waitElementIsVisible(fldConfirmPassword).sendKeys(confirmPassword);
@@ -34,20 +34,41 @@ public class SignupPage extends BasePage {
         return this;
     }
 
+    public boolean findCreateYourAcc() {
+        return driver.findElement(createYourAcc).isDisplayed();
+    }
 
-    /**
-     *  Methods find elements on page
-     */
+    public boolean findEmailFld() {
+        return driver.findElement(fldEmail).isDisplayed();
+    }
 
-    public boolean findCreateYourAcc() {return driver.findElement(createYourAcc).isDisplayed();}
-    public boolean findEmailFld() {return driver.findElement(fldEmail).isDisplayed();}
-    public boolean findPasswordFld() {return driver.findElement(fldPassword).isDisplayed();}
-    public boolean findConfirmPasswordFld() {return driver.findElement(fldConfirmPassword).isDisplayed();}
-    public boolean findSignUpBtn() {return driver.findElement(btnSighUp).isDisplayed();}
-    public boolean findLoginWithGoogle() {return driver.findElement(loginWithGoogle).isDisplayed();}
-    public boolean findLoginWithFacebook() {return driver.findElement(loginWithFacebook).isDisplayed();}
-    public boolean findLogInUrl() {return driver.findElement(logInUrl).isDisplayed();}
-    public boolean findMassageInvalidEmail() {return driver.findElement(massageInvalidEmail).isDisplayed();}
+    public boolean findPasswordFld() {
+        return driver.findElement(fldPassword).isDisplayed();
+    }
+
+    public boolean findConfirmPasswordFld() {
+        return driver.findElement(fldConfirmPassword).isDisplayed();
+    }
+
+    public boolean findSignUpBtn() {
+        return driver.findElement(btnSighUp).isDisplayed();
+    }
+
+    public boolean findLoginWithGoogle() {
+        return driver.findElement(loginWithGoogle).isDisplayed();
+    }
+
+    public boolean findLoginWithFacebook() {
+        return driver.findElement(loginWithFacebook).isDisplayed();
+    }
+
+    public boolean findLogInUrl() {
+        return driver.findElement(logInUrl).isDisplayed();
+    }
+
+    public boolean findMassageInvalidEmail() {
+        return driver.findElement(massageInvalidEmail).isDisplayed();
+    }
 
     private final By signUpImg = By.cssSelector("div.MuiGrid-root.MuiGrid-container");
 
