@@ -103,7 +103,7 @@ public class MyParcelsPageTest extends AuthorizedTest {
     @Test
     public void verifyThatUserIsAbleToSearchHisTrackNumberBySearchButton() {
         String trckNbr = YAMLDeserializer.fromFileToMap("trackNumber").get("valid_nova_poshta");
-        myParcelsPage.inpTrckNbrAndClkBtnSrch();
+        myParcelsPage.inpTrckNbrAndClkBtnSrch(trckNbr);
         String expected = trckNbr;
         String actual = myParcelsPage.getParcelNumber();
         assertEquals(expected, actual, "Can't find " + trckNbr);

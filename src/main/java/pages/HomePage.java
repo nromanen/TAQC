@@ -2,10 +2,11 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class HomePage extends BasePage {
+
     public HomePage(WebDriver driver) {
+
         super(driver);
     }
 
@@ -46,15 +47,12 @@ public class HomePage extends BasePage {
      * Find and click on button Input Search
      */
     public SrchFldPage clkBtnInptSrch() {
-        WebElement buttonInputSearchFind = driver.findElement(btnInptSearch);
-        buttonInputSearchFind.click();
-        // driver.findElement(btnInptSearch).click();
+        driver.findElement(btnInptSearch).click();
         return new SrchFldPage(driver);
     }
 
     public HomePage srchFldParse(String val) {
-        WebElement inputTest = driver.findElement(inptField);
-        inputTest.sendKeys(val);
+        driver.findElement(inptField).sendKeys(val);
         return this;
     }
 
@@ -62,6 +60,7 @@ public class HomePage extends BasePage {
      * Heading on Ukrainian
      */
     public boolean isUaHdngDisplayed() {
+
         return driver.findElement(hdngUa).isDisplayed();
     }
 
@@ -69,6 +68,7 @@ public class HomePage extends BasePage {
      * Heading on English
      */
     public boolean isEngHdngDisplayed() {
+
         return driver.findElement(hdngEng).isDisplayed();
     }
 

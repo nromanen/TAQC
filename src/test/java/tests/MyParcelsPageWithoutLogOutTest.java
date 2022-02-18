@@ -35,6 +35,6 @@ public class MyParcelsPageWithoutLogOutTest extends AuthorizedTest {
     @AfterEach
     public void tearDown() {
         driver.manage().deleteAllCookies();
-        super.tearDown();
+        driver.close();
     }
 }
