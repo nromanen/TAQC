@@ -10,27 +10,28 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class AuthorizedMenuTest extends AuthorizedTest {
 
     protected MenuPage menuPage;
-    protected HeaderPage basePage;
     protected LoginPage loginPage;
-    protected MyParcelsPage myparselPage;
     protected SettingsPage settingsPage;
 
-
-    public AuthorizedMenuTest() {
+    public AuthorizedMenuTest () {
         super();
-        basePage = new HeaderPage(driver);
         menuPage = new MenuPage(driver);
         loginPage = new LoginPage(driver);
-        myparselPage = new MyParcelsPage(driver);
         settingsPage = new SettingsPage(driver);
     }
 
-
-    /**
-     * Check whether the User Menu is displayed after user authorization
-     */
     @Test
-    public void verifyUserMenuDsp() {
+    public void verifyMainButton() {
+
+        headerPage.clkMenuBtn()
+                .clkUserSettingsBtn();
+        menuPage.clkMainBtn();
+
+        assertTrue(homePage.isInptFieldDsp(), "Main button don't work correctly");
+    }
+
+    @Test
+    public void verifyAllElementsInUserMenuDisplayed() {
 
         headerPage.clkMenuBtn();
 
@@ -45,56 +46,27 @@ public class AuthorizedMenuTest extends AuthorizedTest {
         softAssertions.assertThat(menuPage.isUserLogOutDsp())
                 .withFailMessage("UserLogOut isn't displayed").isTrue();
 
+        menuPage.clkBurgerBtn();
+
         softAssertions.assertAll();
     }
 
-    /**
-     * Check the transition to the MyParcels page after click
-     */
     @Test
-    public void userParselBtn() {
+    public void verifyUserParselBtn() {
 
         headerPage.clkMenuBtn()
                 .clkUserParselBtn();
 
-        assertTrue(myparselPage.isTrckNbrFldDisplayed(), "There is no SignUp item in the Menu");
+        assertTrue(myParcelsPage.isTrckNbrFldDisplayed(), "There is no SignUp item in the Menu");
     }
 
-    /**
-     * Check the transition to the Settings page after click
-     */
     @Test
-    public void userSettingsBtn() {
+    public void verifyUserSettingsBtn() {
 
         headerPage.clkMenuBtn()
                 .clkUserSettingsBtn();
 
         assertTrue(settingsPage.findHeadingProfile(), "Problem settins");
-
-    }
-
-    /**
-     * Check log out correctly after clicking on the LogOut button
-     */
-    @Test
-    public void userLogOutBtn() {
-
-        headerPage.clkMenuBtn()
-                .clkUserLogOutBtn();
-
-        headerPage.clkMenuBtn();
-
-        SoftAssertions softAssertions = new SoftAssertions();
-
-        softAssertions.assertThat(menuPage.isHdnMenuDsp())
-                .withFailMessage("Menu isn't displayed").isTrue();
-        softAssertions.assertThat(menuPage.isLogInDsp())
-                .withFailMessage("LogIn isn't displayed").isTrue();
-        softAssertions.assertThat(menuPage.isSignUpDsp())
-                .withFailMessage("SingUp isn't displayed").isTrue();
-
-        softAssertions.assertAll();
-
     }
 
 }

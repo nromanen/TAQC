@@ -63,21 +63,13 @@ public class SrchFldPage extends BasePage {
     public boolean isFldSrchDsp() {
         return waitElementIsVisible(fldSrch).isDisplayed();
     }
-
-    public boolean isBtnDetailsDsp() {
-        return waitElementIsVisible(btnDetails).isDisplayed();
-    }
-
-    public boolean isResultSrchDsp() {
-        return waitElementIsVisible(resultSrch).isDisplayed();
-    }
-
+    public boolean isBtnDetailsDsp() {return waitElementIsVisible(btnDetails).isDisplayed();}
+    public boolean isResultSrchDsp() {return waitElementIsVisible(resultSrch).isDisplayed();}
     public boolean isNFoundFldDsp() {
         return waitElementIsVisible(nFoundFld).isDisplayed();
     }
-
-    public boolean isMoreDetailsDsp() {
-        return (waitElementIsVisible(headerDetails).isDisplayed() && waitElementIsVisible(bodyDetails).isDisplayed() && waitElementIsVisible(statusDetails).isDisplayed());
-    }
+    public boolean isHeaderDetails() {return waitElementIsVisible(headerDetails).isDisplayed();}
+    public boolean isBodyDetails() {return waitElementIsVisible(bodyDetails).isDisplayed();}
+    public boolean isStatusDetails() {return waitElementIsVisible(statusDetails).isDisplayed();}
 
 }
