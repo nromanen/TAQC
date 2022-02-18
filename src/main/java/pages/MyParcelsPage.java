@@ -3,7 +3,6 @@ package pages;
 import org.openqa.selenium.*;
 
 public class MyParcelsPage extends BasePage {
-   // protected HomePage homePage;
 
     public MyParcelsPage(WebDriver driver) {
 
@@ -259,8 +258,8 @@ public class MyParcelsPage extends BasePage {
         return this;
     }
 
-    public MyParcelsPage inpTrckNbrAndClkBtnSrch() {
-        driver.findElement(trckNbrFld).sendKeys("20450498476837");
+    public MyParcelsPage inpTrckNbrAndClkBtnSrch(String trckNbr) {
+        driver.findElement(trckNbrFld).sendKeys(trckNbr);
         driver.findElement(btnSrch).click();
         return this;
     }
@@ -303,23 +302,6 @@ public class MyParcelsPage extends BasePage {
      */
     public MyParcelsPage clkBtnMoreInfoBParcel() {
         driver.findElement(btnMoreInfoBParcel).click();
-        return this;
-    }
-
-    /**
-     * Click button btnDltParcel
-     */
-    public MyParcelsPage clkBtnDltParcel() {
-        driver.findElement(btnDltParcel).click();
-        driver.findElement(dltBtnParcel).click();
-        return this;
-    }
-
-    /**
-     * Click link More Info
-     */
-    public MyParcelsPage clkLnkMoreInfo() {
-        driver.findElement(lnkMoreInfo).click();
         return this;
     }
 

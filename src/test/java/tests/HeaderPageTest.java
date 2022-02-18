@@ -3,9 +3,10 @@ package tests;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.Test;
 
-public class HeaderPageTest extends AuthorizedTest {
+public class HeaderPageTest extends BaseTest {
 
     public HeaderPageTest() {
+
         super();
     }
 
