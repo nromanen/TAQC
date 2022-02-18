@@ -5,13 +5,11 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import pages.*;
 import pages.SettingsPage;
-import utils.DriverConfiguration;
 import utils.YAMLDeserializer;
 import tests.AuthorizedTest;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static utils.DriverConfiguration.USER_NAME;
-import static utils.DriverConfiguration.USER_PASSWORD;
+
 
 public class SettingsPageTest extends AuthorizedTest {
     protected SettingsPage settingsPage;

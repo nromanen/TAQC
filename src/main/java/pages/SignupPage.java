@@ -24,6 +24,12 @@ public class SignupPage extends BasePage {
             ("//span//a[@href='/login']");
     private final By massageInvalidEmail = By.xpath
             ("//p[@id='email-helper-text']");
+    private final By massageEmailIsBusy = By.xpath
+            ("//div[@class='MuiAlert-message']");
+    private final By registrationMassage = By.xpath
+            ("//div[@class='MuiAlert-message']");
+    private final By signUpImg = By.cssSelector
+            ("div.MuiGrid-root.MuiGrid-container");
 
     public SignupPage inputNewEmail(String newEmail, String password, String confirmPassword) {
         waitElementIsVisible(fldEmail).sendKeys(newEmail);
@@ -70,7 +76,10 @@ public class SignupPage extends BasePage {
         return driver.findElement(massageInvalidEmail).isDisplayed();
     }
 
-    private final By signUpImg = By.cssSelector("div.MuiGrid-root.MuiGrid-container");
+    public boolean findMassageEmailIsBusy(){return driver.findElement(massageEmailIsBusy).isDisplayed();}
+
+    public boolean findRegistrationMassage(){return driver.findElement(registrationMassage).isDisplayed();}
+
 
 
 //    public boolean isSignUpImgDsp() {
