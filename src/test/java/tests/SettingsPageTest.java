@@ -2,19 +2,14 @@ package tests;
 
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.devtools.v85.cachestorage.model.Header;
 import pages.*;
 import pages.SettingsPage;
-import utils.DriverConfiguration;
 import utils.YAMLDeserializer;
 import tests.AuthorizedTest;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static utils.DriverConfiguration.USER_NAME;
-import static utils.DriverConfiguration.USER_PASSWORD;
+
 
 public class SettingsPageTest extends AuthorizedTest {
     protected SettingsPage settingsPage;
@@ -33,7 +28,7 @@ public class SettingsPageTest extends AuthorizedTest {
     public void verifyThatUserCannotInputInvalidPhoneNumber() {
         headerPage.clkMenuBtn()
                 .clkUserSettingsBtn();
-        settingsPage.confirmNewPhoneNumber("16736849261412312");
+        String newPhoneNumber = YAMLDeserializer.fromFileToMap("user_data").get("phone_number");
         assertTrue(settingsPage.findMassageProfileUpdated(), "Phone number is invalid");
     }
 
@@ -79,12 +74,12 @@ public class SettingsPageTest extends AuthorizedTest {
     public void verifyThatPasswordCannotBeChangedWithDifferentNewAndConfirmValues() {
         headerPage.clkMenuBtn()
                 .clkUserSettingsBtn();
-        settingsPage.confirmNewPassword("123456", "12345");
+        String newPassword = YAMLDeserializer.fromFileToMap("user_data").get("password");
+        String confirmPassword = YAMLDeserializer.fromFileToMap("user_data").get("invalid_user_password");
+        settingsPage.confirmNewPassword(newPassword, confirmPassword);
         assertTrue(settingsPage.findMassagePasswordConfirmation(), "Password confirmation does not match password");
     }
-// //
-    //
-    //
+
     /**
      * Test verify that user cannot change password with incorrect current password
      */
@@ -92,7 +87,10 @@ public class SettingsPageTest extends AuthorizedTest {
     public void verifyThatUserCannotChangePasswordWithIncorrectCurrentPassword() {
         headerPage.clkMenuBtn()
                 .clkUserSettingsBtn();
-        settingsPage.confirmChangePassword("843hy8dh3698dhg", "843hy8dh3698dhg", "843hy8dh3698dhg");
+        String currentPassword = YAMLDeserializer.fromFileToMap("user_data").get("current_password");
+        String newPassword = YAMLDeserializer.fromFileToMap("user_data").get("current_password");
+        String confirmPassword = YAMLDeserializer.fromFileToMap("user_data").get("current_password");
+        settingsPage.confirmChangePassword(currentPassword, newPassword, confirmPassword);
         assertTrue(settingsPage.findMassagePasswordChange(), "Password confirmation does not match password");
     }
 
@@ -103,9 +101,13 @@ public class SettingsPageTest extends AuthorizedTest {
     public void verifyThatUserAreAbleToChangePassword() {
         headerPage.clkMenuBtn()
                 .clkUserSettingsBtn();
-        settingsPage.confirmChangePassword("843hy8dh3698dhg", "123456", "123456");
+        String currentPassword = YAMLDeserializer.fromFileToMap("user_data").get("current_password");
+        String newPassword = YAMLDeserializer.fromFileToMap("user_data").get("password");
+        String confirmPassword = YAMLDeserializer.fromFileToMap("user_data").get("password");
+        settingsPage.confirmChangePassword(currentPassword, newPassword, confirmPassword);
         assertTrue(settingsPage.findMassagePasswordChange(), "");
     }
+
     @AfterEach
     public void tearDown() {
         driver.manage().deleteAllCookies();
