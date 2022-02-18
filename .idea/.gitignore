@@ -3,3 +3,4 @@
 /workspace.xml
 /src/test/resources/app.properties
 /allure-results/
+/.idea/libraries/.gitignore
